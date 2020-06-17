@@ -6,5 +6,5 @@ http://katharinah.mywdd.info
 
 ## Login
 
-email: v.verzar@yahoo.com
+email: v.verzar@yahoo.com /nl
 passwort: ossBoss20
