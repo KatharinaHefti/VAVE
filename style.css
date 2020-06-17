@@ -14,9 +14,16 @@ body {
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+nav {
+  margin: 2em;
+}
+
 .logo {
   height: 30px;
   margin: 2em;
+  position: absolute;
+  left: 2em;
+  top: 2em;
 }
 
 ul {
@@ -43,7 +50,11 @@ li {
   color: #FFFFFF;
 }
 
-li:hover {
+.nav-link {
+  color: white;
+}
+
+li:hover, .nav-link:hover {
   color: #8478B8;
 }
 
@@ -215,9 +226,9 @@ footer{
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 button {
+  border-radius: 50px !important;
   width: 200px;
   padding: 1em 2em;
-  border-radius: 50px;
   background: #7079B6;
   border: none;
   margin: 2em 0;
@@ -229,6 +240,7 @@ button {
 
 button:hover {
   background: #799ACC;
+  border-radius: 50px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
