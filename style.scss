@@ -41,6 +41,10 @@ nav{
     top: 2em;
 }
 
+.logo-sm{
+    height: 30px;
+
+}
 
 ul{
     display: flex;
@@ -56,7 +60,6 @@ li{
     cursor: pointer;
     color: $white;
 }
-
 
 .nav-link{
     color: white;
@@ -100,13 +103,17 @@ a{
 .col-lg-1{
     border: hotpink solid 1px;
 }
-.col-lg-6{
+
+.col-lg-2{
     border: hotpink solid 1px;
-    align-items: center;
 }
 
 .col-lg-4{
     border: hotpink solid 1px;
+}
+.col-lg-6{
+    border: hotpink solid 1px;
+    align-items: center;
 }
 
 .col-lg-9{
@@ -124,69 +131,29 @@ a{
 }
 #wave2{
     position: absolute;
-    top: 85vh;
+    top: 90%;
     z-index: -1;
 
 }
 #wave3{
     width: 100%;
     position: absolute;
-    bottom: -320vh;
+    top: 270%;
     z-index: -1;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
-main, section{
-    margin: 15em 2em 6em 2em;
-}
 
-/*
-// grid
-.wrapper{
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-gap: 1em;
-    grid-auto-rows: minmax(100px, auto);
-}
+.row{
+    padding: 10em 2em 6em 2em;
 
-.sec1{
-    height: 100vh;
-    grid-column: 3/8;
-    grid-row: 2;
 }
-.sec2{
-    height: 100vh;
-    grid-column: 3/8;
-    grid-row: 3;
-}
-.sec3{
-    margin-top: 25vh;
-    grid-column: 3/8;
-    grid-row: 4;
-    margin-bottom: 20vh;
-}
-footer{
-    height: 50vh;
-    grid-column: 3/8;
-    grid-row: 5;
-}
-
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
 .flexer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1em 0;
-}
-/*
-// containers
-.container{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -198,12 +165,17 @@ footer{
     justify-content: flex-start;
     margin: 1em 0;
 }
-*/
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // icons
 .icon-s{
     width: 50px;
+    margin: 0 1em 0 0;
+    cursor: pointer;
+}
+.icon-l{
+    width: 150px;
     margin: 0 1em 0 0;
     cursor: pointer;
 }
@@ -234,6 +206,7 @@ button{
     font-weight: $bold;
     margin-right: 2em;
     cursor: pointer;
+    margin-left: -5px !important; // optical alignment
 }
 button:hover{
     background: $cornflower;
@@ -252,4 +225,10 @@ button:hover{
     width: 100%;
     margin: 15em 0 0 0;
 
+}
+
+.roundPic{
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
 }
