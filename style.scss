@@ -1,3 +1,4 @@
+// color palette
 $amethyst: #8478B8;
 $haze: #7079B6;
 $cornflower: #799ACC;
@@ -5,8 +6,12 @@ $sky: hsl(200, 75%, 72%);
 $turquois: #B4DEE7;
 $white: #FFFFFF;
 
+// typo preset
 $bold: 600;
 $leading: 200%;
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 //reset
 *{
     margin: 0;
@@ -20,23 +25,14 @@ body{
     font-family: 'PT Sans Caption', sans-serif;
 }
 
-// navigation
-nav{
-    height: 60px;
-    width: 100vw;
-    color: $white;
-    display: flex;
-    justify-content: space-between;
-}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#wave1{
-    width: 100%;
-    position: absolute;
-    top: -15%;
-    z-index: -1;
-}
+// navigation
+
+
 .logo{
-    margin: 10px;
+    height: 30px;
+    margin: 2em;
 }
 
 ul{
@@ -46,43 +42,95 @@ ul{
     justify-content: flex-end;
 }
 
-// typo
 li{
     margin: 2em;
     list-style: none;
     font-weight: bold;
+    cursor: pointer;
+    color: $white;
 }
-h1{
+li:hover{
     color: $amethyst;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// typo
+h1{
+    color: $haze;
     margin: 1em 0;
     max-width: 600px;
-
 }
 
 h2{
     margin: 1em 0;
-    color: $amethyst;
+    color: $haze;
 }
-
-
 h5{
     color: $turquois;
     font-size: 1.2rem;
 }
-
 h2{
     margin: 1em 0;
-    color: $amethyst;
-
+    color: $haze;
 }
-
 p{
     line-height: $leading;
     max-width: 600px;
+}
+a{
+    text-decoration: none;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+// bootstrap gridline
+.col-lg-1{
+    border: hotpink solid 1px;
+}
+.col-lg-6{
+    border: hotpink solid 1px;
+    align-items: center;
 }
 
+.col-lg-4{
+    border: hotpink solid 1px;
+}
 
+.col-lg-9{
+    border: hotpink solid 1px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// waves
+#wave1{
+    position: absolute;
+    top: -35%;
+    z-index: -1;
+    height: 100%;
+}
+#wave2{
+    position: absolute;
+    top: 85vh;
+    z-index: -1;
+
+}
+#wave3{
+    width: 100%;
+    position: absolute;
+    bottom: -320vh;
+    z-index: -1;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+main, section{
+    margin: 15em 2em 6em 2em;
+}
+
+/*
+// grid
 .wrapper{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -90,75 +138,62 @@ p{
     grid-auto-rows: minmax(100px, auto);
 }
 
-main{
-    height: 100vh;
-    grid-column: 3/8;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-}
-
-.shell{
-    width: 300px;
-    position: absolute;
-    top: 50vh;
-    right: 10%;
-
-}
-
 .sec1{
     height: 100vh;
     grid-column: 3/8;
     grid-row: 2;
 }
-
 .sec2{
     height: 100vh;
     grid-column: 3/8;
     grid-row: 3;
 }
-
 .sec3{
     margin-top: 25vh;
     grid-column: 3/8;
     grid-row: 4;
-    margin-bottom: 40vh;
+    margin-bottom: 20vh;
 }
-
 footer{
     height: 50vh;
     grid-column: 3/8;
     grid-row: 5;
 }
 
-.icon-s{
-    width: 50px;
-    margin: 0 1em 0 0;
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+.flexer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
 }
-
-#wave2{
-    width: 100%;
-    position: absolute;
-    top: 85vh;
-    z-index: -1;
-}
-
+/*
+// containers
 .container{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 1em 0;
 }
-
 .container-left{
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin: 1em 0;
 }
+*/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+// icons
+.icon-s{
+    width: 50px;
+    margin: 0 1em 0 0;
+    cursor: pointer;
+}
 .circle{
     width: 150px;
     height: 150px;
@@ -169,29 +204,36 @@ footer{
     align-items: center;
     img{
         width: 80%;
-   
     }
 }
 
-.flyer{
-    height: 100%;
-    margin-right: 2em;
-}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+// button
 button{
     width: 200px;
     padding: 1em 2em;
     border-radius: 50px;
-    background: $amethyst;
+    background: $haze;
     border: none;
     margin: 2em 0;
     color: $white;
     font-weight: $bold;
+    margin-right: 2em;
+    cursor: pointer;
+}
+button:hover{
+    background: $cornflower;
 }
 
-#wave3{
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// pictures
+.shell{
+    margin: 15em 2em 0 2em;
+}
+.flyer{
     width: 100%;
-    position: absolute;
-    bottom: -340vh;
-    z-index: -1;
+    margin: 15em 0 0 0;
+
 }
