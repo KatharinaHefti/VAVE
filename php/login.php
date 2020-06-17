@@ -1,15 +1,11 @@
 <?php
-
-// session
 session_name('loginSID'); 
 session_set_cookie_params ( time()+15*60, '/', 'localhost', FALSE, TRUE); 
 session_start();
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-
-
+// echo '<pre>';
+// print_r($_SESSION);
+//echo '</pre>';
 
 // error
 $error = false;
@@ -65,9 +61,12 @@ if( $password != 'ossBoss20'){
 </head>
 <body class="paint-turquois">
 
+    <?php 
+        include '../includes/nav.php';
+    ?>
+
     <div class="container">
         
-    <h1>hallo</h1>
         <div class="row">
           <div class="col-lg-3"></div>
           <div class="col-lg-6">

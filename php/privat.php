@@ -1,8 +1,3 @@
-<?php 
-    echo 'privat';
-?>
-
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -21,6 +16,11 @@
     
 </head>
 <body class="paint-turquois">
+
+  <?php 
+    include '../includes/nav.php';
+    echo 'hallo';
+  ?>
  <!-- main grid container -->
  <div class="container">
         <div class="row">
