@@ -1,3 +1,4 @@
 ## VAVE
 
-sport and camps
+Testserver
+http://katharinah.mywdd.info
