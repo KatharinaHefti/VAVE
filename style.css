@@ -13,6 +13,10 @@ body {
   font-family: 'PT Sans Caption', sans-serif;
 }
 
+.paint-turquois {
+  background-color: #B4DEE7;
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 nav {
   margin: 2em;
@@ -143,6 +147,14 @@ a {
   padding: 10em 2em 6em 2em;
 }
 
+.card {
+  padding: 2em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50px !important;
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 .flexer {
   display: -webkit-box;
@@ -238,4 +250,12 @@ button:hover {
   width: 300px;
   height: 300px;
 }
+
+.roundPic-sm {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*# sourceMappingURL=style.css.map */
