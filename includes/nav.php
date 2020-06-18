@@ -7,30 +7,30 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ABOUT</a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="php/me.php">Me</a>
-                  <a class="dropdown-item" href="philosophie.php">Philosophie </a>
+                  <a class="dropdown-item" href="../php/me.php">Me</a>
+                  <a class="dropdown-item" href="../php/philosophie.php">Philosophie </a>
               </li>
             <!-- training -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TRAINING</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Anmeldung</a>
-                    <a class="dropdown-item" href="#">1:1 Coaching </a>
-                    <a class="dropdown-item" href="#">Ginastica Natural Zürich</a>
-                    <a class="dropdown-item" href="#">PWR Workout</a>
-                    <a class="dropdown-item" href="#">Muay Thai Fit Training</a>
-                    <a class="dropdown-item" href="#">VAVE SURF & BJJ Camps</a>
+                    <a class="dropdown-item" href="../php/anmeldung.php">Anmeldung</a>
+                    <a class="dropdown-item" href="../php/coaching.php">1:1 Coaching </a>
+                    <a class="dropdown-item" href="../php/pinastica.php">Ginastica Natural Zürich</a>
+                    <a class="dropdown-item" href="../php/pwr.php">PWR Workout</a>
+                    <a class="dropdown-item" href="../php/thai.php">Muay Thai Fit Training</a>
+                    <a class="dropdown-item" href="../php/camps.php">VAVE SURF & BJJ Camps</a>
             </li>
             <!-- events -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">EVENTS</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Upcoming Events</a>
-                    <a class="dropdown-item" href="#">Past Events </a>
+                    <a class="dropdown-item" href="../php/upcoming-events.php">Upcoming Events</a>
+                    <a class="dropdown-item" href="../php/past-events.php">Past Events </a>
             </li>
             <!-- kontakt -->
-            <li>KONTAKT</li>
+            <li><a class="dropdown-item" href="../php/kontakt.php">KONTAKT</a></li>
             <!-- login -->
-            <a href="login.html"><img class="icon-s" src="../img/icon/icon_login.svg" alt="login icon"></a>
+            <a href="../php/login.php"><img class="icon-s" src="../img/icon/icon_login.svg" alt="login icon"></a>
           </ul>
       </nav>

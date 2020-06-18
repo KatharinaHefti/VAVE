@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAVE sports and camps</title>
     <!-- style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- google font PT Sans -->
@@ -15,12 +15,10 @@
 </head>
 <body>
 
-  <?php 
-      include 'includes/nav.php';
-  ?>
+  <?php include '../includes/nav.php';?>
 
     <!-- wave1 for background navigation -->
-    <img id="wave1" src="img/wave1.svg" alt="wave"> 
+    <img id="wave1" src="../img/wave1.svg" alt="wave"> 
 
     <!-- main grid container -->
     <div class="container">
@@ -36,7 +34,7 @@
             </main>
           </div>
           <div class="col-lg-4">
-            <img class="shell" src="img/pic/valeria.png" alt="valeria">
+            <img class="shell" src="../img/pic/valeria.png" alt="valeria">
           </div>
           <div class="col-lg-1">
           </div>
@@ -45,7 +43,7 @@
       </div>
 
 
-      <img id="wave2" src="img/wave2.svg" alt="wave">
+      <img id="wave2" src="../img/wave2.svg" alt="wave">
 
       <div class="container">
         <div class="row">

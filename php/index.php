@@ -5,55 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAVE sports and camps</title>
     <!-- style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- google font PT Sans -->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
 
-
 </head>
 <body>
 
-    <!-- navigation -->
-    <nav>
-        <ul class="nav">
-            <!-- logo -->
-            <img class="logo" src="img/VAVE-logo.svg" alt="VAVE logo">
-            <!-- about -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ABOUT</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="me.html">Me</a>
-                  <a class="dropdown-item" href="#">Philosophie </a>
-              </li>
-            <!-- training -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TRAINING</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Anmeldung</a>
-                    <a class="dropdown-item" href="#">1:1 Coaching </a>
-                    <a class="dropdown-item" href="#">Ginastica Natural Zürich</a>
-                    <a class="dropdown-item" href="#">PWR Workout</a>
-                    <a class="dropdown-item" href="#">Muay Thai Fit Training</a>
-                    <a class="dropdown-item" href="#">VAVE SURF & BJJ Camps</a>
-            </li>
-            <!-- events -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">EVENTS</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Upcoming Events</a>
-                    <a class="dropdown-item" href="#">Past Events </a>
-            </li>
-            <!-- kontakt -->
-            <li>KONTAKT</li>
-            <!-- login -->
-            <a href="php/login.php"><img class="icon-s" src="img/icon/icon_login.svg" alt="login icon"></a>
-          </ul>
-      </nav>
+  <?php include '../includes/nav.php';?>
         
     <!-- wave1 for background navigation -->
-    <img id="wave1" src="img/wave1.svg" alt="wave"> 
+    <img id="wave1" src="../img/wave1.svg" alt="wave"> 
 
     <!-- main grid container -->
     <div class="container">
@@ -69,7 +33,7 @@
             </main>
           </div>
           <div class="col-lg-4">
-            <img class="shell" src="img/shell.svg" alt="shell">
+            <img class="shell" src="../img/shell.svg" alt="shell">
           </div>
           <div class="col-lg-1">
           </div>
@@ -88,9 +52,9 @@
                 <p>Lead text for your gallery. Describe the gallerys Whats. Lead text for your gallery. Describe the gallerys WhatsLead text for your gallery. Describe the gallerys Whats </p>
 
                 <div class="flexer">
-                    <a class="circle" href="gallery-training.html"><img src="img/icon/icon_sport.svg" alt="sport icon"></a>
-                    <a class="circle" href="gallery-camp.html"><img src="img/icon/icon_camp.svg" alt="camp icon"></a>
-                    <a class="circle" href="gallery-event.html"><img src="img/icon/icon_event.svg" alt="event icon"></a>
+                    <a class="circle" href="gallery-training.html"><img src="../img/icon/icon_sport.svg" alt="sport icon"></a>
+                    <a class="circle" href="gallery-camp.html"><img src="../img/icon/icon_camp.svg" alt="camp icon"></a>
+                    <a class="circle" href="gallery-event.html"><img src="../img/icon/icon_event.svg" alt="event icon"></a>
                 </div>
             </section>
           </div>
@@ -98,7 +62,7 @@
         </div>
       </div>
 
-      <img id="wave2" src="img/wave2.svg" alt="wave">
+      <img id="wave2" src="../img/wave2.svg" alt="wave">
 
 
     <!-- Events -->
@@ -106,7 +70,7 @@
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-4">
-            <img class="flyer" src="img/VAVE-Flyer.png" alt="Flyer">
+            <img class="flyer" src="../img/VAVE-Flyer.png" alt="Flyer">
           </div>
           <div class="col-lg-6">
             <section>
@@ -114,15 +78,15 @@
                     <h2>Next Event Promo headline loerum ipsum donor</h2>
                     <p>Lead text for your event. Loerum Epsom dollar sit amen. Lead text for your event.  Loerum Epsom dollar sit amen. Lead text for your event. Loerum Epsom dollar sit amen.</p>
                     <div class="container-left">
-                        <img class="icon-s" src="img/icon/icon_event.svg" alt="event icon">
+                        <img class="icon-s" src="../img/icon/icon_event.svg" alt="event icon">
                         <h5>Thursday, 23.06.2020</h5>
                     </div>
                     <div class="container-left">
-                        <img class="icon-s" src="img/icon/icon_time.svg" alt="time icon">
+                        <img class="icon-s" src="../img/icon/icon_time.svg" alt="time icon">
                         <h5>12:00 until 14:00 </h5>
                     </div>
                     <div class="container-left">
-                        <img class="icon-s" src="img/icon/icon_location.svg" alt="location icon">
+                        <img class="icon-s" src="../img/icon/icon_location.svg" alt="location icon">
                         <h5>8003 Zürich, Street 33</h5>
                     </div>
                     <p>Get your tickets before it’s too late. Loerum ipsum dolor sit amen.  Loerum ipsum dolor sit ame ipsum dolor sit amen.</p>
@@ -146,9 +110,9 @@
                 <p>Lead text for your location. Describe the room you are in. Whats specials there and what is unique you can offer loerum ipsum dolor sit amen. </p> 
           </div>
           <div class="col-lg-6">
-            <img class="icon-l" src="img/icon/icon_location.svg" alt="time icon">
+            <img class="icon-l" src="../img/icon/icon_location.svg" alt="time icon">
 
-                <img class="roundPic" src="img/pic/studio.png" alt="Valeria">
+                <img class="roundPic" src="../img/pic/studio.png" alt="Valeria">
                 
 
           </div>
@@ -164,7 +128,7 @@
           <div class="col-lg-1"></div>
           <div class="col-lg-4">
         
-                <img class="logo-sm" src="img/VAVE-logo.svg" alt="VAVE logo">
+                <img class="logo-sm" src="../img/VAVE-logo.svg" alt="VAVE logo">
                 <p>Valeria Verzar</p> 
                 <p>Badenerstr. 68</p> 
                 <p>CH- 8004 Zürich</p> 
@@ -182,9 +146,9 @@
                 <p>Social media</p>
                 <div class="flexer">
                     
-                    <img class="icon-s" src="img/icon/icon-social_youtube.svg" alt="youtube icon">
-                    <a href="https://www.facebook.com/bjjsurfcamp18"><img class="icon-s" src="img/icon/icon-social_facebook.svg" alt="facebook icon"></a>
-                    <a href="https://www.instagram.com/surfbjjcamps/?hl=de"><img class="icon-s" src="img/icon/icon-social_insta.svg" alt="instagram icon"></a>
+                    <img class="icon-s" src="../img/icon/icon-social_youtube.svg" alt="youtube icon">
+                    <a href="https://www.facebook.com/bjjsurfcamp18"><img class="icon-s" src="../img/icon/icon-social_facebook.svg" alt="facebook icon"></a>
+                    <a href="https://www.instagram.com/surfbjjcamps/?hl=de"><img class="icon-s" src="../img/icon/icon-social_insta.svg" alt="instagram icon"></a>
                 </div>
             </div>
             
@@ -192,7 +156,7 @@
         </div>
       </div>
 
-    <img id="wave3" src="img/wave3.svg" alt="">  
+    <img id="wave3" src="../img/wave3.svg" alt="">  
     
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
