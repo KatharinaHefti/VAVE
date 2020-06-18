@@ -22,32 +22,15 @@ nav {
   margin: 2em;
 }
 
-.logo {
-  height: 30px;
-  margin: 2em;
-  position: absolute;
-  left: 2em;
-  top: 2em;
+.navbar-dark .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0) !important;
 }
 
 .logo-sm {
   height: 30px;
-}
-
-ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 li {
@@ -55,11 +38,6 @@ li {
   list-style: none;
   font-weight: bold;
   cursor: pointer;
-  color: #FFFFFF;
-}
-
-.nav-link {
-  color: white;
 }
 
 li:hover, .nav-link:hover {
@@ -124,7 +102,8 @@ a {
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 #wave1 {
   position: absolute;
-  top: -35%;
+  left: -20%;
+  top: -30%;
   z-index: -1;
   height: 100%;
 }
@@ -153,6 +132,11 @@ a {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 50px !important;
+  max-width: 80%;
+  height: 120%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

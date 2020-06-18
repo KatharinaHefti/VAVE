@@ -15,19 +15,38 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     
 </head>
-<body class="paint-turquois">
+<body">
 
     <?php include '../includes/nav.php';?>
 
-    <div class="container">
-        <h1>kontakt</h1>   
-    </div>
+
         <!-- jquery -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <!-- bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       </body>
-    
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-6">
+            <main>
+                <h4>Kontakt</h4>
+                <h1>Fragen zum Trainings,  Caps oder Events? </h1>
+                <p>Valeria Verzar</p>
+                <p>Badenerstr. 68</p>
+                <p>CH-8004 Zürich</p>
+                <p>Tel. 0000000000</p>
+
+                <button>email</button>
+            </main>
+          </div>
+          <div class="col-lg-4"><img src="../img/shell.svg" alt=""></div>
+          <div class="col-lg-1">
+          </div>
+
+        </div>
+      </div>
     </body>
     </html>

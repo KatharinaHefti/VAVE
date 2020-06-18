@@ -68,8 +68,7 @@ if( $password != 'ossBoss20'){
     <div class="container">
         
         <div class="row">
-          <div class="col-lg-3"></div>
-          <div class="col-lg-6">
+ 
             <div class="container">
                 <div class="card">
                     <img id="profile-img" class="roundPic-sm"src="../img/pic/studio.png" />
@@ -86,9 +85,7 @@ if( $password != 'ossBoss20'){
                         Forgot the password?
                     </a>
                 </div>
-            </div>
         </div>
-        <div class="col-lg-3"></div>
     </div>
 </div>
         <!-- jquery -->

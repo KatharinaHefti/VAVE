@@ -10,6 +10,7 @@ $white: #FFFFFF;
 $bold: 600;
 $leading: 200%;
 
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 //reset
@@ -17,6 +18,7 @@ $leading: 200%;
     margin: 0;
     padding: 0;
 }
+
 *, *::after, *::before{
     box-sizing: border-box;
 }
@@ -24,11 +26,9 @@ $leading: 200%;
 
 body{
     font-family: 'PT Sans Caption', sans-serif;
-}
 
 .paint-turquois{
     background-color: $turquois;
-
 }
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -37,38 +37,26 @@ body{
 nav{
     margin: 2em;
 }
-
-.logo{
-    height: 30px;
-    margin: 2em;
-    position: absolute;
-    left: 2em;
-    top: 2em;
+.navbar-dark .navbar-toggler{
+    border-color: rgba(255,255,255,.0)!important;
 }
 
 .logo-sm{
     height: 30px;
-
+    align-items: flex-start;
 }
 
-ul{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-}
 
 li{
+
     margin: 2em;
     list-style: none;
     font-weight: bold;
     cursor: pointer;
-    color: $white;
 }
 
-.nav-link{
-    color: white;
-}
+
+
 
 li:hover, .nav-link:hover{
     color: $amethyst;
@@ -130,7 +118,8 @@ a{
 // waves
 #wave1{
     position: absolute;
-    top: -35%;
+    left: -20%;
+    top: -30%;
     z-index: -1;
     height: 100%;
 }
@@ -160,6 +149,8 @@ a{
     padding: 2em;
     align-items: center;
     border-radius: 50px !important;
+    height: 120%;
+    justify-content: center;
 
 }
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -225,8 +216,6 @@ button:hover{
     border-radius: 50px;
 }
 
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // pictures
@@ -236,7 +225,6 @@ button:hover{
 .flyer{
     width: 100%;
     margin: 15em 0 0 0;
-
 }
 
 .roundPic{

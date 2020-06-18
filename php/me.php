@@ -17,8 +17,6 @@
 
   <?php include '../includes/nav.php';?>
 
-    <!-- wave1 for background navigation -->
-    <img id="wave1" src="../img/wave1.svg" alt="wave"> 
 
     <!-- main grid container -->
     <div class="container">
