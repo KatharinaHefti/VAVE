@@ -90,6 +90,19 @@ p{
 a{
     text-decoration: none;
 }
+
+
+.onDark{
+    color: $white;
+    h2{
+        color: $white; 
+    }
+}
+
+hr{
+    border-top: 2px solid $amethyst;
+
+}
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // bootstrap gridline
@@ -227,6 +240,14 @@ button:hover{
     margin: 15em 0 0 0;
 }
 
+.bigPic{
+    width: 100%;
+    position: relative;
+    top: -170px;
+    z-index: -2;
+
+}
+
 .roundPic{
     border-radius: 50%;
     width: 300px;
@@ -240,3 +261,4 @@ button:hover{
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+}
