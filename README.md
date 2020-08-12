@@ -2,7 +2,7 @@
 
 # VAVE sport and camps
 
-version 1.0.0
+> version 1.0.0
 
 > Personal trainings, Events and Sportcamps from Valeria Verzar.
 
@@ -14,54 +14,37 @@ version 1.0.0
 
 - hmtl
 - sass/css
-- php
-- MySQL (pdo connection)
-- Bootstrap (Grid, Navigation, Gallery)
 - Javascipt (Jquery, baguetteBox.run)
+- Bootstrap (Grid, Navigation, Gallery)
+- php
+
 
 ---
+
+
+
+# SETUP donw UNTIL HEREEEEEEEE
+
+
+---
+
+
 
 ## Table of Contents
 
 > This readme is structured in following chapters
 
-- [Installation](#installation)
+- [Clone](#Clone)
 - [Features](#features)
 - [Contributing](#contributing)
 - [Team](#team)
 - [FAQ](#faq)
-- [Support](#support)
 - [License](#license)
 
 
-## Installation
-
-- All the `code` required to get started
-- Images of what it should look like
-
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/fvcproductions/SOMEREPO`
-
-### Setup
-
-- If you want more syntax highlighting, format your code like this:
-
-> update and install this package first
-
-```shell
-$ brew update
-$ brew install fvcproductions
-```
-
-> now install npm and bower packages
-
-```shell
-$ npm install
-$ bower install
-```
-
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
+- Clone this repo to your local machine using `https://github.com/KatharinaHefti/VAVE.git`
 
 ---
 
@@ -125,14 +108,6 @@ Reach out to me at one of the following places!
 - Website at <a href="http://fvcproductions.com" target="_blank">`fvcproductions.com`</a>
 - Twitter at <a href="http://twitter.com/fvcproductions" target="_blank">`@fvcproductions`</a>
 - Insert more social links here.
-
----
-
-## Donations (Optional)
-
-- You could include a <a href="https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png" target="_blank">Gratipay</a> link as well.
-
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/fvcproductions/)
 
 
 ---
