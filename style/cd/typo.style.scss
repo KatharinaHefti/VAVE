@@ -3,9 +3,14 @@
 // PT Sans by ParaType 
 @import url(https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap); 
 
+// typo preset
 body{
     font-family: 'PT Sans Caption', sans-serif;
 }
+
+$bold: 600;
+$leading: 200%;
+
 
 a{
     text-decoration: none;
@@ -15,3 +20,7 @@ li{
     list-style: none;
 }
 
+h4{
+    color: #7079B6;
+    font-size: 1.2rem;
+}

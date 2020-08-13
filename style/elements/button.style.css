@@ -1,8 +1,9 @@
+@import url("../style.css");
 button {
   border-radius: 50px;
   width: 200px;
   padding: 1em 2em;
-  background: pink;
+  background: #7079B6;
   border: none;
   margin: 2em 0;
   color: white;
@@ -12,7 +13,7 @@ button {
 }
 
 button:hover {
-  background: hotpink;
+  background: #7079B6;
   border-radius: 50px;
 }
 /*# sourceMappingURL=button.style.css.map */
