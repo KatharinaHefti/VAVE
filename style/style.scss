@@ -1,12 +1,5 @@
-
 // reset
-*{
-    margin: 0;
-    padding: 0;
-}
-*, *::after, *::before{
-    box-sizing: border-box;
-}
+@import url("./reset.css");
 
 // color
 @import url("./color.style.css");
@@ -14,5 +7,11 @@
 // typography
 @import url("./typo.style.css");
 
+// icon
+@import url("./icon.style.css");
+
 // navigation
 @import url("./nav.style.css");
+
+// footer
+@import url("./footer.style.css");
