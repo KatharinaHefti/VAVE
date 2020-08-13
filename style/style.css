@@ -1,7 +1,13 @@
+/* reset */
 @import url("./reset.css");
-@import url("./color.style.css");
-@import url("./typo.style.css");
-@import url("./icon.style.css");
-@import url("./nav.style.css");
-@import url("./footer.style.css");
+/* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
+@import url("./cd/color.style.css");
+@import url("./cd/typo.style.css");
+/* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
+@import url("./elements/icon.style.css");
+@import url("./elements/button.style.css");
+/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
+@import url("./parts/grid.style.css");
+@import url("./parts/nav.style.css");
+@import url("./parts/footer.style.css");
 /*# sourceMappingURL=style.css.map */

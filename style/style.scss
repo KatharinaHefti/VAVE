@@ -1,17 +1,23 @@
-// reset
+/* reset */
 @import url("./reset.css");
 
+/* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
+
 // color
-@import url("./color.style.css");
+@import url("./cd/color.style.css");
 
 // typography
-@import url("./typo.style.css");
+@import url("./cd/typo.style.css");
+
+/* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
 
 // icon
-@import url("./icon.style.css");
+@import url("./elements/icon.style.css");
 
-// navigation
-@import url("./nav.style.css");
+// button
+@import url("./elements/button.style.css");
+
+/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
 
 // footer
-@import url("./footer.style.css");
+@import url("./parts/footer.style.css");
