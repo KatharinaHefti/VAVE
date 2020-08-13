@@ -17,7 +17,16 @@
 // button
 @import url("./elements/button.style.css");
 
+/* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
+
+// grid
+@import url("./parts/grid.style.css");
+
 /* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
+
+// navigation
+@import url("./parts/nav.style.css");
+
 
 // footer
 @import url("./parts/footer.style.css");

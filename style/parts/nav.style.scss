@@ -1,0 +1,57 @@
+@import url("../cd/color.style.css");
+
+nav{
+  height: 60px;
+  padding: 3em 10em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand{
+  height: 30px;
+  display: flex;
+}
+
+/* * * * * * * * * * * * * * * * * * * * dropdown menu * * * * * * * * * * * * * * * * * * * */
+
+// navigation background wave
+.waveBg{
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  animation-duration: 1s;
+} 
+
+// navigation background wave toggle 
+.waveBgDown{
+  animation-duration: 3s;
+  animation-name: slideDown;
+  animation-fill-mode: forwards;
+} 
+
+// navigation background wave animation
+@keyframes slideDown {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 600%;
+  }
+}
+
+// navigation dropdown menu
+
+.hiddenLinks{
+  display: none;
+  text-align: center;
+  padding: 3em 18.5em;
+}
+
+li{
+  display: flex;
+  justify-content: flex-end;
+}
+.showLinks{
+  display: block;
+}

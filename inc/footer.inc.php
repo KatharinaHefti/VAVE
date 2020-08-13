@@ -1,5 +1,4 @@
   <footer>
-
     <!-- Contact -->
     <div>
     <h4>contact</h4>

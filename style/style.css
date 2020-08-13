@@ -6,8 +6,9 @@
 /* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
 @import url("./elements/icon.style.css");
 @import url("./elements/button.style.css");
-/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
 @import url("./parts/grid.style.css");
+/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
 @import url("./parts/nav.style.css");
 @import url("./parts/footer.style.css");
 /*# sourceMappingURL=style.css.map */

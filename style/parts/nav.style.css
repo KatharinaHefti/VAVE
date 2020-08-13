@@ -1,0 +1,77 @@
+@import url("../cd/color.style.css");
+nav {
+  height: 60px;
+  padding: 3em 10em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brand {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* * * * * * * * * * * * * * * * * * * * dropdown menu * * * * * * * * * * * * * * * * * * * */
+.waveBg {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.waveBgDown {
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-name: slideDown;
+          animation-name: slideDown;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideDown {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 600%;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 600%;
+  }
+}
+
+.hiddenLinks {
+  display: none;
+  text-align: center;
+  padding: 3em 18.5em;
+}
+
+li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.showLinks {
+  display: block;
+}
+/*# sourceMappingURL=nav.style.css.map */
