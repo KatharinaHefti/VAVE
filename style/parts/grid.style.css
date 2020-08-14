@@ -1,3 +1,15 @@
+/* reset */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/reset.css);
+/* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/cd/typo.style.css);
+/* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/icon.style.css);
+@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/button.style.css);
+/* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/grid.style.css);
+/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/nav.style.css);
+@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/footer.style.css);
 main {
   height: 400px;
   padding: 10em 10em;

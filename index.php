@@ -2,7 +2,7 @@
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 ?>
-<link rel="stylesheet" href="./style/style.css">
+
 
   <main>
     <h4>Sports and camps</h4>
