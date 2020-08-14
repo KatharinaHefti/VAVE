@@ -16,4 +16,9 @@ h4 {
   color: #7079B6;
   font-size: 1.2rem;
 }
+
+p {
+  line-height: 200%;
+  max-width: 600px;
+}
 /*# sourceMappingURL=typo.style.css.map */

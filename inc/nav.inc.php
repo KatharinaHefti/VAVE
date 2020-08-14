@@ -16,16 +16,9 @@
     <li><a href=""></a>link</li>
 </ul>
 
+<!------------------------------------- javascript ------------------------------------->
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script>
-$( '#menuIcon' ).click(function() {
-  console.log('clicked');
-  $('.hiddenLinks').toggleClass('showLinks');
-  $('.waveBg').toggleClass('waveBgDown');
-  $('#menuIcon').find("use").attr("xlink:href", "#icon_close");
-});
-
-
-</script>
+<!-- js for dopdown menu -->
+<script src="js/nav.dropdown.js"></script>
