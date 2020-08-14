@@ -1,32 +1,32 @@
 /* reset */
-@import "./reset.css";
+@import url("./reset.css");
 
 /* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
 
 // color
-@import "./cd/color.style.scss";
+@import url("./cd/color.style.scss");
 
 // typography
-@import "./cd/typo.style.scss";
+@import url("./cd/typo.style.scss");
 
 /* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
 
 // icon
-@import "./elements/icon.style.scss";
+@import url("./elements/icon.style.scss");
 
 // button
-@import "./elements/button.style.scss";
+@import url("./elements/button.style.scss");
 
 /* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
 
 // grid
-@import "./parts/grid.style.scss";
+@import url("./parts/grid.style.scss");
 
 /* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
 
 // navigation
-@import "./parts/nav.style.scss";
+@import url("./parts/nav.style.scss");
 
 
 // footer
-@import "./parts/footer.style.scss";
+@import url("./parts/footer.style.scss");
