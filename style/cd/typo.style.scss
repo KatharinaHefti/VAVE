@@ -3,7 +3,6 @@
 // PT Sans by ParaType 
 @import url(https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap); 
 
-
 // variables
 $bold: 600;
 $leading: 200%;
@@ -25,6 +24,10 @@ a{
 
 li{
   list-style: none;
+}
+
+h1{
+  max-width: 600px;
 }
 
 h4{

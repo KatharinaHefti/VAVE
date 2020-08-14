@@ -1,4 +1,12 @@
-@import '../style.scss';
+// variables
+$bold: 600;
+$leading: 200%;
+$amethyst: #8077B7;
+$haze: #7079B6;
+$cornflower: #799ACC;
+$sky: #89CEF0;
+$turquois: #B4DEE7;
+$white: #FFF;
 
 button{
   border-radius: 50px;
@@ -8,6 +16,7 @@ button{
   border: none;
   margin: 2em 0;
   color: $white;
+  size: $bold;
   margin-right: 2em;
   cursor: pointer;
   margin-left: -5px; // optical alignment
