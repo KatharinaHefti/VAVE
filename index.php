@@ -20,9 +20,23 @@ $GallerySectionChapterTitle = 'Gallery';
 $GallerySectionHeadline = 'Something about your Gallery Loerum ipsum dolor sit.';
 include ("./inc/gallerySection.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * xxxx * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * event section * * * * * * * * * * * * * * * * * * * */
 
-include ("./inc/main.inc.php"); 
+$EventSectionChapterTitle = 'Event';
+$EventSectionHeadline = 'Next Event Promo headline loerum ipsum donor';
+$EventLongDescription = 'Lead text for your event. Loerum Epsom dollar sit amen. Lead text for your event.  Loerum Epsom dollar sit amen. Lead text for your event. Loerum Epsom dollar sit amen.';
+$EventDate = 'Thursday, 23.06.2020';
+$EventTime = '12:00 until 14:00';
+$EventLocation = '8003 Zürich, Street 33';
+$EventShortDescription = 'Get your tickets before it’s too late. Loerum ipsum dolor sit amen.  Loerum ipsum dolor sit amen.  Loerum ipsum dolor sit ame ipsum dolor sit amen.';
+$EventLink = '#';
+$EventButton = 'get your tickets';
+$EventTicketsLeft = 'just 3 tickets left';
+
+include ("./inc/eventSection.inc.php"); 
+
+/* * * * * * * * * * * * * * * * * * * * xxx section * * * * * * * * * * * * * * * * * * * */
+
 include ("./inc/main.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * footer * * * * * * * * * * * * * * * * * * * */

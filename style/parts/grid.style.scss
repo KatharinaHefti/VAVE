@@ -5,12 +5,19 @@
 // main grid proportions 2:1
 main {
   display: grid;
-	grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-gap: 2em;
 }
 
-// footer grid proportions 1:1:1
+// main grid proportions 1:1
+.event {
+	display: grid;
+  grid-template-columns: 1fr 2fr;
+	grid-gap: 2em;
+  }
+  
 
+// footer grid proportions 1:1:1
 footer{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -20,6 +27,9 @@ footer{
 // media 800 px
 @media screen and (max-width: 800px) {
 	main {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.event {
 		grid-template-columns: repeat(1, 1fr);
 	}
 	footer {

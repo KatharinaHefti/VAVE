@@ -10,6 +10,14 @@ main {
   grid-gap: 2em;
 }
 
+.event {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  grid-gap: 2em;
+}
+
 footer {
   display: -ms-grid;
   display: grid;
@@ -20,6 +28,10 @@ footer {
 
 @media screen and (max-width: 800px) {
   main {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .event {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }

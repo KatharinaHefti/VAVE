@@ -4,7 +4,7 @@
   <div class="box">
     <h4 class="paint-white">contact</h4>
     <br>
-    <h1 class="paint-white">VAVE</h1>    
+    <h2 class="paint-white">VAVE</h2>    
     <br>
     <p class="paint-white">Valeria Verzar <br>
           Badenerstr. 68<br>

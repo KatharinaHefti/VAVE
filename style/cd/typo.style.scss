@@ -30,6 +30,13 @@ li{
 }
 
 h1{
+  font-size: 2rem;
+  color: $haze;
+  max-width: 600px;
+}
+
+h2{
+  font-size: 1.8rem;
   color: $haze;
   max-width: 600px;
 }
@@ -47,4 +54,9 @@ p{
 
 .paint-white{
   color: $white;
+}
+
+.paint-turquois{
+  color: $turquois;
+
 }

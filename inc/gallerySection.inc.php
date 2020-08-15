@@ -3,7 +3,7 @@
 <section class="gallery">
   <h4 class="paint-white"><?php echo $GallerySectionChapterTitle?></h4>
   <br>
-  <h1 class="paint-white"><?php echo $GallerySectionHeadline?></h1>
+  <h2 class="paint-white"><?php echo $GallerySectionHeadline?></h2>
   <br>
 
   <!-- gallery icons -->

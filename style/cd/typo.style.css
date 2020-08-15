@@ -15,6 +15,13 @@ li {
 }
 
 h1 {
+  font-size: 2rem;
+  color: #7079B6;
+  max-width: 600px;
+}
+
+h2 {
+  font-size: 1.8rem;
   color: #7079B6;
   max-width: 600px;
 }
@@ -32,5 +39,9 @@ p {
 
 .paint-white {
   color: #FFF;
+}
+
+.paint-turquois {
+  color: #B4DEE7;
 }
 /*# sourceMappingURL=typo.style.css.map */
