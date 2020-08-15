@@ -1,14 +1,15 @@
 /* reset */
 @import url("./reset.css");
 /* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
-@import url("./cd/color.style.scss");
-@import url("./cd/typo.style.scss");
+@import url("./cd/color.style.css");
+@import url("./cd/typo.style.css");
 /* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
-@import url("./elements/icon.style.scss");
-@import url("./elements/button.style.scss");
+@import url("./elements/icon.style.css");
+@import url("./elements/button.style.css");
 /* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
-@import url("./parts/grid.style.scss");
+@import url("./parts/grid.style.css");
 /* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
-@import url("./parts/nav.style.scss");
-@import url("./parts/footer.style.scss");
+@import url("./parts/nav.style.css");
+@import url("./parts/gallery.style.css");
+@import url("./parts/footer.style.css");
 /*# sourceMappingURL=style.css.map */

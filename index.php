@@ -1,7 +1,8 @@
+
+<link rel="stylesheet" href="style/style.css">
 <?php 
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
-
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
 // Main Text Variables
@@ -16,7 +17,7 @@ include ("./inc/main.inc.php");
 /* * * * * * * * * * * * * * * * * * * * gallery section * * * * * * * * * * * * * * * * * * * */
 
 $GallerySectionChapterTitle = 'Gallery';
-$GallerySectionHeadline = 'Something about your GalleryLoerum ipsum dolor sit.';
+$GallerySectionHeadline = 'Something about your Gallery Loerum ipsum dolor sit.';
 include ("./inc/gallerySection.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * xxxx * * * * * * * * * * * * * * * * * * * */

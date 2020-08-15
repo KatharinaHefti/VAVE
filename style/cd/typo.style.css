@@ -6,6 +6,8 @@ body {
 
 a {
   text-decoration: none;
+  color: #FFF;
+  font-weight: 600;
 }
 
 li {
@@ -20,5 +22,9 @@ h4 {
 p {
   line-height: 200%;
   max-width: 600px;
+}
+
+.paint-white {
+  color: #FFF;
 }
 /*# sourceMappingURL=typo.style.css.map */

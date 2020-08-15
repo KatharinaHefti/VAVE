@@ -21,6 +21,8 @@ body{
 
 a{
   text-decoration: none;
+  color: $white;
+  font-weight: $bold;
 }
 
 li{
@@ -35,4 +37,8 @@ h4{
 p{
   line-height: 200%;
   max-width: 600px;
+}
+
+.paint-white{
+  color: $white;
 }
