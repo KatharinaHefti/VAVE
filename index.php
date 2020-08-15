@@ -35,9 +35,13 @@ $EventTicketsLeft = 'just 3 tickets left';
 
 include ("./inc/eventSection.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * xxx section * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * location section * * * * * * * * * * * * * * * * * * * */
 
-include ("./inc/main.inc.php"); 
+$LocationSectionChapterTitle = 'Location';
+$LocationSectionHeadline = 'Where you find me';
+$LocationPragraph = 'Lead text for your location. Describe the room you are in. Whats specials there and what is unique you can offer loerum ipsum dolor sit amen.';
+
+include ("./inc/location.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * footer * * * * * * * * * * * * * * * * * * * */
 

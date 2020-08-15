@@ -14,7 +14,14 @@ main {
 	display: grid;
   grid-template-columns: 1fr 2fr;
 	grid-gap: 2em;
-  }
+}
+
+// location grid proportions 1:1
+.location {
+	display: grid;
+  grid-template-columns: 1fr 2fr;
+	grid-gap: 2em;
+}
   
 
 // footer grid proportions 1:1:1
@@ -30,6 +37,9 @@ footer{
 		grid-template-columns: repeat(1, 1fr);
 	}
 	.event {
+		grid-template-columns: repeat(1, 1fr);
+  }
+  .location {
 		grid-template-columns: repeat(1, 1fr);
 	}
 	footer {
