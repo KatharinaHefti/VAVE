@@ -4,8 +4,7 @@
   <div class="box">
     <h4 class="paint-white">contact</h4>
     <br>
-    <img class="small" src="./img/brand.svg" alt=""><br>
-    
+    <h1 class="paint-white">VAVE</h1>    
     <br>
     <p class="paint-white">Valeria Verzar <br>
           Badenerstr. 68<br>
