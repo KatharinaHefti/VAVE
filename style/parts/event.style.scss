@@ -2,9 +2,26 @@
 	padding: 10em 10em;
 }
 
-.flexer{
+.highlight{
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
+	width: 800px;
+	align-items: flex-end;
 }
+
+.highlight h4{
+	margin: 1em;
+}
+
+.flexBtn{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1em;
+	width: 400px;
+
+}
+
+
+

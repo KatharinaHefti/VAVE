@@ -12,7 +12,7 @@
 		<p><?php echo $EventLongDescription?></p>
 
 		<!-- icon event -->
-		<div class="flexer">
+		<div class="highlight">
 			<svg class="small">
 				<use xlink:href="#icon_event"></use>
 			</svg>
@@ -20,26 +20,27 @@
 		</div>
 
 		<!-- icon time -->
-		<div class="flexer">
+		<div class="highlight">
 			<svg class="small">
         <use xlink:href="#icon_time"></use>
     	</svg>                        
-		<h4 class="paint-turquois"><?php echo $EventTime ?></h4>
+			<h4 class="paint-turquois"><?php echo $EventTime ?></h4>
 		</div>
 
 		<!-- icon location -->
-		<div class="flexer">
+		<div class="highlight">
 			<svg class="small">
 				<use xlink:href="#icon_location"></use>
 			</svg>
-		<h4 class="paint-turquois"><?php echo $EventLocation?></h4>
+			<h4 class="paint-turquois"><?php echo $EventLocation?></h4>
 		</div>
+		<br>
 
 		<!-- short description -->
 		<p><?php echo $EventShortDescription?></p>
 
 		<!-- get your tickets -->
-		<div class="flexer">
+		<div class="flexBtn">
       <button><a href="<?php echo $EventShortDescription?>"></a><?php echo $EventButton?></button>
       <p><?php echo $EventTicketsLeft ?></p>
     </div> 
