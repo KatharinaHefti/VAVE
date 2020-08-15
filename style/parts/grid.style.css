@@ -18,14 +18,6 @@ main {
   grid-gap: 2em;
 }
 
-.gallery {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-  grid-gap: 2em;
-}
-
 .location {
   display: -ms-grid;
   display: grid;
@@ -48,10 +40,6 @@ footer {
         grid-template-columns: repeat(1, 1fr);
   }
   .event {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
-  }
-  .gallery {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
