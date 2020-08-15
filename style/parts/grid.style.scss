@@ -16,6 +16,13 @@ main {
 	grid-gap: 2em;
 }
 
+// main grid proportions 1:1
+.gallery {
+	display: grid;
+  grid-template-columns: 1fr 2fr;
+	grid-gap: 2em;
+}
+
 // location grid proportions 1:1
 .location {
 	display: grid;
@@ -37,6 +44,9 @@ footer{
 		grid-template-columns: repeat(1, 1fr);
 	}
 	.event {
+		grid-template-columns: repeat(1, 1fr);
+  }
+  .gallery {
 		grid-template-columns: repeat(1, 1fr);
   }
   .location {

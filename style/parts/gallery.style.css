@@ -1,8 +1,8 @@
-.galleryBg {
+.gallery {
   padding: 10em 10em;
-  background-repeat: no-repeat;
-  background-image: url("../../img/wave/wave2.svg");
-  background-size: 100%;
+  background: #4179b6;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(19%, #4179b6), color-stop(63%, #54b5e3), to(#95cedb));
+  background: linear-gradient(0deg, #4179b6 19%, #54b5e3 63%, #95cedb 100%);
 }
 
 .flexer {
@@ -16,10 +16,5 @@
       -ms-flex-align: center;
           align-items: center;
   margin: 1em;
-}
-
-.bgPic {
-  position: relative;
-  z-index: -1;
 }
 /*# sourceMappingURL=gallery.style.css.map */

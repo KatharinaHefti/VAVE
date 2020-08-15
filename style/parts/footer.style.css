@@ -1,5 +1,6 @@
 footer {
-  padding: 3em 10em;
+  margin-top: -30em;
+  padding: 6em 10em;
   position: relative;
   background-image: url("../../img/wave/wave4.svg");
   background-repeat: no-repeat;
@@ -18,5 +19,15 @@ footer {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+@media screen and (max-width: 1400px) {
+  footer {
+    margin-top: 0;
+    padding: 6em 10em;
+    background: #6864aa;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(35%, #6864aa), to(#5e8ac2));
+    background: linear-gradient(0deg, #6864aa 35%, #5e8ac2 100%);
+  }
 }
 /*# sourceMappingURL=footer.style.css.map */

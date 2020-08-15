@@ -1,6 +1,4 @@
-
-
-<section class="galleryBg">
+<section class="gallery">
   <h4 class="paint-white"><?php echo $GallerySectionChapterTitle?></h4>
   <br>
   <h2 class="paint-white"><?php echo $GallerySectionHeadline?></h2>

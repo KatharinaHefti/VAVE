@@ -1,5 +1,6 @@
 footer{
-  padding: 3em 10em;
+  margin-top: -30em;
+  padding: 6em 10em;
   // background: rgb(104,100,170);
   // background: linear-gradient(0deg, rgba(104,100,170,1) 35%, rgba(94,138,194,1) 100%);
   position: relative;
@@ -15,3 +16,13 @@ footer{
   justify-content: flex-end
 }
 
+
+// media 1400 px
+@media screen and (max-width: 1400px) {
+  footer{
+    margin-top: 0;
+    padding: 6em 10em;
+    background: rgb(104,100,170);
+    background: linear-gradient(0deg, rgba(104,100,170,1) 35%, rgba(94,138,194,1) 100%);
+  }
+}
