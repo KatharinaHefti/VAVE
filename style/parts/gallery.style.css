@@ -1,5 +1,8 @@
-.gallery {
+.galleryBg {
   padding: 10em 10em;
+  background-repeat: no-repeat;
+  background-image: url("../../img/wave/wave2.svg");
+  background-size: 100%;
 }
 
 .flexer {

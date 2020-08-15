@@ -1,6 +1,6 @@
-<img class="bgPic" src="../img/wave/wave2.svg" alt="wave">
 
-<section class="gallery">
+
+<section class="galleryBg">
   <h4 class="paint-white"><?php echo $GallerySectionChapterTitle?></h4>
   <br>
   <h2 class="paint-white"><?php echo $GallerySectionHeadline?></h2>
