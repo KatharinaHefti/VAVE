@@ -1,9 +1,12 @@
 <footer>
 
   <!-- first column Contact -->
-  <div>
-    <h4>contact</h4>
-    <img class="small" src="./img/brand.svg" alt="">
+  <div class="box">
+    <h4 class="paint-white">contact</h4>
+    <br>
+    <img class="small" src="./img/brand.svg" alt=""><br>
+    
+    <br>
     <p class="paint-white">Valeria Verzar <br>
           Badenerstr. 68<br>
           CH-8004 Zürich<br>
@@ -12,7 +15,7 @@
   </div>
 
   <!-- second column Links -->
-  <div>
+  <div class="box">
     <p>
         <a href="me.php">About</a></br>
         <a href="training.php">Training</a></br>
@@ -22,7 +25,7 @@
   </div>
 
   <!-- third column social media -->
-    <div>
+    <div class="box">
       <!-- youtube -->
       <a href="https://www.youtube.com/channel/UC5MMAPA-e-DRb7n2s_dVyng">
         <svg class="small">
