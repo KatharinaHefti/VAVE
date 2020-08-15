@@ -1,5 +1,28 @@
+.test{
+	background-color: pink;
+}
 
-main{
-    height: 400px;
-    padding: 10em 10em;
+// main grid proportions 2:1
+main {
+  display: grid;
+	grid-template-columns: 2fr 1fr;
+  grid-gap: 2em;
+}
+
+// footer grid proportions 1:1:1
+
+footer{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 2em;
+}
+
+// media 800 px
+@media screen and (max-width: 800px) {
+	main {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	footer {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }

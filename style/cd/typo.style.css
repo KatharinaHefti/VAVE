@@ -14,9 +14,15 @@ li {
   list-style: none;
 }
 
+h1 {
+  color: #7079B6;
+  max-width: 600px;
+}
+
 h4 {
   color: #7079B6;
   font-size: 1.2rem;
+  max-width: 600px;
 }
 
 p {

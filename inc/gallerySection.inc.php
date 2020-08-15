@@ -1,7 +1,7 @@
 
 
 <section class="gallery">
-  <h5 class="paint-white"><?php echo $GallerySectionChapterTitle?></h5>
+  <h4 class="paint-white"><?php echo $GallerySectionChapterTitle?></h4>
   <br>
   <h1 class="paint-white"><?php echo $GallerySectionHeadline?></h1>
   <br>

@@ -1,35 +1,9 @@
-/* reset */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/reset.css);
-/* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/cd/typo.style.css);
-/* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/icon.style.css);
-@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/button.style.css);
-/* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/grid.style.css);
-/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/nav.style.css);
-@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/footer.style.css);
 footer {
-  height: 300px;
   padding: 3em 10em;
   background: #6864aa;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(35%, #6864aa), to(#5e8ac2));
   background: linear-gradient(0deg, #6864aa 35%, #5e8ac2 100%);
   position: relative;
   margin-top: 30px;
-  /* grid */
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2em;
-  grid-auto-rows: minmax(100px, auto);
-}
-
-.social {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 /*# sourceMappingURL=footer.style.css.map */

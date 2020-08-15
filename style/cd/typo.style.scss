@@ -29,9 +29,15 @@ li{
   list-style: none;
 }
 
+h1{
+  color: $haze;
+  max-width: 600px;
+}
+
 h4{
   color: $haze;
   font-size: 1.2rem;
+  max-width: 600px;
 }
 
 p{

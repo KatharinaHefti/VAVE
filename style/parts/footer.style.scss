@@ -1,19 +1,7 @@
-@import '../style.scss';
-
 footer{
-  height: 300px;
   padding: 3em 10em;
   background: rgb(104,100,170);
   background: linear-gradient(0deg, rgba(104,100,170,1) 35%, rgba(94,138,194,1) 100%);
   position: relative;
   margin-top: 30px;
-  /* grid */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2em;
-  grid-auto-rows: minmax(100px, auto);
-}
-
-.social{
-  display: flex;
 }
