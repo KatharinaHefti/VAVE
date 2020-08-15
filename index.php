@@ -1,13 +1,7 @@
 <?php 
 include ("./inc/header.inc.php"); 
-include ("./inc/nav.inc.php"); ?>
+include ("./inc/nav.inc.php"); 
 
-<html>
-<link rel="stylesheet" href="./style/style.css">
-
-</html>
-
-<?php
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
 // Main Text Variables

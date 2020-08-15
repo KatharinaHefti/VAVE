@@ -1,13 +1,14 @@
 /* reset */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/reset.css);
+@import url("./reset.css");
 /* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/cd/typo.style.css);
+@import url("./cd/color.style.scss");
+@import url("./cd/typo.style.scss");
 /* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/icon.style.css);
-@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/button.style.css);
+@import url("./elements/icon.style.scss");
+@import url("./elements/button.style.scss");
 /* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/grid.style.css);
+@import url("./parts/grid.style.scss");
 /* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
-@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/nav.style.css);
-@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/footer.style.css);
+@import url("./parts/nav.style.scss");
+@import url("./parts/footer.style.scss");
 /*# sourceMappingURL=style.css.map */
