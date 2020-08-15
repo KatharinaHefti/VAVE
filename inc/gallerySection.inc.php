@@ -1,4 +1,4 @@
-
+<img class="bgPic" src="../img/wave/wave2.svg" alt="wave">
 
 <section class="gallery">
   <h4 class="paint-white"><?php echo $GallerySectionChapterTitle?></h4>
@@ -26,8 +26,5 @@
       </svg>
     </a>
   </div>
-  <!-- menu wave background picture 
-  <img class="waveBg2" src="./img/wave/wave2.svg" alt="wave">-->
-
 </section>
 
