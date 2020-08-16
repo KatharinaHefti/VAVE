@@ -11,10 +11,9 @@
 
 <!-- dropdown Menu -->
 <ul class="hiddenLinks">
-  <li><a href=""></a>ABOUT</li>
-  <li><a href=""></a>TRAINING</li>
-  <li><a href=""></a>EVENTS</li>
-  <!--<svg class="small"><use xlink:href="#icon_login"></use></svg>-->
+  <li><a href=""></a>link</li>
+  <li><a href=""></a>link</li>
+  <li><a href=""></a>link</li>
 </ul>
 
 <!------------------------------------- javascript ------------------------------------->

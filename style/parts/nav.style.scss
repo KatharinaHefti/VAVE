@@ -4,11 +4,18 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  top: 0;
+  z-index: 101;
 }
 
 .brand{
   height: 30px;
   display: flex;
+}
+
+#menuIcon{
+  cursor: pointer;
 }
 
 /* * * * * * * * * * * * * * * * * * * * dropdown menu * * * * * * * * * * * * * * * * * * * */
@@ -17,8 +24,10 @@ nav{
 .waveBg{
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: 100;
   animation-duration: 1s;
+  width: 100vw;
+  overflow: hidden;
 } 
 
 // navigation background wave toggle 
@@ -42,14 +51,20 @@ nav{
 
 .hiddenLinks{
   display: none;
-  text-align: center;
-  padding: 3em 18.5em;
+  position: relative;
+  z-index: 101;
+  padding: 3em 10em;
 }
 
 li{
   display: flex;
   justify-content: flex-end;
+  font-weight: 600;
+  color: #fff;
+  margin: 1em;
+  cursor: pointer;
 }
+
 .showLinks{
   display: block;
 }
