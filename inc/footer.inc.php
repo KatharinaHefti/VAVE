@@ -10,7 +10,8 @@
 		<p class="paint-white">Badenerstrasse 68</p>
 		<p class="paint-white">CH-8004 Zürich</p>
 		<p class="paint-white">Email: bjjsurfcamp@yahoo.com</p>
-		<p class="paint-white">Phone: +41 79 2087808</p>
+    <p class="paint-white">Phone: +41 79 2087808</p>
+  </div>
 
   <!-- second column Links -->
   <div class="box">
