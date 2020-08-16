@@ -26,8 +26,8 @@ nav{
   top: 0;
   z-index: 100;
   animation-duration: 1s;
-  width: 100vw;
   overflow: hidden;
+  margin-top: -145%;
 } 
 
 // navigation background wave toggle 
@@ -40,10 +40,10 @@ nav{
 // navigation background wave animation
 @keyframes slideDown {
   from {
-    width: 100%;
+    margin-top: -145%;
   }
   to {
-    width: 600%;
+    margin-top: -100%;
   }
 }
 
