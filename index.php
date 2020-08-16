@@ -1,5 +1,3 @@
-
-<link rel="stylesheet" href="style/style.css">
 <?php 
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
@@ -44,7 +42,6 @@ $LocationPragraph = 'Lead text for your location. Describe the room you are in. 
 include ("./inc/location.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * footer * * * * * * * * * * * * * * * * * * * */
-
 
 include ("./inc/footer.inc.php"); 
 ?>

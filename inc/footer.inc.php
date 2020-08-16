@@ -6,12 +6,11 @@
     <br>
     <h2 class="paint-white">VAVE</h2>    
     <br>
-    <p class="paint-white">Valeria Verzar <br>
-          Badenerstr. 68<br>
-          CH-8004 Zürich<br>
-          Email: v.verzar@yahoo.com<br>
-          Tel: 000 000 00 00</p> 
-  </div>
+		<p class="paint-white">Valeria Verzar</p>
+		<p class="paint-white">Badenerstrasse 68</p>
+		<p class="paint-white">CH-8004 Zürich</p>
+		<p class="paint-white">Email: bjjsurfcamp@yahoo.com</p>
+		<p class="paint-white">Phone: +41 79 2087808</p>
 
   <!-- second column Links -->
   <div class="box">
@@ -19,7 +18,7 @@
         <a href="me.php">About</a></br>
         <a href="training.php">Training</a></br>
         <a href="impressum.php">Impressum</a></br>
-        <a href="terms.php">Terms & Condition</a>
+        <a href="/terms.php">Terms & Condition</a>
     </p>
   </div>
 
