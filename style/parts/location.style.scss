@@ -10,3 +10,9 @@
   // height: 100%;
 }
 
+// media 800 px
+@media screen and (max-width: 800px) {
+  .location{
+    padding: 2em 2em;
+  }
+}

@@ -6,4 +6,10 @@
   position: relative;
   z-index: -2;
 }
+
+@media screen and (max-width: 800px) {
+  .location {
+    padding: 2em 2em;
+  }
+}
 /*# sourceMappingURL=location.style.css.map */

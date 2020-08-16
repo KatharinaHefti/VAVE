@@ -3,18 +3,17 @@
   background: #4179b6;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(19%, #4179b6), color-stop(63%, #54b5e3), to(#95cedb));
   background: linear-gradient(0deg, #4179b6 19%, #54b5e3 63%, #95cedb 100%);
-  width: 100vw;
 }
 
 .flexer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 2em;
 }
 /*# sourceMappingURL=gallery.style.css.map */

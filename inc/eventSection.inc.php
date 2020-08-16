@@ -1,5 +1,6 @@
 <section class="event">
 
+	<!-- flyer event -->
 	<div>
 		<img src="../img/event/flyer/VAVE-Flyer.png" alt="Flyer event">
 	</div>
