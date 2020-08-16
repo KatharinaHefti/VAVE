@@ -33,7 +33,6 @@ nav {
   z-index: 100;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  overflow: hidden;
   margin-top: -145%;
 }
 
@@ -88,9 +87,34 @@ li {
   display: block;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
   nav {
     padding: 2em 2em;
+  }
+  .waveBg {
+    padding: 2em 2em;
+    background: #57b5e3;
+    background: -webkit-gradient(linear, left top, right top, color-stop(6%, #57b5e3), color-stop(58%, #99cccc));
+    background: linear-gradient(90deg, #57b5e3 6%, #99cccc 58%);
+  }
+  .hiddenLinks {
+    padding: 2em;
+  }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -145%;
+    }
+    to {
+      margin-top: -30%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -145%;
+    }
+    to {
+      margin-top: -30%;
+    }
   }
 }
 /*# sourceMappingURL=nav.style.css.map */

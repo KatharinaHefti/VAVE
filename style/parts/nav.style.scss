@@ -26,7 +26,6 @@ nav{
   top: 0;
   z-index: 100;
   animation-duration: 1s;
-  overflow: hidden;
   margin-top: -145%;
 } 
 
@@ -69,9 +68,26 @@ li{
   display: block;
 }
 
-// media 800 px
-@media screen and (max-width: 800px) {
+// media 1200 px
+@media screen and (max-width: 1200px) {
   nav{
     padding: 2em 2em;
   }
+  .waveBg{
+    padding: 2em 2em;
+    background: rgb(87,181,227);
+    background: linear-gradient(90deg, rgba(87,181,227,1) 6%, rgba(153,204,204,1) 58%);
+  }
+  .hiddenLinks{
+    padding: 2em;
+  } 
+  // navigation background wave animation
+  @keyframes slideDown {
+  from {
+    margin-top: -145%;
+  }
+  to {
+    margin-top: -30%;
+  }
+}
 }
