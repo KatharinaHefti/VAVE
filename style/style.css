@@ -6,6 +6,7 @@
 /* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
 @import url("./elements/icon.style.css");
 @import url("./elements/button.style.css");
+@import url("./elements/picture.style.css");
 /* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
 @import url("./parts/grid.style.css");
 /* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */

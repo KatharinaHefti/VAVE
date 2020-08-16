@@ -11,9 +11,9 @@
 
 <!-- dropdown Menu -->
 <ul class="hiddenLinks">
-  <li><a href=""></a>ABOUT</li>
-  <li><a href=""></a>TRAINING</li>
-  <li><a href=""></a>EVENTS</li>
+  <li><a href="about.php">ABOUT</a></li>
+  <li><a href="training.php">TRAINING</a></li>
+  <li><a href="events.php">EVENTS</a></li>
   <!--<svg class="small"><use xlink:href="#icon_login"></use></svg>-->
 </ul>
 

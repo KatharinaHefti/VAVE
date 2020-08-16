@@ -16,9 +16,9 @@
   <!-- second column Links -->
   <div class="box">
     <p>
-        <a href="me.php">About</a></br>
+        <a href="about.php">About</a></br>
         <a href="training.php">Training</a></br>
-        <a href="impressum.php">Impressum</a></br>
+        <a href="events.php">Events</a></br>
         <a href="/terms.php">Terms & Condition</a>
     </p>
   </div>
