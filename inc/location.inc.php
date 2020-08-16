@@ -14,7 +14,7 @@
     <svg class="hugeIcon">
         <use xlink:href="#icon_location"></use>
       </svg>
-    <img class="hugeIcon" src="../img/shell.svg" alt="shell">
+    <img class="hugeIcon" src="../img/location/valeria.png" alt="valeria">
   </div>
 
 </section>
