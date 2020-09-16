@@ -1,3 +1,18 @@
+<?php
+  // database connection
+  require_once("./config/config.inc.php");
+
+  // import variables form database contact
+  $sql = "SELECT name, street, city, email, phone FROM contact";
+  foreach ($pdo->query($sql) as $row) {
+    $contactName = $row["name"];
+    $contactStreet = $row["street"];
+    $contactCity = $row["city"];
+    $contactEmail = $row["email"];
+    $contactPhone = $row["phone"];
+  }
+?>
+
 <footer>
 
   <!-- first column Contact -->
@@ -6,11 +21,11 @@
     <br>
     <h2 class="paint-white">VAVE</h2>    
     <br>
-		<p class="paint-white">Valeria Verzar</p>
-		<p class="paint-white">Badenerstrasse 68</p>
-		<p class="paint-white">CH-8004 Zürich</p>
-		<p class="paint-white">Email: bjjsurfcamp@yahoo.com</p>
-    <p class="paint-white">Phone: +41 79 2087808</p>
+		<p class="paint-white"><?php echo $contactName ?></p>
+		<p class="paint-white"><?php echo $contactStreet ?></p>
+		<p class="paint-white"><?php echo $contactCity ?></p>
+		<p class="paint-white">Email: <?php echo $contactEmail ?></p>
+    <p class="paint-white">Phone: <?php echo $contactPhone ?></p>
   </div>
 
   <!-- second column Links -->

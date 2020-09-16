@@ -12,9 +12,9 @@
 <!-- dropdown Menu -->
 <ul class="hiddenLinks">
   <li><a href="about.php">ABOUT</a></li>
-  <li><a href="training.php">TRAINING</a></li>
+  <li><a href="training.php">TRAINING</a></li><br>
   <li><a href="events.php">EVENTS</a></li>
-  <!--<svg class="small"><use xlink:href="#icon_login"></use></svg>-->
+  <li><a href="login.php">LOGIN</a></li>
 </ul>
 
 <!------------------------------------- javascript ------------------------------------->
