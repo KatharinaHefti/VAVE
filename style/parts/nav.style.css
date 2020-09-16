@@ -1,0 +1,120 @@
+nav {
+  height: 60px;
+  padding: 3em 10em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  top: 0;
+  z-index: 101;
+}
+
+.brand {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#menuIcon {
+  cursor: pointer;
+}
+
+/* * * * * * * * * * * * * * * * * * * * dropdown menu * * * * * * * * * * * * * * * * * * * */
+.waveBg {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  margin-top: -145%;
+}
+
+.waveBgDown {
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-name: slideDown;
+          animation-name: slideDown;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideDown {
+  from {
+    margin-top: -145%;
+  }
+  to {
+    margin-top: -100%;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    margin-top: -145%;
+  }
+  to {
+    margin-top: -100%;
+  }
+}
+
+.hiddenLinks {
+  display: none;
+  position: relative;
+  z-index: 101;
+  padding: 3em 10em;
+}
+
+li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-weight: 600;
+  color: #fff;
+  margin: 1em;
+  cursor: pointer;
+}
+
+.showLinks {
+  display: block;
+}
+
+@media screen and (max-width: 1200px) {
+  nav {
+    padding: 2em 2em;
+  }
+  .waveBg {
+    padding: 2em 2em;
+    background: #57b5e3;
+    background: -webkit-gradient(linear, left top, right top, color-stop(6%, #57b5e3), color-stop(58%, #99cccc));
+    background: linear-gradient(90deg, #57b5e3 6%, #99cccc 58%);
+  }
+  .hiddenLinks {
+    padding: 2em;
+  }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -145%;
+    }
+    to {
+      margin-top: -30%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -145%;
+    }
+    to {
+      margin-top: -30%;
+    }
+  }
+}
+/*# sourceMappingURL=nav.style.css.map */

@@ -1,0 +1,47 @@
+.small {
+  height: 60px;
+  width: 60px;
+}
+
+.iconBig {
+  max-width: 100px;
+}
+
+.hugeIcon {
+  max-width: 300px;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  margin: 1em;
+}
+
+.circle:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+@media screen and (max-width: 800px) {
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+  .iconBig {
+    max-width: 60px;
+  }
+}
+/*# sourceMappingURL=icon.style.css.map */

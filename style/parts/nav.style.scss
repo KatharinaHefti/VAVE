@@ -1,0 +1,94 @@
+nav{
+  height: 60px;
+  padding: 3em 10em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 0;
+  z-index: 101;
+}
+
+.brand{
+  height: 30px;
+  display: flex;
+}
+
+#menuIcon{
+  cursor: pointer;
+}
+
+/* * * * * * * * * * * * * * * * * * * * dropdown menu * * * * * * * * * * * * * * * * * * * */
+
+// navigation background wave
+.waveBg{
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  animation-duration: 1s;
+  margin-top: -145%;
+} 
+
+// navigation background wave toggle 
+.waveBgDown{
+  animation-duration: 3s;
+  animation-name: slideDown;
+  animation-fill-mode: forwards;
+} 
+
+// navigation background wave animation
+@keyframes slideDown {
+  from {
+    margin-top: -145%;
+  }
+  to {
+    margin-top: -100%;
+  }
+}
+
+// navigation dropdown menu
+
+.hiddenLinks{
+  display: none;
+  position: relative;
+  z-index: 101;
+  padding: 3em 10em;
+}
+
+li{
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 600;
+  color: #fff;
+  margin: 1em;
+  cursor: pointer;
+}
+
+.showLinks{
+  display: block;
+}
+
+// media 1200 px
+@media screen and (max-width: 1200px) {
+  nav{
+    padding: 2em 2em;
+  }
+  .waveBg{
+    padding: 2em 2em;
+    background: rgb(87,181,227);
+    background: linear-gradient(90deg, rgba(87,181,227,1) 6%, rgba(153,204,204,1) 58%);
+  }
+  .hiddenLinks{
+    padding: 2em;
+  } 
+  
+  // navigation background wave animation
+  @keyframes slideDown {
+  from {
+    margin-top: -145%;
+  }
+  to {
+    margin-top: -30%;
+  }
+}
+}
