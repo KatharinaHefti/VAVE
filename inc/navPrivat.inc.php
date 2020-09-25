@@ -14,7 +14,7 @@
   <li><a class="paint-turquois" href="edit.php">EDIT</a></li>
   <li><a class="paint-turquois" href="#">EVENTS</a></li><br>
   <li><a class="paint-turquois" href="#">GALLERY</a></li>
-  <li><a class="paint-turquois" href="#">LOGOUT</a></li>
+  <li><a class="paint-turquois" href="logout.php">LOGOUT</a></li>
 </ul>
 
 <!------------------------------------- javascript ------------------------------------->

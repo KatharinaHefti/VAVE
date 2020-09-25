@@ -25,6 +25,12 @@
 
     if ($user && password_verify($_POST['password'], $user['password']))
     {
+      // save security token into database
+      $insert = $pdo->prepare("INSERT INTO security (userID, identifier, token) VALUES (:userID, :identifier, :token)");
+			$insert->execute(array('userID' => $user['id'], 'identifier' => $identifier, 'token' => sha1($token)));
+			setcookie("identifier",$identifier,time()+(3600*24*365)); //Valid for 1 year
+      setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
+      
         // echo "valid!";
         header("location: privat.php");
         exit;
