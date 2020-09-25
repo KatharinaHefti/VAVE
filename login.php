@@ -59,12 +59,10 @@
   <link rel="stylesheet" href="style/elements/form.style.css">
   <link rel="stylesheet" href="style/elements/icon.style.css">
   <link rel="stylesheet" href="style/cd/typo.style.css">
-
 </head>
+
 <body class="dark">
   <div class="center">
-  <!-- output -->
-  <div class="output"><?php echo $output;?></div>
     <form action="login.php" method="post" novalidate>
     <!-- picture -->
     <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
@@ -77,11 +75,15 @@
       <label for="password">Password</label><br>
       <input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
 
+      <!-- output -->
+      <br>
+      <p class="paint-sky" ><?php echo $output;?></p>
+
       <!-- submit -->
       <button type="submit" name="submit">login</button>
 
       <!-- register -->
-      <a class="paint-turquois" href="register.php">register</a><br>
+      <a class="paint-haze" href="register.php">register</a><br>
     </form>
   </div>
 </body>
