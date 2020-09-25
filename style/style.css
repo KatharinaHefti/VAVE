@@ -7,11 +7,13 @@
 @import url("./elements/icon.style.css");
 @import url("./elements/button.style.css");
 @import url("./elements/picture.style.css");
+@import url("./elements/form.style.css");
 /* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
 @import url("./parts/grid.style.css");
 /* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
 @import url("./parts/nav.style.css");
 @import url("./parts/main.style.css");
+@import url("./parts/privat.style.css");
 @import url("./parts/gallery.style.css");
 @import url("./parts/event.style.css");
 @import url("./parts/location.style.css");

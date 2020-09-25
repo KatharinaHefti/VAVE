@@ -1,0 +1,26 @@
+
+.output{
+    width: 400px;
+    padding: 3em;
+    margin-bottom: 3em;
+  }
+  
+  .center{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding: 3em;
+  }
+  
+  form{
+    background: pink;
+    width: 400px;
+    padding: 3em;
+    border-radius: 30px;
+  }
+  
+  input{
+    width: 100%;
+  }
+  

@@ -4,6 +4,9 @@
   // database connection
   require_once("./config/config.inc.php");
 
+  include ("./inc/header.inc.php"); 
+  include ("./inc/nav.inc.php"); 
+
   // include class UserService to validate form inputs
   require("class/UserService.class.php");
   $userService = new UserService();
@@ -49,26 +52,50 @@
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="de">
-<head>
-	<meta charset="utf-8" />
-	<title>Login form</title>
-	<link rel="stylesheet" href="../../generalstyles.css">
-</head>
-<body>
-<?php
-  echo $output;
-?>
+<html>
+
+<style>
+
+.output{
+  width: 400px;
+  padding: 3em;
+  margin-bottom: 3em;
+}
+
+.center{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  padding: 3em;
+}
+
+form{
+  background: pink;
+  width: 400px;
+  padding: 3em;
+  border-radius: 30px;
+}
+
+input{
+  width: 100%;
+}
+
+</style>
+  <div class="center">
+
+  <!-- output -->
+  <div class="output"><?php echo $output;?></div>
+
 	<form action="login.php" method="post" novalidate>
-    <h2>login</h2>
+    <h2>login</h2><br>
 
 		<!-- email -->
-		<label for="email">E-Mail Adresse</label>
+		<label for="email">E-Mail Adresse</label><br>
 		<input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
-
+    <br>
     <!-- password -->
-		<label for="password">Password</label>
+		<label for="password">Password</label><br>
 		<input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
 
     <!-- submit -->
@@ -77,6 +104,6 @@
     <!-- register -->
     <a href="register.php">register</a><br>
 	</form>
-
+  </div>
 </body>
 </html>

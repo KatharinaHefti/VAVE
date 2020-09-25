@@ -13,17 +13,31 @@ require_once("./inc/functions.inc.php");
 
 // is user logged in?
 // $user = check_user();
+
+/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+
+// Main Text Variables
+$MainChapterTitle = 'Privat';
+$MainHeadline = 'Welcome to your private Space';
+$MainPragraph = 'Here you can edit your page. ';
+$MainLink = 'logout.php';
+$MainButton = 'logout';
+$MainPicture = '../img/shell.svg';
+
+include ("./inc/main.inc.php"); 
+
 ?>
 
-<html>
+
+
 <style>
 .dark{
-  background-color: #B4DEE7;
-}
-
+    background-color: #B4DEE7;
+  }
 </style>
+<html>
 <body class="dark">
-    <h2>privat</h2>
+  
     
 </body>
 </html>
