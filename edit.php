@@ -28,7 +28,7 @@ $MainPicture = '../img/circle/octopus.svg';
 include ("./inc/main.inc.php"); 
 
 // Contact Variables
-$name = $street = $city = $email = $phone = $output = "";
+$name = $street = $city = $email = $phone = $output = $picture = "";
 
 // if form sent
 if(isset($_POST['submit'])){
@@ -38,10 +38,11 @@ if(isset($_POST['submit'])){
   $email = $_POST['email'];
   $phone = $_POST['phone'];
 
-  $stmt = $pdo->prepare("INSERT INTO contact ( name, street, city, email, phone) VALUES (:name, :street, :city, :email, :phone)");
-  $result = $stmt->execute(array('name' => $name, 'street' => $street, 'city' => $city, 'email' => $email, 'phone' => $phone));
-  $stmt->execute();
+  // upload updated contact information
+  $stmt = $pdo->prepare("UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone  WHERE id = :id");
+  $stmt->execute(array('id' => 1, 'name' => $name, 'street' => $street, 'city' => $city, 'email' => $email, 'phone' => $phone));
 
+  $picture = '<img class="hugeIcon" src="img/circle/thumbsup.svg" alt="">';
 }
 ?>
 
@@ -91,11 +92,7 @@ if(isset($_POST['submit'])){
         <button type="submit" name="submit">update contact</button>
       </div>
     </form>
+    <?php echo $picture; ?>
   </section>
-
-
-
-
- 
 </body>
 </html>
