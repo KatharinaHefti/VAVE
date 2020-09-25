@@ -15,7 +15,7 @@
   if(isset($_POST['submit'])){
 
     // validate input with class User Service
-    $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","is not a valid Email");
+    $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not in Database");
     $passwordValue =  $userService -> validateInput($_POST['password'],true,"password","password","Is not valid. Must contain at least 8 characters, 1 lowercase letter, 1 uppercase letter and 1 number");
 
     // check if user email is in databasex
