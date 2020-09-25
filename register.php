@@ -1,11 +1,14 @@
 <?php
+  session_start();
 
   // database connection
   require_once("./config/config.inc.php");
 
-  // include class UserService to validate form inputs
   require("class/UserService.class.php");
   $userService = new UserService();
+
+  // functions
+  require_once("./inc/functions.inc.php");
 
   // variables
   $nameValue = $familynameValue = $emailValue = $passwordValue = " ";
@@ -63,43 +66,52 @@
     $passwordValue = "";
   }
 
+    /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
+    include ("./inc/header.inc.php"); 
+    include ("./inc/nav.inc.php"); 
+  
+    /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+  
 ?>
-<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8" />
-	<title>register form</title>
-	<link rel="stylesheet" href="../../generalstyles.css">
-</head>
-<body>
-<?php
-echo $output;
-?>
-	<form action="register.php" method="post" novalidate>
-    <h2>register</h2>
+    <link rel="stylesheet" href="style/parts/privat.style.css">
+    <link rel="stylesheet" href="style/elements/form.style.css">
+    <link rel="stylesheet" href="style/elements/icon.style.css">
+    <link rel="stylesheet" href="style/cd/typo.style.css">
+  </head>
+  <body class="dark">
+    <div class="center">
+      <form action="register.php" method="post" novalidate>
+      <!-- picture -->
+      <div class="center"><img class="circle" src="img/circle/person.svg" alt=""></div>   
+      <h2>register</h2><br>
+      <br>
+      <!-- name -->
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="<?=$nameValue?>"><br>
+      <br>
+      <!-- familyname -->
+      <label for="familyname">Familyname</label>
+      <input type="text" id="familyname" name="familyname" value="<?=$familynameValue?>"><br>
+      <br>
+      <!-- email -->
+      <label for="email">E-Mail Adresse</label>
+      <input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
+      <br>
+      <!-- password -->
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
+      <!-- output -->
+      <br>
+      <p class="paint-turquois"><?php echo $output;?></p>
+      <!-- submit -->
+      <button type="submit" name="submit">register</button>
 
-    <!-- name -->
-		<label for="name">Name</label>
-		<input type="text" id="name" name="name" value="<?=$nameValue?>"><br>
-		
-    <!-- familyname -->
-    <label for="familyname">Familyname</label>
-		<input type="text" id="familyname" name="familyname" value="<?=$familynameValue?>"><br>
-
-		<!-- email -->
-		<label for="email">E-Mail Adresse</label>
-		<input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
-	
-    <!-- password -->
-		<label for="password">Password</label>
-		<input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
-	
-    <!-- submit -->
-		<button type="submit" name="submit">register</button>
-
-    <!-- login -->
-    <a href="login.php">login</a><br>
-	</form>
-
+      <!-- login -->
+      <a href="login.php">login</a><br>
+    </form>
+  </div>
 </body>
 </html>

@@ -1,9 +1,5 @@
 <?php
 session_start();
-// print_r($_SESSION);
-
-include ("./inc/header.inc.php"); 
-include ("./inc/navPrivat.inc.php"); 
 
 // database connection
 require_once("./config/config.inc.php");
@@ -12,7 +8,12 @@ require_once("./config/config.inc.php");
 require_once("./inc/functions.inc.php");
 
 // is user logged in?
-// $user = check_user();
+$user = check_user();
+
+/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+
+include ("./inc/header.inc.php"); 
+include ("./inc/navPrivat.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
@@ -25,9 +26,9 @@ $MainButton = 'logout';
 $MainPicture = '../img/circle/horse.svg';
 
 include ("./inc/main.inc.php"); 
+
+/* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
 ?>
-
-
 <head>
   <link rel="stylesheet" href="style/parts/privat.style.css">
 </head>

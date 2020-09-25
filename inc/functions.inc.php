@@ -43,7 +43,7 @@
 	}
 
 	$statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-	$result = $statement->execute(array('id' => $_SESSION['userid']));
+	$result = $statement->execute(array('id' => $_SESSION['userID']));
 	$user = $statement->fetch();
 	return $user;
 }

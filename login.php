@@ -30,6 +30,8 @@
 			$insert->execute(array('userID' => $user['id'], 'identifier' => $identifier, 'token' => sha1($token)));
 			setcookie("identifier",$identifier,time()+(3600*24*365)); //Valid for 1 year
       setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
+
+      $_SESSION["userID"] = $user["id"];
       
         // echo "valid!";
         header("location: privat.php");
@@ -48,11 +50,13 @@
       $passwordValue = "";
     }
 
+    /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+
     include ("./inc/header.inc.php"); 
     include ("./inc/nav.inc.php"); 
   
+    /* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
 ?>
-
 <html>
 <head>
   <link rel="stylesheet" href="style/parts/privat.style.css">
@@ -61,30 +65,30 @@
   <link rel="stylesheet" href="style/cd/typo.style.css">
 </head>
 
-<body class="dark">
-  <div class="center">
-    <form action="login.php" method="post" novalidate>
-    <!-- picture -->
-    <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
-      <h2>login</h2><br>
-      <!-- email -->
-      <label for="email">E-Mail Adresse</label><br>
-      <input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
-      <br>
-      <!-- password -->
-      <label for="password">Password</label><br>
-      <input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
+  <body class="dark">
+    <div class="center">
+      <form action="login.php" method="post" novalidate>
+      <!-- picture -->
+      <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
+        <h2>login</h2><br>
+        <!-- email -->
+        <label for="email">E-Mail Adresse</label><br>
+        <input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
+        <br>
+        <!-- password -->
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
 
-      <!-- output -->
-      <br>
-      <p class="paint-sky" ><?php echo $output;?></p>
+        <!-- output -->
+        <br>
+        <p class="paint-turquois"><?php echo $output;?></p>
 
-      <!-- submit -->
-      <button type="submit" name="submit">login</button>
+        <!-- submit -->
+        <button type="submit" name="submit">login</button>
 
-      <!-- register -->
-      <a class="paint-haze" href="register.php">register</a><br>
-    </form>
-  </div>
-</body>
+        <!-- register -->
+        <a class="paint-turquois" href="register.php">register</a><br>
+      </form>
+    </div>
+  </body>
 </html>
