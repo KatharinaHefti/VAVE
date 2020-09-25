@@ -22,19 +22,15 @@ $MainHeadline = 'Welcome to your private Space';
 $MainPragraph = 'Here you can edit your page. ';
 $MainLink = 'logout.php';
 $MainButton = 'logout';
-$MainPicture = '../img/shell.svg';
+$MainPicture = '../img/circle/horse.svg';
 
 include ("./inc/main.inc.php"); 
-
 ?>
 
 
-
-<style>
-.dark{
-    background-color: #B4DEE7;
-  }
-</style>
+<head>
+  <link rel="stylesheet" href="style/parts/privat.style.css">
+</head>
 <html>
 <body class="dark">
   

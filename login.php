@@ -1,11 +1,8 @@
 <?php
   session_start();
-
+  
   // database connection
   require_once("./config/config.inc.php");
-
-  include ("./inc/header.inc.php"); 
-  include ("./inc/nav.inc.php"); 
 
   // include class UserService to validate form inputs
   require("class/UserService.class.php");
@@ -50,60 +47,42 @@
       $emailValue = "";
       $passwordValue = "";
     }
+
+    include ("./inc/header.inc.php"); 
+    include ("./inc/nav.inc.php"); 
+  
 ?>
 
 <html>
+<head>
+  <link rel="stylesheet" href="style/parts/privat.style.css">
+  <link rel="stylesheet" href="style/elements/form.style.css">
+  <link rel="stylesheet" href="style/elements/icon.style.css">
+  <link rel="stylesheet" href="style/cd/typo.style.css">
 
-<style>
-
-.output{
-  width: 400px;
-  padding: 3em;
-  margin-bottom: 3em;
-}
-
-.center{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center;
-  padding: 3em;
-}
-
-form{
-  background: pink;
-  width: 400px;
-  padding: 3em;
-  border-radius: 30px;
-}
-
-input{
-  width: 100%;
-}
-
-</style>
+</head>
+<body class="dark">
   <div class="center">
-
   <!-- output -->
   <div class="output"><?php echo $output;?></div>
+    <form action="login.php" method="post" novalidate>
+    <!-- picture -->
+    <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
+      <h2>login</h2><br>
+      <!-- email -->
+      <label for="email">E-Mail Adresse</label><br>
+      <input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
+      <br>
+      <!-- password -->
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
 
-	<form action="login.php" method="post" novalidate>
-    <h2>login</h2><br>
+      <!-- submit -->
+      <button type="submit" name="submit">login</button>
 
-		<!-- email -->
-		<label for="email">E-Mail Adresse</label><br>
-		<input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
-    <br>
-    <!-- password -->
-		<label for="password">Password</label><br>
-		<input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
-
-    <!-- submit -->
-		<button type="submit" name="submit">login</button>
-
-    <!-- register -->
-    <a href="register.php">register</a><br>
-	</form>
+      <!-- register -->
+      <a class="paint-turquois" href="register.php">register</a><br>
+    </form>
   </div>
 </body>
 </html>

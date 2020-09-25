@@ -13,9 +13,9 @@
 /* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
 @import url("./parts/nav.style.css");
 @import url("./parts/main.style.css");
-@import url("./parts/privat.style.css");
 @import url("./parts/gallery.style.css");
 @import url("./parts/event.style.css");
 @import url("./parts/location.style.css");
 @import url("./parts/footer.style.css");
+@import url("./parts/privat.style.css");
 /*# sourceMappingURL=style.css.map */
