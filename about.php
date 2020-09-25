@@ -7,12 +7,12 @@
 
   /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
-  // import variables form database about
-  $sql = "SELECT chapter, titel, text FROM about ORDER BY id ASC LIMIT 1";
+// import variables form database contact
+  $sql = "SELECT chapter, titel, text FROM about";
   foreach ($pdo->query($sql) as $row) {
-    $MainChapterTitle = $row["chapter"];
-    $MainHeadline = $row["titel"];
-    $MainPragraph = $row["text"];
+  $MainChapterTitle = $row["chapter"];
+  $MainHeadline = $row["titel"];
+  $MainPragraph = $row["text"];
   }
 
   // Main Text Variables not changeble

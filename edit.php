@@ -31,7 +31,7 @@ include ("./inc/main.inc.php");
 $name = $street = $city = $email = $phone = $output = $picture = "";
 
 // if form sent
-if(isset($_POST['submit'])){
+if(isset($_POST['updateContact'])){
   $name = $_POST['name'];
   $city = $_POST['street'];
   $street = $_POST['city'];
@@ -89,7 +89,7 @@ if(isset($_POST['submit'])){
 
       <!-- submit -->
       <div class="center">
-        <button type="submit" name="submit">update contact</button>
+        <button type="submit" name="updateContact">update contact</button>
       </div>
     </form>
     <?php echo $picture; ?>
