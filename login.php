@@ -3,33 +3,74 @@
 
   // database connection
   require_once("./config/config.inc.php");
-  
+
+  // include class UserService to validate form inputs
+  require("class/UserService.class.php");
+  $userService = new UserService();
+
   // variables
-  $emailValue = " ";
+  $emailValue = $passwordValue =  " ";
+
+  // if form sent
+  if(isset($_POST['submit'])){
+
+    // validate input with class User Service
+    $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","is not a valid Email");
+    $passwordValue =  $userService -> validateInput($_POST['password'],true,"password","password","Is not valid. Must contain at least 8 characters, 1 lowercase letter, 1 uppercase letter and 1 number");
+
+    // check if user email is in databasex
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->execute([$_POST['email']]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($_POST['password'], $user['password']))
+    {
+        // echo "valid!";
+        header("location: privat.php");
+        exit;
+    } else {
+        $output = "<div class=\"feedback_negativ\">";
+        foreach ($userService -> feedbackArray as $out) {
+          $output .=  $out."<br>";
+        }
+        $output .= "</div>\n";
+      }     
+    }
+    else {
+      $output = "";
+      $emailValue = "";
+      $passwordValue = "";
+    }
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8" />
+	<title>Login form</title>
+	<link rel="stylesheet" href="../../generalstyles.css">
+</head>
+<body>
+<?php
+  echo $output;
+?>
+	<form action="login.php" method="post" novalidate>
+    <h2>login</h2>
 
-  <h2>login</h2>
-
-  <form action="post">
-    <!-- email -->
-    <label for="inputEmail">Email</label>
-    <input type="email" name="email" id="inputEmail" class="form-control"  value="<?php echo $emailValue; ?>" required autofocus><br>
+		<!-- email -->
+		<label for="email">E-Mail Adresse</label>
+		<input type="email" id="email" name="email" value="<?=$emailValue?>"><br>
 
     <!-- password -->
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control"  required><br>
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password" value="<?=$passwordValue?>"><br>
 
     <!-- submit -->
-    <button type="submit">Sign in</button><br>
-
-    <!-- forgot password? -->
-    <a href="forgotpassword.php">Forgot password?</a><br>
+		<button type="submit" name="submit">login</button>
 
     <!-- register -->
-    <a href="register.php">register</a>
+    <a href="register.php">register</a><br>
+	</form>
 
-  </form>
-
+</body>
 </html>

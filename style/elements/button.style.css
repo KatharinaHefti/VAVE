@@ -1,0 +1,30 @@
+/* reset */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/reset.css);
+/* * * * * * * * * * * * * * * * * * * * corporate design * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/cd/typo.style.css);
+/* * * * * * * * * * * * * * * * * * * * elements * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/icon.style.css);
+@import url(/Users/katharina/Git/VAVE/VAVE/style/elements/button.style.css);
+/* * * * * * * * * * * * * * * * * * * * grid * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/grid.style.css);
+/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
+@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/nav.style.css);
+@import url(/Users/katharina/Git/VAVE/VAVE/style/parts/footer.style.css);
+button {
+  border-radius: 50px;
+  width: 200px;
+  padding: 1em 2em;
+  background: #7079B6;
+  border: none;
+  margin: 2em 0;
+  color: #FFF;
+  margin-right: 2em;
+  cursor: pointer;
+  margin-left: -5px;
+}
+
+button:hover {
+  background: #8077B7;
+  border-radius: 50px;
+}
+/*# sourceMappingURL=button.style.css.map */

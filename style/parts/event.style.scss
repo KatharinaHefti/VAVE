@@ -1,0 +1,30 @@
+.event{
+	padding: 10em 10em;
+}
+
+.highlight{
+	display: flex;
+	flex-direction: row;
+	max-width: 800px;
+	align-items: flex-end;
+}
+
+.highlight h4{
+	margin: 1em;
+}
+
+.flexBtn{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1em;
+	width: 400px;
+}
+
+// media 800 px
+@media screen and (max-width: 800px) {
+  .event{
+    padding: 2em 2em;
+  }
+}
