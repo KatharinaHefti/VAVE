@@ -18,6 +18,14 @@ main {
   grid-gap: 2em;
 }
 
+.camp {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 2fr;
+      grid-template-columns: 2fr 2fr;
+  grid-gap: 2em;
+}
+
 .location {
   display: -ms-grid;
   display: grid;
@@ -40,6 +48,10 @@ footer {
         grid-template-columns: repeat(1, 1fr);
   }
   .event {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .camp {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }

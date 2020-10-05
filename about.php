@@ -18,7 +18,7 @@
   // Main Text Variables not changeble
   $MainLink = 'training.php';
   $MainButton = 'join a training';
-  $MainPicture = '../img/valeria/valeria.png';
+  $MainPicture = 'img/valeria/valeria.png';
 
   // include main template
   include ("./inc/main.inc.php"); 

@@ -1,0 +1,13 @@
+hr {
+  color: #7079B6;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.camp {
+  padding: 4em 10em;
+}
+/*# sourceMappingURL=camp.style.css.map */
