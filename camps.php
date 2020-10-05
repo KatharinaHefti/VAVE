@@ -4,7 +4,7 @@ include ("./inc/nav.inc.php");
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
 
-<img class="headerPic" src="img/camp/camp_header.jpg" alt="camp">
+<img class="headerPic" src="img/camp/tim-marshall-y74zvFZ5mSU-unsplash.jpg" alt="camp">
 
 <section class="gallery">
   <h4 class="paint-white">Camp</h4>

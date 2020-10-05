@@ -4,7 +4,7 @@ include ("./inc/nav.inc.php");
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
 
-<img class="headerPic" src="img/event/event_header.jpg" alt="valeria verzar">
+<img class="headerPic" src="img/training/training_header.jpg" alt="valeria verzar">
 
 <section class="gallery">
   <h4 class="paint-white">Training</h4>
