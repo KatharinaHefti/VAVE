@@ -1,17 +1,27 @@
 .location{
-  padding: 10em 10em;
-  background: rgb(65,121,182);
-	background: linear-gradient(0deg, rgba(65,121,182,1) 19%, rgba(84,181,227,1) 63%, rgba(149,206,219,1) 100%);
   position: relative;
-  z-index: -2;
-  // background-image: url("../../img/wave/wave3.svg");
-  // background-repeat: no-repeat;
-  // background-position: bottom;
-  // height: 100%;
+  height: 100%;
+  margin-bottom: -1em;
+  background-image: url('img/wave/waveFooter.svg');
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  z-index: 300;
 }
 
-// media 800 px
-@media screen and (max-width: 800px) {
+
+// media 1600 px
+@media screen and (max-width: 1400px) {
+  .location{
+    padding: 6em 10em;
+    background: rgb(65,121,182);
+    background: linear-gradient( rgba(95,138,194,1) 20%, rgba(102,204,255,1) 100%);
+    background-size: 120%;
+  }
+}
+
+// media 1600 px
+@media screen and (max-width: 900px) {
   .location{
     padding: 2em 2em;
   }

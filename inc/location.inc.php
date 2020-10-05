@@ -1,3 +1,7 @@
+<style><?php include "style/cd/typo.style.css" ?></style>
+<style><?php include "style/parts/location.style.css" ?></style>
+<style><?php include "style/parts/grid.style.css" ?></style>
+
 <section class="location">
 
   <!-- first column --> 
@@ -16,6 +20,7 @@
       </svg>
     <img class="hugeIcon" src="./img/location/location.png" alt="valeria">
   </div>
+
 
 </section>
 
