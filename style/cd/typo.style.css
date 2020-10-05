@@ -8,6 +8,11 @@ li {
   list-style: none;
 }
 
+button a {
+  color: #FFF;
+  text-decoration: none;
+}
+
 h1 {
   font-size: 2rem;
   color: #7079B6;
