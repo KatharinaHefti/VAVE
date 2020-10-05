@@ -1,3 +1,5 @@
+<style><?php include "style/cd/typo.style.css" ?></style>
+
 <main>
   <!-- first column -->
   <div>
@@ -6,8 +8,9 @@
     <h1><?php echo $MainHeadline?></h1>
     <br>
     <p><?php echo $MainPragraph?></p>
-    <button><a href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
+    <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
   </div>
+
 
   <!-- second column -->
   <div>
