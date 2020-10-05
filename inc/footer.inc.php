@@ -34,7 +34,7 @@
     <a class="paint-white" href="training.php">Training</a></br>
     <a class="paint-white" href="events.php">Events</a></br>
     <a class="paint-white" href="camps.php">Camps</a></br>
-    <a class="paint-white" href="/terms.php">Terms & Condition</a>
+    <a class="paint-white" href="terms.php">Terms & Condition</a>
   </div>
 
   <!-- third column social media -->

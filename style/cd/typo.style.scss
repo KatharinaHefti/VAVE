@@ -1,72 +1,60 @@
 /* Google Fonts */
-
-// PT Sans by ParaType 
-@import url(https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap); 
-
-
-// variables
-$bold: 600;
-$leading: 200%;
-$amethyst: #8077B7;
-$haze: #7079B6;
-$cornflower: #799ACC;
-$sky: #89CEF0;
-$turquois: #B4DEE7;
-$white: #FFF;
-
-// typo preset
-body{
+@import url(https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap);
+body {
   font-family: 'PT Sans Caption', sans-serif;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.buttonType{
-  color: $white;
+.buttonType {
+  color: #FFF;
   text-decoration: none;
   font-weight: 600;
 }
 
-h1{
+h1 {
   font-size: 2rem;
-  color: $haze;
+  color: #7079B6;
   max-width: 600px;
 }
 
-h2{
+h2 {
   font-size: 1.8rem;
-  color: $haze;
+  color: #7079B6;
   max-width: 600px;
 }
 
-h4{
-  color: $haze;
+h4 {
+  color: #7079B6;
   font-size: 1.2rem;
   max-width: 600px;
 }
 
-p{
+p {
   line-height: 200%;
   max-width: 600px;
 }
 
-strong{
+strong {
   max-width: 600px;
 }
-.paint-white{
-  color: $white;
+
+.paint-white {
+  color: #FFF;
+  text-decoration: none;
 }
 
-.paint-turquois{
-  color: $turquois;
+.paint-turquois {
+  color: #B4DEE7;
+  text-decoration: none;
 }
 
-.paint-haze{
-  color: $haze;
+.paint-haze {
+  color: #7079B6;
 }
 
-.paint-sky{
-  color: $sky;
+.paint-sky {
+  color: #89CEF0;
 }
