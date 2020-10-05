@@ -14,7 +14,10 @@
 ?>
 
 <style><?php include "style/cd/typo.style.css" ?></style>
-<footer>
+<style><?php include "style/parts/footer.style.css" ?></style>
+<style><?php include "style/parts/grid.style.css" ?></style>
+
+<footer class="footer">
   <!-- first column Contact -->
   <div class="box">
     <h4 class="paint-white">contact</h4>
@@ -58,6 +61,11 @@
         </svg> 
       </a>
     </div>
+
+
+
+
+
 </footer>
 
 </body>

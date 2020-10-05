@@ -42,7 +42,7 @@ main {
   grid-gap: 2em;
 }
 
-footer {
+.footer {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -67,7 +67,7 @@ footer {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
-  footer {
+  .footer {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }

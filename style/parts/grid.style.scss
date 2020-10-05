@@ -39,7 +39,7 @@ main {
   
 
 // footer grid proportions 1:1:1
-footer{
+.footer{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 2em;
@@ -60,7 +60,7 @@ footer{
   .location {
 		grid-template-columns: repeat(1, 1fr);
 	}
-	footer {
+	.footer {
 		grid-template-columns: repeat(1, 1fr);
 	}
 }
