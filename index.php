@@ -9,7 +9,7 @@ $MainHeadline = 'This is an inspirational sporty intro to your page lorem.';
 $MainPragraph = 'Try to finde one sentence or two to describe the concept of your page. Sports and camps describe a mood to make people feel whatever bla bla.';
 $MainLink = 'training.php';
 $MainButton = 'join a training';
-$MainPicture = '../img/shell.svg';
+$MainPicture = './img/circle/wave.svg';
 
 include ("./inc/main.inc.php"); 
 
