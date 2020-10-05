@@ -23,6 +23,13 @@ main {
 	grid-gap: 2em;
 }
 
+// gallery grid proportions 1:1
+.gallery {
+	display: grid;
+  	grid-template-columns: 1fr;
+	grid-gap: 2em;
+}
+
 // location grid proportions 1:1
 .location {
 	display: grid;

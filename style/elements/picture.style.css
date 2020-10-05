@@ -5,3 +5,10 @@
   width: 100vw;
 }
 /*# sourceMappingURL=picture.style.css.map */
+
+.backgroundPic {
+  margin-top: -2em;
+  position: relative;
+  z-index: -1;
+  width: 100vw;
+}

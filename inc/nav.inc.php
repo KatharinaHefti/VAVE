@@ -8,7 +8,7 @@
 </nav>
 
 <!-- menu wave background picture -->
-<img class="waveBg" src="./img/wave/wave.svg" alt="wave">
+<img class="waveBg" src="img/wave/wave.svg" alt="wave">
 
 <!-- dropdown Menu -->
 <ul class="hiddenLinks">
