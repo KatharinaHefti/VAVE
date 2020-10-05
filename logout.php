@@ -23,7 +23,7 @@ $MainHeadline = 'You have been successfully logged out of your private space.';
 $MainPragraph = 'Now you can check on your updates. You should always test if everything worked as expected. Enjoy your Website.';
 $MainLink = 'index.php';
 $MainButton = 'go to main page';
-$MainPicture = '../img/circle/hand.svg';
+$MainPicture = 'img/circle/hand.svg';
 
 include ("./inc/main.inc.php"); 
 

@@ -12,7 +12,8 @@
 <!-- dropdown Menu -->
 <ul class="hiddenLinks">
   <li><a class="paint-turquois" href="edit.php">EDIT</a></li>
-  <li><a class="paint-turquois" href="#">EVENTS</a></li><br>
+  <li><a class="paint-turquois" href="#">EVENTS</a></li>
+  <li><a class="paint-turquois" href="#">CAMPS</a></li>
   <li><a class="paint-turquois" href="#">GALLERY</a></li>
   <li><a class="paint-turquois" href="logout.php">LOGOUT</a></li>
 </ul>

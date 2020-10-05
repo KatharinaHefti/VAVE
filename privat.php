@@ -23,7 +23,7 @@ $MainHeadline = 'Welcome to your private Space';
 $MainPragraph = 'Here you can edit your page. ';
 $MainLink = 'logout.php';
 $MainButton = 'logout';
-$MainPicture = '../img/circle/horse.svg';
+$MainPicture = 'img/circle/horse.svg';
 
 include ("./inc/main.inc.php"); 
 

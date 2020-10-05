@@ -23,7 +23,7 @@ $MainHeadline = 'Here you can edit your texts';
 $MainPragraph = 'You can always change your texts form the main site here whenever you want. It will upload the text to your database and store it savely. It will be updated imediatly, so make sure that your texts are correct.  ';
 $MainLink = 'privat.php';
 $MainButton = 'go back';
-$MainPicture = '../img/circle/octopus.svg';
+$MainPicture = 'img/circle/octopus.svg';
 
 include ("./inc/main.inc.php"); 
 
@@ -53,6 +53,7 @@ if(isset($_POST['updateContact'])){
     <link rel="stylesheet" href="style/elements/icon.style.css">
     <link rel="stylesheet" href="style/cd/typo.style.css">
   </head>
+  <style><?php include "style/cd/typo.style.css" ?></style>
 
 <body class="dark">
 
@@ -89,7 +90,7 @@ if(isset($_POST['updateContact'])){
 
       <!-- submit -->
       <div class="center">
-        <button type="submit" name="updateContact">update contact</button>
+        <button class="buttonType" type="submit" name="updateContact">update contact</button>
       </div>
     </form>
     <?php echo $picture; ?>
