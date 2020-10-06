@@ -7,6 +7,7 @@
   background-position: top;
   background-repeat: no-repeat;
   z-index: 300;
+  padding: 6em 10em;
 }
 
 .flexer {
@@ -19,10 +20,12 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 2em;
+  width: auto;
 }
 
 @media screen and (max-width: 1200px) {
   .gallery {
+    padding: 6em 10em;
     background: #4179b6;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(19%, #4179b6), color-stop(63%, #54b5e3), to(#95cedb));
     background: linear-gradient(180deg, #4179b6 19%, #54b5e3 63%, #95cedb 100%);
