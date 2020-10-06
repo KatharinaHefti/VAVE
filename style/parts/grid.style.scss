@@ -45,18 +45,34 @@ main {
 	grid-gap: 2em;
 }
 
+
+// media 1200 px
+@media screen and (max-width: 1200px) {
+  	.camp {
+		grid-template-columns: 1fr;
+		grid-gap: 2em;
+	}
+
+}
+
+
+
 // media 800 px
 @media screen and (max-width: 800px) {
 	main {
+		height: 100vh;
 		grid-template-columns: repeat(1, 1fr);
 	}
 	.event {
+		height: 100%;
 		grid-template-columns: repeat(1, 1fr);
   	}
   	.camp {
-	grid-template-columns: repeat(1, 1fr);
+		height: 100%;
+		grid-template-columns: repeat(1, 1fr);
 	}
   	.location {
+		height: 100vh;
 		grid-template-columns: repeat(1, 1fr);
 	}
 	.footer {

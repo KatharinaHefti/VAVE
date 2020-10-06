@@ -7,14 +7,6 @@ include ("./inc/nav.inc.php");
 
 <img class="headerPic" src="img/camp/tim-marshall-y74zvFZ5mSU-unsplash.jpg" alt="camp">
 
-<section class="gallery">
-  <h4 class="paint-white">Camp</h4>
-  <br>
-  <h2 class="paint-white">Something about your Camp Loerum ipsum dolor sit.</h2>
-  <br>
-  <p class="paint-white">Try to finde one sentence or two to describe the concept of your page. Sports and camps describe a mood to make people feel whatever bla bla.</p>
-</section>
-
 <?php
 
 /* * * * * * * * * * * * * * * * * * * * camp section * * * * * * * * * * * * * * * * * * * */
@@ -29,6 +21,9 @@ $CampShortDescription = 'Get your tickets before it’s too late. Loerum ipsum d
 $CampLink = '#';
 $CampButton = 'get your tickets';
 $CampTicketsLeft = 'just 3 tickets left';
+
+include ("./inc/campSection.inc.php"); 
+
 
 include ("./inc/campSectionShort.inc.php"); 
 include ("./inc/campSectionShort.inc.php"); 

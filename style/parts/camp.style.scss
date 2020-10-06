@@ -10,3 +10,11 @@ hr{
 .camp {
     padding: 4em 10em;
   }
+
+
+// media 800 px
+@media screen and (max-width: 800px) {
+    .camp{
+      padding: 2em 2em;
+    }
+  }

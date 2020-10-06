@@ -1,4 +1,11 @@
 <section class="event">
+
+	<!-- camp event -->
+	<div>
+		<img src="img/event/flyer/event.jpg" alt="Flyer event">
+	</div>
+
+
 	<div>
 		<h4><?php echo $CampSectionChapterTitle?></h4>
 		<br>

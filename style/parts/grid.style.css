@@ -50,20 +50,32 @@ main {
   grid-gap: 2em;
 }
 
+@media screen and (max-width: 1200px) {
+  .camp {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 2em;
+  }
+}
+
 @media screen and (max-width: 800px) {
   main {
+    height: 100vh;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
   .event {
+    height: 100%;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
   .camp {
+    height: 100%;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
   .location {
+    height: 100vh;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
