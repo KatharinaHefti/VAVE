@@ -1,6 +1,6 @@
 nav{
   height: 60px;
-  padding: 3em 10em;
+  padding: 0em 10em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,9 +24,12 @@ nav{
 .waveBg{
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100vw;
   z-index: 100;
   animation-duration: 1s;
   margin-top: -145%;
+  background: none;
 } 
 
 // navigation background wave toggle 
@@ -74,10 +77,12 @@ li{
     padding: 2em 2em;
   }
   .waveBg{
-    padding: 2em 2em;
-    background: rgb(87,181,227);
-    background: linear-gradient(90deg, rgba(87,181,227,1) 6%, rgba(153,204,204,1) 58%);
-  }
+    width: 100vw;
+    top: 0;
+    left: 0;
+    margin-top: -145%;
+  } 
+  
   .hiddenLinks{
     padding: 2em;
   } 
@@ -91,4 +96,25 @@ li{
     margin-top: -30%;
   }
 }
+
+}
+
+// media 900 px
+@media screen and (max-width: 900px) {
+  .waveBg{
+    width: 100vw;
+    top: 0;
+    left: 0;
+    margin-top: -140%;
+  } 
+}
+
+// media 600 px
+@media screen and (max-width: 600px) {
+  .waveBg{
+    width: 100vw;
+    top: 0;
+    left: 0;
+    margin-top: -135%;
+  } 
 }

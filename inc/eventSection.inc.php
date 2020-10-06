@@ -2,7 +2,7 @@
 
 	<!-- flyer event -->
 	<div>
-		<img src="../img/event/flyer/VAVE-Flyer.png" alt="Flyer event">
+		<img src="img/event/flyer/event.jpg" alt="Flyer event">
 	</div>
 
 	<div>

@@ -1,4 +1,5 @@
 <style><?php include "style/cd/typo.style.css" ?></style>
+<style><?php include "style/parts/nav.style.css" ?></style>
 
 <nav>
   <!-- brand -->
@@ -8,7 +9,7 @@
 </nav>
 
 <!-- menu wave background picture -->
-<img class="waveBg" src="img/wave/wave.svg" alt="wave">
+<img class="waveBg" src="img/wave/waveNav.svg" alt="wave">
 
 <!-- dropdown Menu -->
 <ul class="hiddenLinks">

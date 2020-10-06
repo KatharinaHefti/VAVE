@@ -1,8 +1,12 @@
 .gallery {
-  padding: 10em 10em;
-  background: #4179b6;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(19%, #4179b6), color-stop(63%, #54b5e3), to(#95cedb));
-  background: linear-gradient(0deg, #4179b6 19%, #54b5e3 63%, #95cedb 100%);
+  position: relative;
+  height: 200%;
+  margin-bottom: -1em;
+  background-image: url("img/wave/wave2.svg");
+  background-size: 200%;
+  background-position: top;
+  background-repeat: no-repeat;
+  z-index: 300;
 }
 
 .flexer {
@@ -17,9 +21,20 @@
   padding: 2em;
 }
 
+@media screen and (max-width: 1200px) {
+  .gallery {
+    background: #4179b6;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(19%, #4179b6), color-stop(63%, #54b5e3), to(#95cedb));
+    background: linear-gradient(180deg, #4179b6 19%, #54b5e3 63%, #95cedb 100%);
+  }
+}
+
 @media screen and (max-width: 800px) {
   .gallery {
     padding: 2em 2em;
+    background: #4179b6;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(19%, #4179b6), color-stop(63%, #54b5e3), to(#95cedb));
+    background: linear-gradient(0deg, #4179b6 19%, #54b5e3 63%, #95cedb 100%);
   }
 }
 /*# sourceMappingURL=gallery.style.css.map */
