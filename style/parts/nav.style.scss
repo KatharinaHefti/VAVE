@@ -29,7 +29,6 @@ nav{
   z-index: 100;
   animation-duration: 1s;
   margin-top: -145%;
-  background: none;
 } 
 
 // navigation background wave toggle 
@@ -50,12 +49,20 @@ nav{
 }
 
 // navigation dropdown menu
-
 .hiddenLinks{
   display: none;
   position: relative;
   z-index: 101;
   padding: 3em 10em;
+  opacity: 0;
+  animation: fadein 4s;
+  transition: opacity 3s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 li{
@@ -71,20 +78,28 @@ li{
   display: block;
 }
 
+// media 1600 px
+@media screen and (max-width: 1600px) {
+  .waveBg{
+    margin-top: -142%;
+  } 
+}
+
+
+// media 1400 px
+@media screen and (max-width: 1400px) {
+  .waveBg{
+    margin-top: -144%;
+  } 
+}
+
 // media 1200 px
 @media screen and (max-width: 1200px) {
-  nav{
-    padding: 2em 2em;
-  }
   .waveBg{
     width: 100vw;
     top: 0;
     left: 0;
-    margin-top: -145%;
-  } 
-  
-  .hiddenLinks{
-    padding: 2em;
+    margin-top: -146%;
   } 
   
   // navigation background wave animation
@@ -93,18 +108,20 @@ li{
     margin-top: -145%;
   }
   to {
-    margin-top: -30%;
+    margin-top: 0%;
   }
 }
-
 }
 
 // media 900 px
 @media screen and (max-width: 900px) {
+  nav{
+    padding: 2em;
+  }
+  .hiddenLinks{
+    padding: 2em;
+  } 
   .waveBg{
-    width: 100vw;
-    top: 0;
-    left: 0;
     margin-top: -140%;
   } 
 }
@@ -112,9 +129,6 @@ li{
 // media 600 px
 @media screen and (max-width: 600px) {
   .waveBg{
-    width: 100vw;
-    top: 0;
-    left: 0;
     margin-top: -135%;
   } 
 }
