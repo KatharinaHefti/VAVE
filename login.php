@@ -37,7 +37,7 @@
         header("location: privat.php");
         exit;
     } else {
-        $output = "<div class=\"feedback_negativ\">";
+        $output = "<div class=\"feedbackNeg\">";
         foreach ($userService -> feedbackArray as $out) {
           $output .=  $out."<br>";
         }
