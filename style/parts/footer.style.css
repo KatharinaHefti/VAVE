@@ -4,6 +4,7 @@ footer {
   background: #6864aa;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(35%, #6864aa), to(#5e8ac2));
   background: linear-gradient(0deg, #6864aa 35%, #5e8ac2 100%);
+  padding: 6em 10em;
 }
 
 .box {
