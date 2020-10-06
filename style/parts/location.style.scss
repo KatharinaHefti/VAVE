@@ -7,10 +7,10 @@
   background-position: top;
   background-repeat: no-repeat;
   z-index: 300;
+  padding: 10em;
 }
 
-
-// media 1600 px
+// media 1400 px
 @media screen and (max-width: 1400px) {
   .location{
     padding: 6em 10em;
@@ -20,8 +20,8 @@
   }
 }
 
-// media 1600 px
-@media screen and (max-width: 900px) {
+// media 900 px
+@media screen and (max-width: 800px) {
   .location{
     padding: 2em 2em;
   }
