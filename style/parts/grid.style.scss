@@ -13,14 +13,14 @@ main {
 .event {
 	display: grid;
   	grid-template-columns: 1fr 2fr;
-	grid-gap: 2em;
+	grid-gap: 15em;
 }
 
 // camp grid proportions 1:1
 .camp {
 	display: grid;
-  	grid-template-columns: 2fr 2fr;
-	grid-gap: 2em;
+  	grid-template-columns: 2fr 1fr;
+	grid-gap: 15em;
 }
 
 // gallery grid proportions 1:1
@@ -45,6 +45,15 @@ main {
 	grid-gap: 2em;
 }
 
+// media 1600 px
+@media screen and (max-width: 1600px) {
+	.camp {
+	  grid-gap: 10em;
+  }
+  .event {
+	  grid-gap: 10em;
+  }
+}
 
 // media 1200 px
 @media screen and (max-width: 1200px) {
@@ -52,10 +61,11 @@ main {
 		grid-template-columns: 1fr;
 		grid-gap: 2em;
 	}
-
+	.event {
+		grid-template-columns: 1fr;
+		grid-gap: 2em;
+	}
 }
-
-
 
 // media 800 px
 @media screen and (max-width: 800px) {

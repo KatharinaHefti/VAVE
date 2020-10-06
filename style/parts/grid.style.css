@@ -15,15 +15,15 @@ main {
   display: grid;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
-  grid-gap: 2em;
+  grid-gap: 15em;
 }
 
 .camp {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 2fr;
-      grid-template-columns: 2fr 2fr;
-  grid-gap: 2em;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  grid-gap: 15em;
 }
 
 .gallery {
@@ -50,8 +50,22 @@ main {
   grid-gap: 2em;
 }
 
+@media screen and (max-width: 1600px) {
+  .camp {
+    grid-gap: 10em;
+  }
+  .event {
+    grid-gap: 10em;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .camp {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 2em;
+  }
+  .event {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     grid-gap: 2em;

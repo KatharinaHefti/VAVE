@@ -6,7 +6,6 @@
 	$EventDate = 'Thursday, 23.06.2020';
 	$EventLink = 'training.php';
 	$EventButton = 'get your tickets';
-
 ?>
 
 <style><?php include "style/parts/camp.style.css" ?></style>
