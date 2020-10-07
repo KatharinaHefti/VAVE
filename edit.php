@@ -141,13 +141,14 @@ if(isset($_POST['updateAbout'])){
       <h4>Edit your about page</h4>
       <br>
       <br>
-      <!-- name -->
+      <!-- headline -->
       <label for="titel">Headline</label>
       <input type="text" id="titel" name="titel" value="<?=$titel?>"><br>
       <br> 
-      <!-- street -->
-      <label for="text">Description</label>
-      <input type="text" id="text" name="text" value="<?=$text?>"><br>
+      <!-- description -->
+      <label for="text">Description</label><br>
+      <br>
+      <textarea name="text" type="text" rows="5" placeholder="Say something about yourself" maxlength="200"></textarea>
       <br> 
       <!-- output -->
       <br>
