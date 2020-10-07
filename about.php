@@ -8,17 +8,17 @@
   /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
 // import variables form database contact
-  $sql = "SELECT chapter, titel, text FROM about";
+  $sql = "SELECT chapter, titel,  text, imageData FROM about";
   foreach ($pdo->query($sql) as $row) {
   $MainChapterTitle = $row["chapter"];
   $MainHeadline = $row["titel"];
   $MainPragraph = $row["text"];
+  $MainPicture = $row["imageData"];
   }
 
   // Main Text Variables not changeble
   $MainLink = 'training.php';
   $MainButton = 'join a training';
-  $MainPicture = 'img/valeria/valeria.png';
 
   // include main template
   include ("./inc/main.inc.php"); 
