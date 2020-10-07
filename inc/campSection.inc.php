@@ -8,16 +8,16 @@
 	<div>
 		<h4><?php echo $CampSectionChapterTitle?></h4>
 		<br>
-		<h1><?php echo $CampSectionHeadline?></h1>
+		<h1><?php echo $MainCampSectionHeadline?></h1>
 		<br>
-		<p><?php echo $CampLongDescription?></p>
+		<p><?php echo $MainCampLongDescription?></p>
 
 		<!-- icon event -->
 		<div class="highlight">
 			<svg class="small">
 				<use xlink:href="#icon_event"></use>
 			</svg>
-		<h4 class="paint-turquois"><?php echo $CampDateStart?> until <?php echo $CampDateEnd?></h4>
+		<h4 class="paint-turquois"><?php echo $MainCampDateStart?> until <?php echo $MainCampDateEnd?></h4>
 		</div>
 
 		<!-- icon location -->
@@ -25,7 +25,7 @@
 			<svg class="small">
 				<use xlink:href="#icon_location"></use>
 			</svg>
-			<h4 class="paint-turquois"><?php echo $CampLocation?></h4>
+			<h4 class="paint-turquois"><?php echo $MainCampLocation?></h4>
 		</div>
 		<br>
 
@@ -34,17 +34,20 @@
 			<svg class="small">
 				<use xlink:href="#icon_price"></use>
 			</svg>
-			<h4 class="paint-turquois"><?php echo $CampPrice?></h4>
+			<h4 class="paint-turquois"><?php echo $MainCampPrice?></h4>
 		</div>
 		<br>
 
+		<!-- participants -->
+		<p><?php echo $MainCampPatricipants?></p>
+
 		<!-- short description -->
-		<p><?php echo $CampShortDescription?></p>
+		<p><?php echo $MainCampShortDescription?></p>
 
 		<!-- get your tickets -->
 		<div class="flexBtn">
-      <button><a href="<?php echo $CampShortDescription?>"></a><?php echo $CampButton?></button>
-      <p><?php echo $CampTicketsLeft ?></p>
+      <button><a href="<?php echo $MainCampShortDescription?>"></a><?php echo $MainCampButton?></button>
+      <p>just  <?php echo $MainCampTicketsLeft ?> tickets left</p>
     </div> 
 	</div>
 
