@@ -17,15 +17,7 @@
 			<svg class="small">
 				<use xlink:href="#icon_event"></use>
 			</svg>
-		<h4 class="paint-turquois"><?php echo $CampDateStart?></h4>
-		</div>
-
-		<!-- icon time -->
-		<div class="highlight">
-			<svg class="small">
-        <use xlink:href="#icon_time"></use>
-    	</svg>                        
-			<h4 class="paint-turquois"><?php echo $CampDateEnd ?></h4>
+		<h4 class="paint-turquois"><?php echo $CampDateStart?> until <?php echo $CampDateEnd?></h4>
 		</div>
 
 		<!-- icon location -->
@@ -34,6 +26,15 @@
 				<use xlink:href="#icon_location"></use>
 			</svg>
 			<h4 class="paint-turquois"><?php echo $CampLocation?></h4>
+		</div>
+		<br>
+
+		<!-- icon location -->
+		<div class="highlight">
+			<svg class="small">
+				<use xlink:href="#icon_price"></use>
+			</svg>
+			<h4 class="paint-turquois"><?php echo $CampPrice?></h4>
 		</div>
 		<br>
 
