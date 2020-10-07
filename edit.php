@@ -34,7 +34,7 @@ include ("./inc/main.inc.php");
 /* * * * * * * * * * * * * * * * * * * * contact * * * * * * * * * * * * * * * * * * * */
 
 // Contact Text Variables
-$name = $street = $city = $email = $phone = $output = $picture = "";
+$name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout = "";
 
 /* * * * * * * * * * * * * * * * * * * * about * * * * * * * * * * * * * * * * * * * */
 
@@ -58,7 +58,7 @@ if(isset($_POST['updateContact'])){
   $stmt->execute(array('id' => 1, 'name' => $name, 'street' => $street, 'city' => $city, 'email' => $email, 'phone' => $phone));
 
   // feedback
-  $picture = '<img class="hugeIcon" src="img/circle/thumbsup.svg" alt="">';
+  $picture = '<div class="center"><img class="hugeIcon" src="img/circle/thumbsup.svg" alt=""></div>';
 }
 
 /* * * * * * * * * * * * * * * * * * * * about validation * * * * * * * * * * * * * * * * * * * */
@@ -94,7 +94,7 @@ if(isset($_POST['updateAbout'])){
 
     // Location
     $target_file = 'img/about/upload/'.$filename;
-
+  
     // file extension
     $imageType = pathinfo($target_file, PATHINFO_EXTENSION);
     $imageType = strtolower($imageType);
@@ -104,17 +104,17 @@ if(isset($_POST['updateAbout'])){
 
     if(in_array($imageType, $valid_extension)){
 
-       // Upload file
-       if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
+      // Upload file
+      if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
 
-          // Execute query
-	  $stmt->execute(array('id' => 1, 'imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
+      // Execute query
+	    $stmt->execute(array('id' => 1, 'imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
        }
     }
  
   }
   // feedback
-  $feedbackAbout = '<img class="hugeIcon" src="img/circle/thumbsup.svg" alt="">';
+  $feedbackAbout = '<img class="iconBig" src="img/circle/thumbsup.svg" alt="">';
 
 }
 
