@@ -18,6 +18,8 @@
     padding: 3em;
     border-radius: 30px;
     max-width: 600px;
+    /* offset-x | offset-y | blur-radius | color RGBa */
+    box-shadow: -2px 2px 10px rgba(128,128,128,0.25); 
   }
   
   input{

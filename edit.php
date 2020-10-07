@@ -85,12 +85,14 @@ if(isset($_POST['updateAbout'])){
   <head>
     <link rel="stylesheet" href="style/parts/privat.style.css">
     <link rel="stylesheet" href="style/elements/form.style.css">
+    <link rel="stylesheet" href="style/elements/button.style.css">
     <link rel="stylesheet" href="style/elements/icon.style.css">
     <link rel="stylesheet" href="style/parts/edit.style.css">
     <link rel="stylesheet" href="style/cd/typo.style.css">
   </head>
   <style><?php include "style/cd/typo.style.css" ?></style>
   <style><?php include "style/elements/form.style.css" ?></style>
+  <style><?php include "style/elements/button.style.css" ?></style>
 
 <body class="dark">
 
