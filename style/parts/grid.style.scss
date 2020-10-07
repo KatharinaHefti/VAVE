@@ -45,6 +45,13 @@ main {
 	grid-gap: 2em;
 }
 
+// footer grid proportions 1:1:1
+.edit{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 2em;
+}
+
 // media 1600 px
 @media screen and (max-width: 1600px) {
 	.camp {
@@ -62,6 +69,11 @@ main {
 		grid-gap: 2em;
 	}
 	.event {
+		grid-template-columns: 1fr;
+		grid-gap: 2em;
+	}
+
+	.edit {
 		grid-template-columns: 1fr;
 		grid-gap: 2em;
 	}
@@ -86,6 +98,9 @@ main {
 		grid-template-columns: repeat(1, 1fr);
 	}
 	.footer {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.edit {
 		grid-template-columns: repeat(1, 1fr);
 	}
 }

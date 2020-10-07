@@ -1,0 +1,18 @@
+.edit {
+  padding: 10em 10em;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 1600) {
+  .edit {
+    padding: 6em 10em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .edit {
+    padding: 2em 2em;
+  }
+}
+/*# sourceMappingURL=edit.style.css.map */

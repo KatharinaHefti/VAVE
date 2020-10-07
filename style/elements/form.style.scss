@@ -1,6 +1,5 @@
 
 .output{
-    width: 400px;
     padding: 3em;
     margin-bottom: 3em;
   }
@@ -15,9 +14,10 @@
   
   form{
     background: white;
-    width: 400px;
+    width: 100%;
     padding: 3em;
     border-radius: 30px;
+    max-width: 600px;
   }
   
   input{
@@ -27,4 +27,14 @@
   input[type="email"],  input[type="password"], input[type="text"] {
     border: none;
     border-bottom: 2px solid #7079B6;  
+}
+
+
+
+
+// media 800 px
+@media screen and (max-width: 800px) {
+  form{
+    max-width: 800px;
+  }
 }

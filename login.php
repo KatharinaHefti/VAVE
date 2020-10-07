@@ -84,7 +84,7 @@
         <p class="paint-turquois"><?php echo $output;?></p>
 
         <!-- submit -->
-        <button type="submit" name="submit">login</button>
+        <button type="submit" name="submit"><a class="buttonType">login</a></button>
 
         <!-- register -->
         <a class="paint-turquois" href="register.php">register</a><br>

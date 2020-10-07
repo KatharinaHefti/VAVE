@@ -50,6 +50,14 @@ main {
   grid-gap: 2em;
 }
 
+.edit {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2em;
+}
+
 @media screen and (max-width: 1600px) {
   .camp {
     grid-gap: 10em;
@@ -66,6 +74,11 @@ main {
     grid-gap: 2em;
   }
   .event {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 2em;
+  }
+  .edit {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     grid-gap: 2em;
@@ -94,6 +107,10 @@ main {
         grid-template-columns: repeat(1, 1fr);
   }
   .footer {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .edit {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }

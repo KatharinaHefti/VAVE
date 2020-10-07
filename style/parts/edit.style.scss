@@ -1,0 +1,19 @@
+.edit{
+    padding: 10em 10em;
+    height: 100%;
+    width: 100%;
+}
+
+// media 1600 px
+@media screen and (max-width: 1600) {
+    .edit{
+      padding: 6em 10em;
+    }
+  }
+
+// media 800 px
+@media screen and (max-width: 800px) {
+  .edit{
+    padding: 2em 2em;
+  }
+}

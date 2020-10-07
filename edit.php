@@ -10,6 +10,10 @@ require_once("./inc/functions.inc.php");
 // is user logged in?
 $user = check_user();
 
+// include class UserService to validate form inputs
+require("class/UserService.class.php");
+$userService = new UserService();
+
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
 include ("./inc/header.inc.php"); 
@@ -27,23 +31,54 @@ $MainPicture = 'img/circle/octopus.svg';
 
 include ("./inc/main.inc.php"); 
 
-// Contact Variables
+/* * * * * * * * * * * * * * * * * * * * contact * * * * * * * * * * * * * * * * * * * */
+
+// Contact Text Variables
 $name = $street = $city = $email = $phone = $output = $picture = "";
+
+/* * * * * * * * * * * * * * * * * * * * about * * * * * * * * * * * * * * * * * * * */
+
+// About Text Variables
+$titel = $text = $chapter = "";
+$id=1;
+
+/* * * * * * * * * * * * * * * * * * * * contact validation * * * * * * * * * * * * * * * * * * * */
 
 // if form sent
 if(isset($_POST['updateContact'])){
   $name = $_POST['name'];
   $city = $_POST['street'];
   $street = $_POST['city'];
-  $email = $_POST['email'];
+  $email =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid");
   $phone = $_POST['phone'];
+
 
   // upload updated contact information
   $stmt = $pdo->prepare("UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone  WHERE id = :id");
   $stmt->execute(array('id' => 1, 'name' => $name, 'street' => $street, 'city' => $city, 'email' => $email, 'phone' => $phone));
 
+  // feedback
   $picture = '<img class="hugeIcon" src="img/circle/thumbsup.svg" alt="">';
 }
+
+/* * * * * * * * * * * * * * * * * * * * about validation * * * * * * * * * * * * * * * * * * * */
+
+// if form sent
+if(isset($_POST['updateAbout'])){
+  $titel = $_POST['titel'];
+  $text = $_POST['text'];
+
+  $data = [
+    'chapter' => 'About',
+    'titel' => $titel,
+    'text' => $text,
+    'id' => $id,
+  ];
+  $stmt= $pdo->prepare("UPDATE about SET chapter = :chapter, titel = :titel, text = :text WHERE id = :id");
+  $stmt->execute($data);
+    // feedback
+    echo 'done';
+  }
 ?>
 
 <html>
@@ -51,19 +86,21 @@ if(isset($_POST['updateContact'])){
     <link rel="stylesheet" href="style/parts/privat.style.css">
     <link rel="stylesheet" href="style/elements/form.style.css">
     <link rel="stylesheet" href="style/elements/icon.style.css">
+    <link rel="stylesheet" href="style/parts/edit.style.css">
     <link rel="stylesheet" href="style/cd/typo.style.css">
   </head>
   <style><?php include "style/cd/typo.style.css" ?></style>
+  <style><?php include "style/elements/form.style.css" ?></style>
 
 <body class="dark">
 
 <!-- - - - - - - - - - - - - - - - - - - - edit contact info - - - - - - - - - - - - - - - - - - -->
-  <section class="event">
-    <h4>Edit your contact information</h4>
-    <br>
+  <section class="edit">
     <form action="" method="post">
-      <br>
       <h2>Contact</h2>
+      <br>
+      <h4>Edit your contact information</h4>
+      <br>
       <br>
       <!-- name -->
       <label for="name">Name</label>
@@ -84,6 +121,7 @@ if(isset($_POST['updateContact'])){
       <!-- phone -->
       <label for="phone">Phone</label>
       <input type="text" id="phone" name="phone" value="<?=$phone?>"><br>
+      
       <!-- output -->
       <br>
       <p class="paint-turquois"><?php echo $output;?></p>
@@ -92,8 +130,32 @@ if(isset($_POST['updateContact'])){
       <div class="center">
         <button class="buttonType" type="submit" name="updateContact">update contact</button>
       </div>
+      <?php echo $picture; ?>
     </form>
-    <?php echo $picture; ?>
+
+    <form action="" method="post">
+      <h2>About</h2>
+      <br>
+      <h4>Edit your about page</h4>
+      <br>
+      <br>
+      <!-- name -->
+      <label for="titel">Headline</label>
+      <input type="text" id="titel" name="titel" value="<?=$titel?>"><br>
+      <br> 
+      <!-- street -->
+      <label for="text">Description</label>
+      <input type="text" id="text" name="text" value="<?=$text?>"><br>
+      <br> 
+      <!-- output -->
+      <br>
+      <p class="paint-turquois"><?php echo $output;?></p>
+
+      <!-- submit -->
+      <div class="center">
+        <button class="buttonType" type="submit" name="updateAbout">update about</button>
+      </div>
+    </form>
   </section>
 </body>
 </html>
