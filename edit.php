@@ -77,7 +77,7 @@ if(isset($_POST['updateAbout'])){
   $stmt= $pdo->prepare("UPDATE about SET chapter = :chapter, titel = :titel, text = :text WHERE id = :id");
   $stmt->execute($data);
     // feedback
-    echo 'done';
+    $picture = '<img class="hugeIcon" src="img/circle/thumbsup.svg" alt="">';
   }
 ?>
 
@@ -155,6 +155,7 @@ if(isset($_POST['updateAbout'])){
       <div class="center">
         <button class="buttonType" type="submit" name="updateAbout">update about</button>
       </div>
+      <?php echo $picture; ?>
     </form>
   </section>
 </body>

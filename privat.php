@@ -17,10 +17,13 @@ include ("./inc/navPrivat.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
+// Logged in User Name
+$userName = $user['name'];
+
 // Main Text Variables
-$MainChapterTitle = 'Privat';
-$MainHeadline = 'Welcome to your private Space';
-$MainPragraph = 'Here you can edit your page. ';
+$MainChapterTitle = 'Privat Space';
+$MainHeadline = 'Hi '. $userName;
+$MainPragraph = 'This is your editing area. You can upload Events, update your content and create gallerys. After you finish please log out for safety.';
 $MainLink = 'logout.php';
 $MainButton = 'logout';
 $MainPicture = 'img/circle/horse.svg';
