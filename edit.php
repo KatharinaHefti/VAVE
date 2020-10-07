@@ -40,7 +40,7 @@ $name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout 
 
 // About Text Variables
 $titel = $text = $chapter = "";
-$id=1;
+// $id=1;
 
 /* * * * * * * * * * * * * * * * * * * * contact validation * * * * * * * * * * * * * * * * * * * */
 
@@ -118,8 +118,27 @@ if(isset($_POST['updateAbout'])){
 
 }
 
+// import 1 Row from camps
+// variables form database camps
+$stmt = $pdo->prepare("SELECT name, familyname, email FROM users");
+$stmt->execute();
 
-  
+/* Fetch all of the remaining rows in the result set */
+echo '<pre>';
+print("Fetch all of the remaining rows in the result set:\n");
+$UserList = $stmt->fetchAll();
+print_r($UserList);
+
+$count = count($UserList);
+for ($i = 0; $i < $count; $i++) {
+  $user = $UserList[$i]['name'];
+
+  $list = array($user);
+  echo '<pre>';
+  print_r($list);
+}
+print_r($user);
+
 ?>
 
 <html>
@@ -211,6 +230,31 @@ if(isset($_POST['updateAbout'])){
     </form>
 
     
+  <!-- - - - - - - - - - - - - - - - - - - - register - - - - - - - - - - - - - - - - - - -->
+  <form action="" enctype="multipart/form-data" method="post">
+      <h2>Register</h2>
+      <br>
+      <h4>Add new user to the edit area</h4>
+      <br>
+      <p>You can add a new user to the edit area of your website</p>
+      <br>
+      <button><a class="buttonType"href="register.php">register new user</a></button>
+
+      <!-- List of registered users -->
+      <hr>
+      <p><strong class="paint-haze"> Registered to your edit area</strong></p>
+      <?php 
+      $countUser = count($user);
+      for ($i = 0; $i < $countUser; $i++ ){
+        print_r($UserList[$i]['name']);
+      }
+    
+
+
+      ?>
+      
+    <p><?php ?></p>
+    </form>
     
   </section>
 </body>

@@ -29,17 +29,17 @@
 		</div>
 		<br>
 
-		<!-- icon location -->
+		<!-- icon price -->
 		<div class="highlight">
 			<svg class="small">
 				<use xlink:href="#icon_price"></use>
 			</svg>
-			<h4 class="paint-turquois"><?php echo $MainCampPrice?></h4>
+			<h4 class="paint-turquois"><?php echo $MainCampPrice?> CHF / Pers.</h4>
 		</div>
 		<br>
 
 		<!-- participants -->
-		<p><?php echo $MainCampPatricipants?></p>
+		<p><strong>Limit of <?php echo $MainCampPatricipants?> Participants</strong></p>
 
 		<!-- short description -->
 		<p><?php echo $MainCampShortDescription?></p>
@@ -54,6 +54,8 @@
 	<div>
 		<img class="flyerPic" src="img/event/flyer/event.jpg" alt="Flyer event">
 	</div>
+
+	<?php include "style/elements/picture.style.css" ?>
 
 </section>
 
