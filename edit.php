@@ -76,9 +76,50 @@ if(isset($_POST['updateAbout'])){
   ];
   $stmt= $pdo->prepare("UPDATE about SET chapter = :chapter, titel = :titel, text = :text WHERE id = :id");
   $stmt->execute($data);
-    // feedback
-    $picture = '<img class="hugeIcon" src="img/circle/thumbsup.svg" alt="">';
+
+  // picture upload
+  // Count total files
+  $countfiles = count($_FILES['files']['name']);
+ 
+  // Prepared statement
+  $query = "UPDATE about SET imageName = :imageName, imageData = :imageData, imageType = :imageType WHERE id = :id";
+
+  $stmt = $pdo->prepare($query);
+
+  // Loop all files
+  for($i=0;$i<$countfiles;$i++){
+
+    // File name
+    $filename = $_FILES['files']['name'][$i];
+
+    // Location
+    $target_file = 'img/about/upload/'.$filename;
+
+    // file extension
+    $imageType = pathinfo($target_file, PATHINFO_EXTENSION);
+    $imageType = strtolower($imageType);
+
+    // Valid image extension
+    $valid_extension = array("png","jpeg","jpg");
+
+    if(in_array($imageType, $valid_extension)){
+
+       // Upload file
+       if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
+
+          // Execute query
+	  $stmt->execute(array('id' => 1, 'imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
+       }
+    }
+ 
   }
+  // feedback
+  $feedbackAbout = '<img class="hugeIcon" src="img/circle/thumbsup.svg" alt="">';
+
+}
+
+
+  
 ?>
 
 <html>
@@ -96,7 +137,7 @@ if(isset($_POST['updateAbout'])){
 
 <body class="dark">
 
-<!-- - - - - - - - - - - - - - - - - - - - edit contact info - - - - - - - - - - - - - - - - - - -->
+  <!-- - - - - - - - - - - - - - - - - - - - edit contact info - - - - - - - - - - - - - - - - - - -->
   <section class="edit">
     <form action="" method="post">
       <h2>Contact</h2>
@@ -135,7 +176,9 @@ if(isset($_POST['updateAbout'])){
       <?php echo $picture; ?>
     </form>
 
-    <form action="" method="post">
+    <!-- - - - - - - - - - - - - - - - - - - - edit about info - - - - - - - - - - - - - - - - - - -->
+
+    <form action="" enctype="multipart/form-data" method="post">
       <h2>About</h2>
       <br>
       <h4>Edit your about page</h4>
@@ -150,6 +193,12 @@ if(isset($_POST['updateAbout'])){
       <br>
       <textarea name="text" type="text" rows="5" placeholder="Say something about yourself" maxlength="200"></textarea>
       <br> 
+      <br> 
+
+      <!-- pictures upload -->
+      <input type='file' name='files[]' multiple />
+      <input type='submit' value='Submit' name='submit' />
+
       <!-- output -->
       <br>
       <p class="paint-turquois"><?php echo $output;?></p>
@@ -158,8 +207,11 @@ if(isset($_POST['updateAbout'])){
       <div class="center">
         <button class="buttonType" type="submit" name="updateAbout">update about</button>
       </div>
-      <?php echo $picture; ?>
+      <?php echo $feedbackAbout; ?>
     </form>
+
+    
+    
   </section>
 </body>
 </html>
