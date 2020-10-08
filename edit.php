@@ -118,8 +118,8 @@ if(isset($_POST['updateAbout'])){
 
 }
 
-// import 1 Row from camps
-// variables form database camps
+// import 1 Row from users
+// variables form database users
 $stmt = $pdo->prepare("SELECT name, familyname, email FROM users");
 $stmt->execute();
 
@@ -133,7 +133,7 @@ for ($i = 0; $i < $count; $i++) {
 
   $list = array($user);
   // echo '<pre>';
-   print_r($list[0]);
+   //print_r($list[0]);
 }
 
 
@@ -233,15 +233,8 @@ for ($i = 0; $i < $count; $i++) {
   <form action="" enctype="multipart/form-data" method="post">
       <h2>Register</h2>
       <br>
-      <h4>Add new user to the edit area</h4>
-      <br>
-      <p>You can add a new user to the edit area of your website</p>
-      <br>
-      <button><a class="buttonType"href="register.php">register new user</a></button>
-      <hr>
-
-      <!-- List of registered users --> 
-      <p><strong class="paint-haze"> Registered to your edit area</strong></p>
+      <h4>Admin users</h4>
+            <!-- List of registered users --> 
       <p class="paint-haze"><?php 
       $count = count($UserList);  
         for ($i = 0; $i < $count; $i++) {
@@ -250,9 +243,16 @@ for ($i = 0; $i < $count; $i++) {
         echo '- '.$list[0].'<br>';
       }
       ?></p>
+      <br>
+      <p>You can add new user to maintain your webpage.</p>
+
+      <button><a class="buttonType"href="register.php">new user</a></button>
+      
+      <br>
+      <br>
       <!-- delete user --> 
       <p>You can delete an existing user here.</p>
-      <button><a class="buttonType"href="deleteUser.php">delete user</a></button>
+      <button><a class="buttonType"href="deleteUser.php">delete</a></button>
 
 
     </form>
