@@ -90,6 +90,9 @@
       <label for="campShortDescription">Camp Button</label>
       <input type="text" id="campButton" name="campButton" value="<?=$campButton?>"><br>
       <br>  
+      <!-- pictures upload -->
+      <input type='file' name='files[]' multiple />
+      <input type='submit' value='Submit' name='submit' />
       <!-- output -->
       <br>
       <p class="paint-turquois"><?php echo $output;?></p>
