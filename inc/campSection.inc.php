@@ -55,7 +55,6 @@
 		<img class="flyerPic" src="img/event/flyer/event.jpg" alt="Flyer event">
 	</div>
 
-	<?php include "style/elements/picture.style.css" ?>
 
 </section>
 

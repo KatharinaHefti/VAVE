@@ -86,8 +86,6 @@
         <!-- submit -->
         <button type="submit" name="submit"><a class="buttonType">login</a></button>
 
-        <!-- register -->
-        <a class="paint-turquois" href="register.php">register</a><br>
       </form>
     </div>
   </body>
