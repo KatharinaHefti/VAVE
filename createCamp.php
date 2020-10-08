@@ -35,7 +35,54 @@
 
     // upload form inputs to database
     $stmt = $pdo->prepare("INSERT INTO camps (campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton ) VALUES ( :campHeadline, :campDescription, :campStart, :campEnd, :campLocation, :campPrice, :campPatricipants, :campShortDescription, :campLink, :campButton)");
-    $result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton));
+		$result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton));
+		
+
+		// picture upload
+  // Count total files
+  $countfiles = count($_FILES['files']['name']);
+ 
+  // Prepared statement
+  $query = "UPDATE camps SET imageName = :imageName, imageData = :imageData, imageType = :imageType ";
+
+  $stmt = $pdo->prepare($query);
+
+  // Loop all files
+  for($i=0;$i<$countfiles;$i++){
+
+		$folder = $campStart.'-'.$campHeadline;
+		// new folder
+		mkdir("img/camp/".$folder, 0700);
+		
+
+    // File name
+    $filename = $_FILES['files']['name'][$i];
+
+    // Location
+    $target_file = 'img/camp/upload/'.$filename;
+  
+    // file extension
+    $imageType = pathinfo($target_file, PATHINFO_EXTENSION);
+    $imageType = strtolower($imageType);
+
+    // Valid image extension
+    $valid_extension = array("png","jpeg","jpg");
+
+    if(in_array($imageType, $valid_extension)){
+
+      // Upload file
+      if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
+
+      // Execute query
+	    $stmt->execute(array('imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
+       }
+    }
+ 
+  }
+  // feedback
+  $feedbackAbout = '<img class="iconBig" src="img/circle/thumbsup.svg" alt="">';
+
+ 
  }   
 
  /* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
@@ -46,7 +93,7 @@
 <!-- - - - - - - - - - - - - - - - - - - - create new camp - - - - - - - - - - - - - - - - - - -->
 <section class="gallery">
 <h4>create camp</h4>
-    <form action="createCamp.php" method="post">
+    <form action="createCamp.php" method="post" enctype="multipart/form-data">
       <h2>Upload</h2>
       <br>
       <h4>Add infos and picture to your new camp
@@ -85,10 +132,13 @@
       <label for="campShortDescription">Camp Short Description</label>
       <input type="textarea" id="campShortDescription" name="campShortDescription" value="<?=$campShortDescription?>"><br>
       <br>  
-
       <!-- short description -->
       <label for="campButton">Camp Button</label>
       <input type="text" id="campButton" name="campButton" value="<?=$campButton?>"><br>
+			<br> 
+			<!-- pictures upload -->
+			<input type='file' name='files[]' multiple />
+
       <br>  
       <!-- output -->
       <br>

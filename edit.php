@@ -40,7 +40,7 @@ $name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout 
 
 // About Text Variables
 $titel = $text = $chapter = "";
-// $id=1;
+$id=1;
 
 /* * * * * * * * * * * * * * * * * * * * contact validation * * * * * * * * * * * * * * * * * * * */
 
@@ -54,7 +54,7 @@ if(isset($_POST['updateContact'])){
 
 
   // upload updated contact information
-  $stmt = $pdo->prepare("UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone  WHERE id = :id");
+  $stmt = $pdo->prepare("UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone");
   $stmt->execute(array('id' => 1, 'name' => $name, 'street' => $street, 'city' => $city, 'email' => $email, 'phone' => $phone));
 
   // feedback
@@ -157,7 +157,7 @@ for ($i = 0; $i < $count; $i++) {
 
   <!-- - - - - - - - - - - - - - - - - - - - edit contact info - - - - - - - - - - - - - - - - - - -->
   <section class="edit">
-    <form action="" method="post">
+    <form action="" enctype="multipart/form-data" method="post">
       <h2>Contact</h2>
       <br>
       <h4>Edit your contact information</h4>
@@ -215,7 +215,6 @@ for ($i = 0; $i < $count; $i++) {
 
       <!-- pictures upload -->
       <input type='file' name='files[]' multiple />
-      <input type='submit' value='Submit' name='submit' />
 
       <!-- output -->
       <br>
