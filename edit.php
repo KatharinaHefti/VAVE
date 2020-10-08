@@ -124,20 +124,19 @@ $stmt = $pdo->prepare("SELECT name, familyname, email FROM users");
 $stmt->execute();
 
 /* Fetch all of the remaining rows in the result set */
-echo '<pre>';
-print("Fetch all of the remaining rows in the result set:\n");
 $UserList = $stmt->fetchAll();
-print_r($UserList);
+// print_r($UserList);
 
 $count = count($UserList);
 for ($i = 0; $i < $count; $i++) {
   $user = $UserList[$i]['name'];
 
   $list = array($user);
-  echo '<pre>';
-  print_r($list);
+  // echo '<pre>';
+   print_r($list[0]);
 }
-print_r($user);
+
+
 
 ?>
 
@@ -239,21 +238,23 @@ print_r($user);
       <p>You can add a new user to the edit area of your website</p>
       <br>
       <button><a class="buttonType"href="register.php">register new user</a></button>
-
-      <!-- List of registered users -->
       <hr>
+
+      <!-- List of registered users --> 
       <p><strong class="paint-haze"> Registered to your edit area</strong></p>
-      <?php 
-      $countUser = count($user);
-      for ($i = 0; $i < $countUser; $i++ ){
-        print_r($UserList[$i]['name']);
+      <p class="paint-haze"><?php 
+      $count = count($UserList);  
+        for ($i = 0; $i < $count; $i++) {
+        $user = $UserList[$i]['name'];
+        $list = array($user);
+        echo '- '.$list[0].'<br>';
       }
-    
+      ?></p>
+      <!-- delete user --> 
+      <p>You can delete an existing user here.</p>
+      <button><a class="buttonType"href="deleteUser.php">delete user</a></button>
 
 
-      ?>
-      
-    <p><?php ?></p>
     </form>
     
   </section>
