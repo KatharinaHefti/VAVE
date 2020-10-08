@@ -15,7 +15,7 @@
  include ("./inc/navPrivat.inc.php"); 
 
  // variables
- $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton = '';
+ $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton ='';
 
  // is form sent?
  if (isset($_POST['submit'])) {
@@ -87,12 +87,9 @@
       <br>  
 
       <!-- short description -->
-      <label for="campShortDescription">Camp Button</label>
+      <label for="campButton">Camp Button</label>
       <input type="text" id="campButton" name="campButton" value="<?=$campButton?>"><br>
       <br>  
-      <!-- pictures upload -->
-      <input type='file' name='files[]' multiple />
-      <input type='submit' value='Submit' name='submit' />
       <!-- output -->
       <br>
       <p class="paint-turquois"><?php echo $output;?></p>
