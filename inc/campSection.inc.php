@@ -54,7 +54,7 @@
 	</div>
 
 	<div>
-		<img class="flyerPic" src="img/camp/upload/ginastica.jpg" alt="Flyer event">
+		<img class="flyerPic" src="<?php $imagedata ?>" alt="Flyer event">
 	</div>
 
 

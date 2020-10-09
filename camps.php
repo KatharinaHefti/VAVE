@@ -19,7 +19,6 @@ require_once("./config/config.inc.php");
 $CampSectionChapterTitle = 'Camp';
 
 // import 1 Row from camps
-// variables form database camps
 $sql = "SELECT campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, campTicketsLeft FROM camps WHERE id=1";
 foreach ($pdo->query($sql) as $row) {
 $MainCampSectionHeadline = $row["campHeadline"];
@@ -38,7 +37,7 @@ include ("./inc/campSection.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * camp short sections * * * * * * * * * * * * * * * * * * * */
 
-$sql = "SELECT campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, campTicketsLeft FROM camps WHERE id !=1";
+$sql = "SELECT campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, campTicketsLeft FROM camps";
 foreach ($pdo->query($sql) as $row) {
 $CampSectionHeadline = $row["campHeadline"];
 $CampSectionLongDescription = $row["campDescription"];

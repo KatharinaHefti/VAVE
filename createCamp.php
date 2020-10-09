@@ -30,7 +30,7 @@
     $campPrice = $_POST['campPrice'];
     $campShortDescription = $_POST['campShortDescription'];
     $campPatricipants = $_POST['campPatricipants'];
-    $campLink = $campStart.'-'.$campHeadline.'.php';
+    $campLink = 'camps/'.$campStart.'-'.$campHeadline.'.php';
     $campButton = $_POST['campButton'];
     $campTicketsLeft = '';
     $output = 'Event has been uploaded.';
@@ -45,7 +45,7 @@
   $countfiles = count($_FILES['files']['name']);
  
   // upload information in camps
-  $query = "UPDATE camps SET imageName = :imageName, imageData = :imageData, imageType = :imageType ";
+  $query = "UPDATE camps SET imageName = :imageName, imageData = :imageData, imageType = :imageType WHERE id = :id=? ";
   $stmt = $pdo->prepare($query);
 
   // loop all files
