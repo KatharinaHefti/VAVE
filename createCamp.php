@@ -17,7 +17,7 @@
 /* * * * * * * * * * * * * * * * * * * * camp information * * * * * * * * * * * * * * * * * * * */
 
   // camp variables
-  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton ='';
+  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $imageType = '';
 
   // is form sent?
   if (isset($_POST['submit'])) {
@@ -34,55 +34,60 @@
     $campButton = $_POST['campButton'];
     $campTicketsLeft = '';
     $output = 'Event has been uploaded.';
+    $imageData = '';
+
+    $imageType = '';
+
 
     // upload form inputs to database
-    $stmt = $pdo->prepare("INSERT INTO camps (campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton ) VALUES ( :campHeadline, :campDescription, :campStart, :campEnd, :campLocation, :campPrice, :campPatricipants, :campShortDescription, :campLink, :campButton)");
-		$result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton));
+    // $stmt = $pdo->prepare("INSERT INTO camps (campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton ) VALUES ( :campHeadline, :campDescription, :campStart, :campEnd, :campLocation, :campPrice, :campPatricipants, :campShortDescription, :campLink, :campButton)");
+		// $result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton));
 		
   /* * * * * * * * * * * * * * * * * * * * camp picture upload * * * * * * * * * * * * * * * * * * * */
   
   // count total files
   $countfiles = count($_FILES['files']['name']);
- 
-  // upload information in camps
-  $query = "UPDATE camps SET imageName = :imageName, imageData = :imageData, imageType = :imageType WHERE id = :id=? ";
-  $stmt = $pdo->prepare($query);
+
+  // replace space with dash
+  $campName = str_replace(" ", "-", $campHeadline);
+  // print_r($campName);
 
   // loop all files
   for($i=0;$i<$countfiles;$i++){
 
-    // rename folder to campStart-campHeadline
-    $folder = $campStart.'-'.$campHeadline;
 
-    echo 'foldername: ';
-    echo '<pre>';
-    print_r($folder);
+    $imageName = $_FILES['files']['name'];
+
+    // rename folder to campStart-campHeadline
+    $folder = $campStart.'-'.$campName;
+    // echo 'foldername: ';
+    // echo '<pre>';
+    // print_r($folder);
     
     $folderpath = "img/camp/$folder";
-    echo '<pre>';
-    echo 'folderpath: ';
-    echo '<pre>';
-    print_r($folderpath);
+    // echo '<pre>';
+    // echo 'folderpath: ';
+    // echo '<pre>';
+    // print_r($folderpath);
 
 		// new folder
     mkdir("img/camp/".$folder, 0700);
     
     // file name
     $filename = $_FILES['files']['name'][$i];
-    print_r($filename);
+    // print_r($filename);
 
     // new file
-    $newPage = fopen('camps/'.$campStart.'-'.$campHeadline.'.php', 'w');
-    echo '<pre>';
-    echo 'newPage: ';
-    print_r($newPage);
-
+    $newPage = fopen('camps/'.$campStart.'-'.$campName.'.php', 'w');
+    // echo '<pre>';
+    // echo 'newPage: ';
+    // print_r($newPage);
 
     // location
     $target_file = 'img/camp/'.$folder.'/'.$filename;
-    echo 'file location: ';
-    echo '<pre>';
-    print_r($target_file);
+    // echo 'file location: ';
+    // echo '<pre>';
+    // print_r($target_file);
 
     // file extension
     $imageType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -95,11 +100,19 @@
       //move file to folder
       if(move_uploaded_file($_FILES['files']['tmp_name'][$i], $target_file)){
 
-      // upload file
-	    $stmt->execute(array('imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
-       }
+        $imageName = $filename;
+
+        $imageData = $target_file;
+
+
+          // upload information in camps
+  $stmt = $pdo->prepare("INSERT INTO camps (campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, imageName, imageData, imageType ) VALUES ( :campHeadline, :campDescription, :campStart, :campEnd, :campLocation, :campPrice, :campPatricipants, :campShortDescription, :campLink, :campButton, :imageName, :imageData, :imageType)");
+	$result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton, 'imageName' => $imageName, 'imageData' => $imageData, 'imageType' => $imageType));
+      }
     }
   }
+  
+
   // feedback
   $output = 'Your camp is created.';
  }   
