@@ -1,3 +1,5 @@
+
+
 <style><?php include "style/parts/camp.style.css" ?></style>
 <style><?php include "style/parts/grid.style.css" ?></style>
 <style><?php include "style/elements/picture.style.css" ?></style>
@@ -52,7 +54,7 @@
 	</div>
 
 	<div>
-		<img class="flyerPic" src="img/event/flyer/event.jpg" alt="Flyer event">
+		<img class="flyerPic" src="img/camp/upload/ginastica.jpg" alt="Flyer event">
 	</div>
 
 

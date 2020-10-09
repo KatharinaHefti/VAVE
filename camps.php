@@ -38,7 +38,7 @@ include ("./inc/campSection.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * camp short sections * * * * * * * * * * * * * * * * * * * */
 
-$sql = "SELECT campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, campTicketsLeft FROM camps WHERE id != 1";
+$sql = "SELECT campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, campTicketsLeft FROM camps WHERE id !=1";
 foreach ($pdo->query($sql) as $row) {
 $CampSectionHeadline = $row["campHeadline"];
 $CampSectionLongDescription = $row["campDescription"];

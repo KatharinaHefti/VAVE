@@ -157,7 +157,7 @@ for ($i = 0; $i < $count; $i++) {
 
   <!-- - - - - - - - - - - - - - - - - - - - edit contact info - - - - - - - - - - - - - - - - - - -->
   <section class="edit">
-    <form action="" enctype="multipart/form-data" method="post">
+    <form action="" method="post">
       <h2>Contact</h2>
       <br>
       <h4>Edit your contact information</h4>
