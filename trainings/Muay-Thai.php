@@ -8,9 +8,9 @@ require_once("../config/config.inc.php");
 /* * * * * * * * * * * * * * * * * * * * ginastica natural zürich * * * * * * * * * * * * * * * * * * * */
 
 // Main Chapter Variabl not changeble
-$id = 3;
+$id = 4;
 $TrainingChapterTitle = 'Training';
-$TrainingPicture = '../img/training/Workout/Workout_header.jpg';
+$TrainingPicture = '../img/training/Muay-Thai/Muay-Thai_header.jpg';
 
 $TrainingHeadline = $TrainingParagraph = "";
 
