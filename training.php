@@ -7,8 +7,8 @@
 
   /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
-// import variables form database contact
-  $sql = "SELECT chapter, titel, text FROM trainings";
+// import variables form database trainings
+  $sql = "SELECT chapter, titel, text FROM trainings WHERE id=1";
   foreach ($pdo->query($sql) as $row) {
   $MainChapterTitle = $row["chapter"];
   $MainHeadline = $row["titel"];
@@ -17,13 +17,9 @@
 
   // Main Text Variables not changeble
   $MainPicture = './img/training/training_header.jpg';
-  $MainLink = '#';
+  $MainLink = 'trainings/Ginastica-Natural-Zurich.php';
   $MainButton = 'join a training';
   
-
-  
-
-
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
 <style><?php include "style/elements/picture.style.css" ?></style>
@@ -40,7 +36,69 @@
   <!-- button -->
   <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
 </section>
+
 <?php
+/* * * * * * * * * * * * * * * * * * * * section * * * * * * * * * * * * * * * * * * * */
+
+$SectionChapterTitle = 'Qualifications';
+$SectionHeadline = 'Health specialist EFZ; Fitness instructor';
+$SectionParagraph = 'SOMIT course association management (University of Friborg); Over 10 years of competitive sport experience in martial arts & competition training.';
+$SectionLanguages = 'Languages:';
+$Languages = 'German & English';
+$Help = 'Where i can help you:';
+
+$trainings = array(
+  'Strength training',
+  'Endurance training',
+  'H.I.I.T. (High intensity intervall training)',
+  'TRX suspension training',
+  'Regression training',
+  'Ginastica Natural Training',
+  'Sport training (Snowboarding, Surfing etc.)',
+  'Martial arts training (Muay Thai; Kickboxing & boxing)'
+);
+// var_dump($trainings);
+?>
+
+<style><?php 
+include "style/parts/main.style.css";
+include "style/parts/grid.style.css";
+include "style/elements/picture.style.css"; 
+?></style>
+
+<main class="main">
+  <h4><?php echo $SectionChapterTitle?></h4>
+  <br>
+  <h3><?php echo $SectionHeadline?></h3>
+  <br>
+  <div class="left">
+  <strong><?php echo $SectionLanguages?></strong>
+  <p><?php echo $Languages?></p>
+  <br>
+  <p><?php echo $SectionParagraph?></p>
+  <br>
+  <strong><?php echo $Help?></strong>
+  <p><?php
+
+  $amount = count($trainings);
+  // print_r($amount);
+
+  for ($i = 0; $i < $amount; $i++) {
+    $value = $trainings[$i];
+    echo '<strong class="paint-haze"><php?>- '.$trainings[$i].'</strong><br>';
+}
+  
+  
+  ?></p>
+  </div>
+
+</main>
+
+
+
+<?php
+
+
 /* * * * * * * * * * * * * * * * * * * * footer * * * * * * * * * * * * * * * * * * * */
 
   // include footer template
