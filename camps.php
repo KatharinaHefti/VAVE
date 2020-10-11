@@ -32,7 +32,8 @@ $MainCampShortDescription = $row["campShortDescription"];
 $MainCampLink = $row["campLink"];
 $MainCampButton = $row["campButton"];
 $MainCampTicketsLeft = $row["campTicketsLeft"];
-include ("./inc/campSection.inc.php"); 
+include ("./inc/campSection.inc.php");
+ 
 }
 
 /* * * * * * * * * * * * * * * * * * * * camp short sections * * * * * * * * * * * * * * * * * * * */

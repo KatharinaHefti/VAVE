@@ -20,8 +20,14 @@
   $MainLink = 'trainings/Ginastica-Natural-Zurich.php';
   $MainButton = 'Ginastica Natural';
 
-  $MainLink = 'trainings/VAVE-Workout.php';
+  $WorkoutLink = 'trainings/VAVE-Workout.php';
   $WorkoutButton ='VAVE Workout';
+
+  $WorkoutLink = 'trainings/VAVE-Workout.php';
+  $WorkoutButton ='VAVE Workout';
+
+  $MuayThaiLink = 'trainings/Muay-Thai.php';
+  $MuayThaiButton = 'Muay Thai Training ';
   
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
@@ -40,7 +46,7 @@
   <div class="flexer">
   <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
   <button><a class="buttonType" href="<?php echo $WorkoutLink?>"><?php echo $WorkoutButton?></a></button>
-  <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
+  <button><a class="buttonType" href="<?php echo $MuayThaiLink?>"><?php echo $MuayThaiButton?></a></button>
   </div>
 
 </main>
