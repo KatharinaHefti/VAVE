@@ -30,11 +30,7 @@ $CampList = $stmt->fetchAll();
 $count = count($CampList);
 for ($i = 0; $i < $count; $i++) {
   $camp = $CampList[$i]['campHeadline'];
-  $list = array($user);
-
-  echo '<pre>';
-  print_r($camp);
-
+  $list = array($camp);
 }
 
 ?>
