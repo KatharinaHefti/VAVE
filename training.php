@@ -18,7 +18,7 @@
   // Main Text Variables not changeble
   $MainPicture = './img/training/training_header.jpg';
   $MainLink = 'trainings/Ginastica-Natural-Zurich.php';
-  $MainButton = 'join a training';
+  $MainButton = 'try Ginastica Natural';
   
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
