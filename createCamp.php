@@ -100,6 +100,7 @@
     $contentCampPage .= '$campPatricipants = "'.$campPatricipants.'";';
     $contentCampPage .= '$campButton = "'.$campButton.'";';
     $contentCampPage .= '$imagedata = "../'.$imageData.'";';
+    $contentCampPage .= '$campLink = "joinCamp.php";';
 
     // content of new file
     $contentCampPage .= '
@@ -158,7 +159,7 @@
       
           <!-- get your tickets -->
           <div class="flexBtn">
-            <button><a href="<?php echo $campShortDescription?>"></a><?php echo $campButton?></button>
+            <button><a class="buttonType" href="<?php echo $campLink?>"><?php echo $campButton?></a></button>
           </div> 
         </div>
       

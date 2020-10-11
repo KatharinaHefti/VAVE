@@ -1,4 +1,4 @@
-<?php $campHeadline = "Surf & BJJ Camps";$campDescription = "asdf";$campStart = "2020-10-14";$campEnd = "2020-10-29";$campLocation = "Rio de Janeiro";$campPrice = "300";$campShortDescription = "sdf";$campPatricipants = "10";$campButton = "join us";$imagedata = "../img/camp/2020-10-14-Surf-&-BJJ-Camps/marvin-meyer-iNYr-zbFEUE-unsplash.jpg";
+<?php $campHeadline = "Surf & BJJ Camps";$campDescription = "asdf";$campStart = "2020-10-14";$campEnd = "2020-10-29";$campLocation = "Rio de Janeiro";$campPrice = "300";$campShortDescription = "asdf";$campPatricipants = "10";$campButton = "join us";$imagedata = "../img/camp/2020-10-14-Surf-&-BJJ-Camps/marvin-meyer-iNYr-zbFEUE-unsplash.jpg";$campLink = "joinCamp.php";
     include ("../inc/headerCamps.inc.php"); 
     include ("../inc/navCamps.inc.php"); 
 
@@ -54,7 +54,7 @@
       
           <!-- get your tickets -->
           <div class="flexBtn">
-            <button><a href="<?php echo $campShortDescription?>"></a><?php echo $campButton?></button>
+            <button><a class="buttonType" href="<?php echo $campLink?>"><?php echo $campButton?></a></button>
           </div> 
         </div>
       

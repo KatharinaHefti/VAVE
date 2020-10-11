@@ -1,4 +1,4 @@
-<?php $campHeadline = "Ginastica Natural & Surfcamp";$campDescription = "Loenas";$campStart = "2020-10-14";$campEnd = "2020-10-29";$campLocation = "Rio de Janeiro";$campPrice = "300";$campShortDescription = "sd";$campPatricipants = "10";$campButton = "join us";$imagedata = "../img/camp/2020-10-14-Ginastica-Natural-&-Surfcamp/dendy-darma-XFMjz4X3hGs-unsplash.jpg";$campLink = "joinCamp.php";
+<?php $campHeadline = "asdfasdfasdfasd";$campDescription = "asdf";$campStart = "2020-10-14";$campEnd = "2020-10-29";$campLocation = "Rio de Janeiro";$campPrice = "300";$campShortDescription = "asf";$campPatricipants = "10";$campButton = "join us";$imagedata = "../img/camp/2020-10-14-asdfasdfasdfasd/marvin-meyer-iNYr-zbFEUE-unsplash.jpg";$campLink = "joinCamp.php";
     include ("../inc/headerCamps.inc.php"); 
     include ("../inc/navCamps.inc.php"); 
 
