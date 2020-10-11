@@ -40,6 +40,11 @@ input[type="email"], input[type="password"], input[type="text"] {
   border-bottom: 2px solid #7079B6;
 }
 
+input[type="date"] {
+  border: none;
+  border-bottom: 0;
+}
+
 ::-webkit-input-placeholder {
   font-family: 'PT Sans Caption', sans-serif;
   padding: 10px;
@@ -92,6 +97,21 @@ input[type="file"] {
 .inputfile + label {
 	cursor: pointer;  "hand" cursor 
 } */
+input[type="date"] {
+  border-color: none;
+  color: #7079B6;
+  font: 'normal 10px PT Sans Caption', sans-serif;
+}
+
+::-webkit-datetime-edit {
+  padding: 1em;
+  border: 2px solid #7079B6;
+}
+
+::-webkit-datetime-edit-text {
+  font-family: 'normal 10px PT Sans Caption', sans-serif;
+}
+
 @media screen and (max-width: 800px) {
   form {
     max-width: 800px;

@@ -17,7 +17,7 @@
 /* * * * * * * * * * * * * * * * * * * * camp information * * * * * * * * * * * * * * * * * * * */
 
   // camp variables
-  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $current = $imageType = '';
+  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $current = $imageType = $contentCampPage = '';
 
   // is form sent?
   if (isset($_POST['submit'])) {
@@ -52,144 +52,19 @@
     $folder = $campStart.'-'.$campName;
     // echo 'foldername: ';
     // echo '<pre>';
-    // print_r($folder);
-    
-    $folderpath = "img/camp/$folder";
-    // echo '<pre>';
-    // echo 'folderpath: ';
-    // echo '<pre>';
-    // print_r($folderpath);
 
-		// new folder
+    // folderpath to new uploaded image
+    $folderpath = "img/camp/$folder";
+   
+		// create new folder
     mkdir("img/camp/".$folder, 0700);
     
-    // file name
+    // new file name is like uploaded file name
     $filename = $_FILES['files']['name'][$i];
-    // print_r($filename);
-
-    // new file
-    $newPage = fopen('camps/'.$campStart.'-'.$campName.'.php', 'w');
-    // echo '<pre>';
-    // echo 'newPage: ';
-    // print_r($newPage);
-    
-
-    $contentCampPage = '<?php 
-    include ("../inc/headerCamps.inc.php"); 
-    include ("../inc/navCamps.inc.php"); 
-      
-   
-    // database connection
-    require_once("../config/config.inc.php");
-  
-    $CampSectionChapterTitle = "Camps";
-    $campStart = $_REQUEST["campStart"];
-
-    // import variables form database camps
-    $sql = "SELECT campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campShortDescription, campPatricipants, campButton, imageData FROM camps WHERE campStart = $campStart";
-   
-    $campHeadline = $row["campHeadline"];
-    $campDescription = $row["campDescription"];
-    $campStart = $row["campStart"];
-    $campEnd = $row["campEnd"];
-    $campLocation = $row["campLocation"];
-    $campPrice = $row["campPrice"];
-    $campShortDescription = $row["campShortDescription"];
-    $campPatricipants = $row["campPatricipants"];
-    $campButton = $row["campButton"];
-    $campTicketsLeft = "";
-    
-    include ("../inc/campSection.inc.php"); 
-    
-  ?>
-  
-      <style><?php include "../style/parts/camp.style.css" ?></style>
-      <style><?php include "../style/parts/grid.style.css" ?></style>
-      <style><?php include "../style/elements/picture.style.css" ?></style>
-      
-      <section class="event">
-      
-        <!-- camp event -->
-        <div>
-          <h4><?php echo $CampSectionChapterTitle?></h4>
-          <br>
-          <h1><?php echo $campHeadline?></h1>
-          <br>
-          <p><?php echo $campDescription?></p>
-      
-          <!-- icon event -->
-          <div class="highlight">
-            <svg class="small">
-              <use xlink:href="#icon_event"></use>
-            </svg>
-          <h4 class="paint-turquois"><?php echo $campStart?> until <?php echo $campEnd?></h4>
-          </div>
-      
-          <!-- icon location -->
-          <div class="highlight">
-            <svg class="small">
-              <use xlink:href="#icon_location"></use>
-            </svg>
-            <h4 class="paint-turquois"><?php echo $campLocation?></h4>
-          </div>
-          <br>
-      
-          <!-- icon price -->
-          <div class="highlight">
-            <svg class="small">
-              <use xlink:href="#icon_price"></use>
-            </svg>
-            <h4 class="paint-turquois"><?php echo $campPrice?> CHF / Pers.</h4>
-          </div>
-          <br>
-      
-          <!-- participants -->
-          <p><strong>Limit of <?php echo $campPatricipants?> Participants</strong></p>
-      
-          <!-- short description -->
-          <p><?php echo $campShortDescription?></p>
-      
-          <!-- get your tickets -->
-          <div class="flexBtn">
-            <button><a href="<?php echo $campShortDescription?>"></a><?php echo $campButton?></button>
-            <p>just  <?php echo $campTicketsLeft ?> tickets left</p>
-          </div> 
-        </div>
-      
-        <div>
-          <img class="flyerPic" src="../<?php $imagedata ?>" alt="Flyer event">
-        </div>
-      
-      
-      </section>';
-    fwrite($newPage, $contentCampPage);
-
-    $file = 'camps/'.$campStart.'-'.$campName.'.php';
-    // Öffnet die Datei, um den vorhandenen Inhalt zu laden
-    $current = file_get_contents($file, $current);
-    // Fügt eine neue Person zur Datei hinzu
-    $current .= $campHeadline;
-    $current .= $campDescription;
-    $current .= $campStart;
-    $current .= $campEnd;
-    $current .= $campLocation;
-    $current .= $campPrice;
-    $current .= $campShortDescription;
-    $current .= $campPatricipants;
-    $current .= $campButton;
-    $current .= $campTicketsLeft;
-
-
-    // Schreibt den Inhalt in die Datei zurück
-    file_put_contents($file, $current);
 
     // location
     $target_file = 'img/camp/'.$folder.'/'.$filename;
     
-    // echo 'file location: ';
-    // echo '<pre>';
-    // print_r($target_file);
-
     // file extension
     $imageType = pathinfo($target_file, PATHINFO_EXTENSION);
     $imageType = strtolower($imageType);
@@ -204,11 +79,95 @@
         $imageName = $filename;
         $imageData = 'img/camp/'.$folder.'/'.$filename;
         $campLink = 'camps/'.$campStart.'-'.$campName.'.php';
-        
-          // upload information in camps
+      }
+
+  // upload information in camps
   $stmt = $pdo->prepare("INSERT INTO camps (campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, imageName, imageData, imageType ) VALUES ( :campHeadline, :campDescription, :campStart, :campEnd, :campLocation, :campPrice, :campPatricipants, :campShortDescription, :campLink, :campButton, :imageName, :imageData, :imageType)");
 	$result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton, 'imageName' => $imageName, 'imageData' => $imageData, 'imageType' => $imageType));
-      }
+    
+  // create new file
+    $newPage = fopen('camps/'.$campStart.'-'.$campName.'.php', 'w');
+    
+    // pass input variables to new file
+    $contentCampPage .= '<?php ';
+    $contentCampPage .= '$campHeadline = "'.$campHeadline.'";';
+    $contentCampPage .= '$campDescription = "'.$campDescription.'";';
+    $contentCampPage .= '$campStart = "'.$campStart.'";';
+    $contentCampPage .= '$campEnd = "'.$campEnd.'";';
+    $contentCampPage .= '$campLocation = "'.$campLocation.'";';
+    $contentCampPage .= '$campPrice = "'.$campPrice.'";';
+    $contentCampPage .= '$campShortDescription = "'.$campShortDescription.'";';
+    $contentCampPage .= '$campPatricipants = "'.$campPatricipants.'";';
+    $contentCampPage .= '$campButton = "'.$campButton.'";';
+    $contentCampPage .= '$imagedata = "../'.$imageData.'";';
+
+    // content of new file
+    $contentCampPage .= '
+    include ("../inc/headerCamps.inc.php"); 
+    include ("../inc/navCamps.inc.php"); 
+
+    // database connection
+    require_once("../config/config.inc.php");
+  
+    $CampSectionChapterTitle = "Camps";    
+  ?>
+      <style><?php include "../style/parts/camp.style.css" ?></style>
+      <style><?php include "../style/parts/grid.style.css" ?></style>
+      <style><?php include "../style/elements/picture.style.css" ?></style>
+      
+      <section class="event">
+        <!-- camp event -->
+        <div>
+          <h4><?php echo $CampSectionChapterTitle?></h4>
+          <br>
+          <h1><?php echo $campHeadline?></h1>
+          <br>
+          <p><?php echo $campDescription?></p>
+      
+          <!-- icon event -->
+          <div class="highlight">
+            <svg class="small">
+              <use xlink:href="#icon_event"></use>
+            </svg>
+          <h4 class="paint-turquois">From: <?php echo $campStart?> Until: <?php echo $campEnd?></h4>
+          </div>
+      
+          <!-- icon location -->
+          <div class="highlight">
+            <svg class="small">
+              <use xlink:href="#icon_location"></use>
+            </svg>
+            <h4 class="paint-turquois"> Location: <?php echo $campLocation?></h4>
+          </div>
+          <br>
+      
+          <!-- icon price -->
+          <div class="highlight">
+            <svg class="small">
+              <use xlink:href="#icon_price"></use>
+            </svg>
+            <h4 class="paint-turquois"> Price: <?php echo $campPrice?> CHF / Pers.</h4>
+          </div>
+          <br>
+      
+          <!-- participants -->
+          <p><strong>Limit of <?php echo $campPatricipants?> Participants</strong></p>
+      
+          <!-- short description -->
+          <p><?php echo $campShortDescription?></p>
+      
+          <!-- get your tickets -->
+          <div class="flexBtn">
+            <button><a href="<?php echo $campShortDescription?>"></a><?php echo $campButton?></button>
+          </div> 
+        </div>
+      
+        <div>
+          <img class="flyerPic" src="<?php echo $imagedata ?>" alt="Flyer event">
+        </div>
+      </section>';
+    fwrite($newPage, $contentCampPage);
+
     }
   }
   
@@ -216,11 +175,11 @@
   $output = 'Your camp is created.';
  }   
  
-
  /* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
 <body class="dark">
+<style><?php include "style/elements/form.style.css" ?></style>
 
   <!-- - - - - - - - - - - - - - - - - - - - create new camp - - - - - - - - - - - - - - - - - - -->
   <main>
@@ -239,7 +198,7 @@
       <br>
       <!-- description -->
       <label for="campDescription">Camp Description</label>
-      <input type="textarea" id="campDescription" name="campDescription" value="<?=$campDescription?>"><br>
+      <textarea name="campDescription" type="textarea" rows="5" placeholder="This is you Camp description"value="<?=$campDescription?>"></textarea><br>
       <br>
       <!-- start -->
       <label for="campStart">Camp Start</label>
@@ -259,12 +218,12 @@
       <br>
       <!-- patricipants -->
       <label for="campPatricipants">Camp Patricipants</label>
-      <input type="textarea" id="campPatricipants" name="campPatricipants" value="<?=$campPatricipants?>"><br>
+      <input type="text" id="campPatricipants" name="campPatricipants" value="<?=$campPatricipants?>"><br>
       <br>
       <!-- short description -->
       <label for="campShortDescription">Camp Short Description</label>
-      <input type="textarea" id="campShortDescription" name="campShortDescription"
-        value="<?=$campShortDescription?>"><br>
+      <textarea name="campShortDescription" type="textarea" rows="3" placeholder="This is a short description of this camp"value="<?=$campShortDescription?>"></textarea><br>
+
       <br>
       <!-- short description -->
       <label for="campButton">Camp Button</label>
