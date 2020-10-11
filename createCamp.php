@@ -17,7 +17,7 @@
 /* * * * * * * * * * * * * * * * * * * * camp information * * * * * * * * * * * * * * * * * * * */
 
   // camp variables
-  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $current $imageType = '';
+  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $current = $imageType = '';
 
   // is form sent?
   if (isset($_POST['submit'])) {
@@ -72,6 +72,7 @@
     // echo '<pre>';
     // echo 'newPage: ';
     // print_r($newPage);
+    
 
     $contentCampPage = '<?php 
     include ("../inc/headerCamps.inc.php"); 
