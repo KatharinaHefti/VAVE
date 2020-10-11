@@ -48,8 +48,8 @@
   <button><a class="buttonType" href="<?php echo $WorkoutLink?>"><?php echo $WorkoutButton?></a></button>
   <button><a class="buttonType" href="<?php echo $MuayThaiLink?>"><?php echo $MuayThaiButton?></a></button>
   </div>
-
 </main>
+
 
 <?php
 /* * * * * * * * * * * * * * * * * * * * section * * * * * * * * * * * * * * * * * * * */
@@ -79,8 +79,8 @@ include "style/parts/main.style.css";
 include "style/parts/grid.style.css";
 include "style/elements/picture.style.css"; 
 ?></style>
-
 <main class="main">
+
   <h4><?php echo $SectionChapterTitle?></h4>
   <br>
   <h3><?php echo $SectionHeadline?></h3>
