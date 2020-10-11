@@ -18,13 +18,16 @@
   // Main Text Variables not changeble
   $MainPicture = './img/training/training_header.jpg';
   $MainLink = 'trainings/Ginastica-Natural-Zurich.php';
-  $MainButton = 'try Ginastica Natural';
+  $MainButton = 'Ginastica Natural';
+
+  $MainLink = 'trainings/VAVE-Workout.php';
+  $WorkoutButton ='VAVE Workout';
   
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
 <style><?php include "style/elements/picture.style.css" ?></style>
 <img class="headerPic" src="img/training/training_header.jpg" alt="valeria verzar">
-<section class="gallery">
+<main class="main">
   <!-- chapter title -->
   <h4><?php echo  $MainChapterTitle ?></h4>
   <br>
@@ -34,8 +37,13 @@
   <!-- paragraph -->
   <p><?php echo $MainPragraph ?></p>
   <!-- button -->
+  <div class="flexer">
   <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
-</section>
+  <button><a class="buttonType" href="<?php echo $WorkoutLink?>"><?php echo $WorkoutButton?></a></button>
+  <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
+  </div>
+
+</main>
 
 <?php
 /* * * * * * * * * * * * * * * * * * * * section * * * * * * * * * * * * * * * * * * * */
