@@ -22,13 +22,19 @@
     box-shadow: -2px 2px 10px rgba(128,128,128,0.25); 
   }
   
-  input{
-    width: 100%;
-  }
+input{
+  width: 100%;
+}
   
-  input[type="email"],  input[type="password"], input[type="text"] {
+input[type="email"],  input[type="password"], input[type="text"] {
     border: none;
     border-bottom: 2px solid #7079B6;  
+}
+
+::placeholder {
+  font-family: 'PT Sans Caption', sans-serif;
+  padding: 10px;
+  opacity: 0.6;
 }
 
 textarea{
@@ -36,6 +42,29 @@ textarea{
   border: 2px solid #7079B6;
   width: 100%;
 }
+
+input[type="file"] {
+  color: #7079B6 ;
+  font: 'normal 10px PT Sans Caption', sans-serif;
+}
+
+/*
+.files + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+
+.files:focus + label,
+.files + label:hover {
+  background-color: red;
+}
+
+.inputfile + label {
+	cursor: pointer;  "hand" cursor 
+} */
 
 // media 800 px
 @media screen and (max-width: 800px) {

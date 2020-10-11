@@ -31,18 +31,10 @@ $MainPicture = 'img/circle/octopus.svg';
 
 include ("./inc/main.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * contact * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * contact  * * * * * * * * * * * * * * * * * * * */
 
-// Contact Text Variables
+// contact text variables
 $name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout = "";
-
-/* * * * * * * * * * * * * * * * * * * * about * * * * * * * * * * * * * * * * * * * */
-
-// About Text Variables
-$titel = $text = $chapter = "";
-$id=1;
-
-/* * * * * * * * * * * * * * * * * * * * contact validation * * * * * * * * * * * * * * * * * * * */
 
 // if form sent
 if(isset($_POST['updateContact'])){
@@ -51,7 +43,6 @@ if(isset($_POST['updateContact'])){
   $street = $_POST['city'];
   $email =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid");
   $phone = $_POST['phone'];
-
 
   // upload updated contact information
   $stmt = $pdo->prepare("UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone");
@@ -62,6 +53,10 @@ if(isset($_POST['updateContact'])){
 }
 
 /* * * * * * * * * * * * * * * * * * * * about validation * * * * * * * * * * * * * * * * * * * */
+
+// about text Variables
+$titel = $text = $chapter = "";
+$id = 1;
 
 // if form sent
 if(isset($_POST['updateAbout'])){
@@ -77,13 +72,12 @@ if(isset($_POST['updateAbout'])){
   $stmt= $pdo->prepare("UPDATE about SET chapter = :chapter, titel = :titel, text = :text WHERE id = :id");
   $stmt->execute($data);
 
-  // picture upload
-  // Count total files
-  $countfiles = count($_FILES['files']['name']);
+/* * * * * * * * * * * * * * * * * * * * picture upload * * * * * * * * * * * * * * * * * * * */
+
+$countfiles = count($_FILES['files']['name']);
  
   // Prepared statement
   $query = "UPDATE about SET imageName = :imageName, imageData = :imageData, imageType = :imageType WHERE id = :id";
-
   $stmt = $pdo->prepare($query);
 
   // Loop all files
@@ -111,15 +105,14 @@ if(isset($_POST['updateAbout'])){
 	    $stmt->execute(array('id' => 1, 'imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
        }
     }
- 
   }
   // feedback
   $feedbackAbout = '<img class="iconBig" src="img/circle/thumbsup.svg" alt="">';
-
 }
 
-// import 1 Row from users
-// variables form database users
+/* * * * * * * * * * * * * * * * * * * * import user list * * * * * * * * * * * * * * * * * * * */
+
+// import variables form database users
 $stmt = $pdo->prepare("SELECT name, familyname, email FROM users");
 $stmt->execute();
 
@@ -130,14 +123,10 @@ $UserList = $stmt->fetchAll();
 $count = count($UserList);
 for ($i = 0; $i < $count; $i++) {
   $user = $UserList[$i]['name'];
-
   $list = array($user);
   // echo '<pre>';
-   //print_r($list[0]);
+  //print_r($list[0]);
 }
-
-
-
 ?>
 
 <html>
@@ -182,7 +171,6 @@ for ($i = 0; $i < $count; $i++) {
       <!-- phone -->
       <label for="phone">Phone</label>
       <input type="text" id="phone" name="phone" value="<?=$phone?>"><br>
-      
       <!-- output -->
       <br>
       <p class="paint-turquois"><?php echo $output;?></p>
@@ -209,12 +197,12 @@ for ($i = 0; $i < $count; $i++) {
       <!-- description -->
       <label for="text">Description</label><br>
       <br>
-      <textarea name="text" type="text" rows="5" placeholder="Say something about yourself" maxlength="200"></textarea>
+      <textarea name="text" type="text" rows="5" placeholder="Say something about yourself"></textarea>
       <br> 
       <br> 
 
       <!-- pictures upload -->
-      <input type='file' name='files[]' multiple />
+      <input class="files" type='file' name='files[]' multiple />
 
       <!-- output -->
       <br>
@@ -229,6 +217,7 @@ for ($i = 0; $i < $count; $i++) {
 
     
   <!-- - - - - - - - - - - - - - - - - - - - register - - - - - - - - - - - - - - - - - - -->
+  
   <form action="" enctype="multipart/form-data" method="post">
       <h2>Register</h2>
       <br>
@@ -244,18 +233,13 @@ for ($i = 0; $i < $count; $i++) {
       ?></p>
       <br>
       <p>You can add new user to maintain your webpage.</p>
-
-      <button><a class="buttonType"href="register.php">new user</a></button>
-      
-      <br>
+      <!-- delete user button --> 
+      <button><a class="buttonType"href="register.php">new user</a></button><br>
       <br>
       <!-- delete user --> 
       <p>You can delete an existing user here.</p>
       <button><a class="buttonType"href="deleteUser.php">delete</a></button>
-
-
     </form>
-    
   </section>
 </body>
 </html>
