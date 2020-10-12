@@ -1,22 +1,31 @@
 <?php 
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
+
+// database connection
+require_once("./config/config.inc.php");
+
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
 // Main Text Variables
-$MainChapterTitle = 'Sports and camps';
-$MainHeadline = 'This is an inspirational sporty intro to your page lorem.';
-$MainPragraph = 'Try to finde one sentence or two to describe the concept of your page. Sports and camps describe a mood to make people feel whatever bla bla.';
-$MainLink = 'training.php';
-$MainButton = 'join a training';
-$MainPicture = 'img/circle/wave.svg';
+$MainChapterTitle = $MainHeadline = $MainPragraph = $MainLink = $MainButton = $MainPicture = " ";
 
+$sql = "SELECT mainTitle, mainHeadline, mainPragraph, mainLink, mainButton, mainPicture FROM main WHERE id=1";
+foreach ($pdo->query($sql) as $row) {
+  $MainChapterTitle = $row["mainTitle"];
+  $MainHeadline = $row["mainHeadline"];
+  $MainPragraph = $row["mainPragraph"];
+  $MainLink = $row["mainLink"];
+  $MainButton = $row["mainButton"];
+  $MainPicture = $row["mainPicture"];
+}
 include ("./inc/main.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * gallery section * * * * * * * * * * * * * * * * * * * */
 
 $GallerySectionChapterTitle = 'Gallery';
 $GallerySectionHeadline = 'Something about your Gallery Loerum ipsum dolor sit.';
+
 include ("./inc/gallerySection.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * event section * * * * * * * * * * * * * * * * * * * */
