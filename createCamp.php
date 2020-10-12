@@ -14,6 +14,71 @@
  include ("./inc/header.inc.php"); 
  include ("./inc/navPrivat.inc.php"); 
 
+/* * * * * * * * * * * * * * * * * * * * get existing camp names and allowed patricipants * * * * * * * * * * * * * * * * * * * */
+
+// variables
+$campList = $UserList = $upcomingCamps = "";
+
+// get campname & allowed patricipants
+$sql = "SELECT campHeadline, campPatricipants FROM camps";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+// fech array of campnames and allowed patricipants
+$campList = $stmt->fetchAll();
+
+// save values
+$count = count($campList);
+// print_r($count);
+
+for ( $i = 0; $i < $count; $i++ ){
+  echo '<pre>';
+  $camps = $campList[$i]['campHeadline'];
+  print_r($camps);
+  echo '<pre>';
+  $campPatricipants = $campList[$i]['campPatricipants'];
+  print_r($campPatricipants);
+}
+
+/* * * * * * * * * * * * * * * * * * * * get signed up participants * * * * * * * * * * * * * * * * * * * */
+
+// get camp names
+$sql = "SELECT camps FROM participants";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+// fech all 
+$UserList = $stmt->fetchAll();
+$count = count($UserList);
+
+ // echo '<pre>';
+ // echo 'CAMP PARTICIPANTS: ';
+ //print_r($UserList);
+
+ $count = count($UserList);
+// print_r($count);
+
+for ( $i = 0; $i < $count; $i++ ){
+
+  $campsBooked = $UserList[$i]['camps'];
+  //print_r($campsBooked);
+
+  $booking = array($campsBooked);
+  //print_r($booking[0]);
+
+  foreach ($booking as &$booked) {
+    echo $booked;
+    $value = '1';
+
+    if($booked = $campsBooked){
+      $campUpdate = $campPatricipants - $value;
+      print_r($campUpdate);
+    }
+  }
+}
+
+
+
 /* * * * * * * * * * * * * * * * * * * * camp information * * * * * * * * * * * * * * * * * * * */
 
   // camp variables
@@ -101,6 +166,7 @@
     $contentCampPage .= '$campButton = "'.$campButton.'";';
     $contentCampPage .= '$imagedata = "../'.$imageData.'";';
     $contentCampPage .= '$campLink = "joinCamp.php";';
+    $contentCampPage .= '$MainCampTicketsLeft = ';
 
     // content of new file
     $contentCampPage .= '
@@ -184,6 +250,7 @@
 
   <!-- - - - - - - - - - - - - - - - - - - - create new camp - - - - - - - - - - - - - - - - - - -->
   <main>
+
     <form action="createCamp.php" method="post" enctype="multipart/form-data">
       <h4>create camp</h4>
       <h2>Upload</h2>
