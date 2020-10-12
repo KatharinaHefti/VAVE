@@ -1,4 +1,4 @@
-<?php $campHeadline = "Surf & BJJ Camps";$campDescription = "asdf";$campStart = "2020-10-14";$campEnd = "2020-10-29";$campLocation = "Rio de Janeiro";$campPrice = "300";$campShortDescription = "asdf";$campPatricipants = "10";$campButton = "join us";$imagedata = "../img/camp/2020-10-14-Surf-&-BJJ-Camps/marvin-meyer-iNYr-zbFEUE-unsplash.jpg";$campLink = "joinCamp.php";
+<?php $campHeadline = "Surf & BJJ Camps";$campDescription = "Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. ";$campStart = "2020-10-14";$campEnd = "2020-10-29";$campLocation = "Rio de Janeiro";$campPrice = "300";$campShortDescription = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sd.";$campPatricipants = "10";$campButton = "join us";$imagedata = "../img/camp/2020-10-14-Surf-&-BJJ-Camps/marvin-meyer-iNYr-zbFEUE-unsplash.jpg";$campLink = "joinCamp.php";
     include ("../inc/headerCamps.inc.php"); 
     include ("../inc/navCamps.inc.php"); 
 
@@ -19,6 +19,7 @@
           <h1><?php echo $campHeadline?></h1>
           <br>
           <p><?php echo $campDescription?></p>
+          <br>
       
           <!-- icon event -->
           <div class="highlight">

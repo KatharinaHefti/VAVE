@@ -71,7 +71,7 @@ for ($i = 0; $i < $count; $i++) {
       <!-- camp -->
       <label for="camps">Choose your camp:</label><br>
       <br>
-      <select class name="camps" id="camps">
+      <select name="camps" id="camps">
         <?php
         $count = count($CampList);  
             for ($i = 0; $i < $count; $i++) {

@@ -124,7 +124,7 @@
           <h1><?php echo $campHeadline?></h1>
           <br>
           <p><?php echo $campDescription?></p>
-      
+          <br>
           <!-- icon event -->
           <div class="highlight">
             <svg class="small">
