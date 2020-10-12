@@ -112,6 +112,29 @@ input[type="date"] {
   font-family: 'normal 10px PT Sans Caption', sans-serif;
 }
 
+select {
+  display: block;
+  font-size: 1.5em;
+  padding: .6em 1.4em .5em .8em;
+  width: 20em;
+  max-width: 100%;
+  /* useful when width is set to anything other than 100% */
+  border: 2px solid #7079B6;
+  background-color: #7079B6;
+}
+
+select option {
+  color: #666;
+}
+
+select selected {
+  color: pink;
+}
+
+select id {
+  color: pink;
+}
+
 @media screen and (max-width: 800px) {
   form {
     max-width: 800px;

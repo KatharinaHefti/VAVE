@@ -58,6 +58,9 @@ for ($i = 0; $i < $count; $i++) {
 
 ?>
 <body class="dark">
+
+<style><?php include "../style/elements/form.style.css" ?></style>
+
 <main class="main">
     <form action="joinCamp.php" method="post">
       <h2>Camp</h2>
@@ -68,7 +71,7 @@ for ($i = 0; $i < $count; $i++) {
       <!-- camp -->
       <label for="camps">Choose your camp:</label><br>
       <br>
-      <select name="camps" id="camps">
+      <select class name="camps" id="camps">
         <?php
         $count = count($CampList);  
             for ($i = 0; $i < $count; $i++) {
