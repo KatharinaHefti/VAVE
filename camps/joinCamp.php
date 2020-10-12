@@ -14,11 +14,34 @@ require_once("../config/config.inc.php");
 
 //variables
 
-$name = $email = $output = $terms = $camps = $count = '';
+$name = $familyname = $email = $output = $terms = $camps = $count = $id = '';
 
+/* * * * * * * * * * * * * * * * * * * * join camp validation * * * * * * * * * * * * * * * * * * * */
 
-// import variables form database contact
+// if form sent
+if(isset($_POST['join'])){
+  $name = $_POST['name'];
+  $familyname = $_POST['familyname'];
+  $email = $_POST['email'];
+  $camps = $_POST['camps'];
 
+  $data = [
+    'name' => $name,
+    'familyname' => $familyname,
+    'email' => $email,
+    'camps' => $camps,
+  ];
+
+  // upload data to participants
+  $sql = "INSERT INTO participants (name, familyname, email, camps) VALUES (:name, :familyname, :email, :camps)";
+  $stmt= $pdo->prepare($sql);
+  $stmt->execute($data);
+
+  $output = 'successfully added '.$name.$familyname.' to the camp';
+
+}
+
+// import variables form database camps
 $sql = "SELECT campHeadline FROM camps";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
@@ -44,6 +67,7 @@ for ($i = 0; $i < $count; $i++) {
       <br>
       <!-- camp -->
       <label for="camps">Choose your camp:</label><br>
+      <br>
       <select name="camps" id="camps">
         <?php
         $count = count($CampList);  
@@ -56,6 +80,10 @@ for ($i = 0; $i < $count; $i++) {
       <!-- name -->
       <label for="name">Name</label>
       <input type="text" id="name" name="name" value="<?=$name?>"><br>
+      <br> 
+      <!-- familyname -->
+      <label for="familyname">Family Name</label>
+      <input type="text" id="familyname" name="familyname" value="<?=$familyname?>"><br>
       <br> 
       <!-- email -->
       <label for="email">E-Mail Adresse</label>
@@ -71,9 +99,8 @@ for ($i = 0; $i < $count; $i++) {
       <p class="paint-turquois"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
-        <button class="buttonType" type="submit" name="joinEvent">join</button>
+        <button class="buttonType" type="submit" name="join">join</button>
       </div>
-      <?php echo $output; ?>
     </form>
 </main>
 
