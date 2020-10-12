@@ -20,7 +20,6 @@
           <br>
           <p><?php echo $campDescription?></p>
           <br>
-      
           <!-- icon event -->
           <div class="highlight">
             <svg class="small">
