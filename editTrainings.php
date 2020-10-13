@@ -21,7 +21,7 @@ include ("./inc/navPrivat.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * trainings * * * * * * * * * * * * * * * * * * * */
 
-// contact text variables
+// training text variables
 $title = $text = $output = "";
 
 // if form sent
@@ -54,7 +54,6 @@ if(isset($_POST['updateGinastica'])){
   $output = 'updated Ginastica Natural Zurich';
 }
 
-
 /* * * * * * * * * * * * * * * * * * * * VAVE Workout * * * * * * * * * * * * * * * * * * * */
 
 // if form sent
@@ -71,7 +70,6 @@ if(isset($_POST['updateWorkout'])){
   $output = 'updated VAVE Workout';
 }
 
-
 // if form sent
 if(isset($_POST['updateMuayThai'])){
   $title = $_POST['titel'];
@@ -85,8 +83,6 @@ if(isset($_POST['updateMuayThai'])){
   // feedback
   $output = 'updated Muay Thai training';
 }
-
-
 
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
@@ -105,7 +101,7 @@ if(isset($_POST['updateMuayThai'])){
   
   <section class="edit">
     <form action="" method="post">
-      <h2>trainings</h2>
+      <h2>Trainings</h2>
       <br>
       <h4>Edit your training information</h4>
       <br>
@@ -116,7 +112,7 @@ if(isset($_POST['updateMuayThai'])){
       <br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="5" placeholder="Say something about your training"></textarea>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <br> 
       <!-- output -->
       <br>
@@ -129,11 +125,22 @@ if(isset($_POST['updateMuayThai'])){
 
     <!-- - - - - - - - - - - - - - - - - - - - second column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - -->
  
+    
+
+    <!-- - - - - - - - - - - - - - - - - - - - third column icon - - - - - - - - - - - - - - - - - - -->
+    <div><img class="hugeIcon" src="img/circle/training.svg" alt=""></div>
+  </section>
+  
+
+<!--! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - SECOND ROW - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - first column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - -->
+
+  <section class="edit">
+
     <form action="" method="post">
-      <h2>ginastica natural zurich</h2>
-      <br>
-      <h4>Edit your training information</h4>
-      <br>
+      <h2>Ginastica Natural</h2>
       <br>
       <!-- title -->
       <label for="titel">Title</label>
@@ -141,7 +148,7 @@ if(isset($_POST['updateMuayThai'])){
       <br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="5" placeholder="Say something about your training"></textarea>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <br> 
       <!-- output -->
       <br>
@@ -153,21 +160,10 @@ if(isset($_POST['updateMuayThai'])){
       </div>
     </form>
 
-    <!-- - - - - - - - - - - - - - - - - - - - third column icon - - - - - - - - - - - - - - - - - - -->
-    <div><img class="hugeIcon" src="img/circle/shell.svg" alt=""></div>
-  </section>
+<!-- - - - - - - - - - - - - - - - - - - - second column edit VAVE Workout - - - - - - - - - - - - - - - - - - -->
 
-
-<!--! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - SECOND ROW - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! -->
-
-<!-- - - - - - - - - - - - - - - - - - - - first column edit VAVE Workout - - - - - - - - - - - - - - - - - - -->
-  
-<section class="edit">
     <form action="" method="post">
       <h2>VAVE Workout</h2>
-      <br>
-      <h4>Edit your VAVE Workout information</h4>
-      <br>
       <br>
       <!-- title -->
       <label for="titel">Title</label>
@@ -175,7 +171,7 @@ if(isset($_POST['updateMuayThai'])){
       <br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="5" placeholder="Say something about your training"></textarea>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <br> 
       <!-- output -->
       <br>
@@ -186,13 +182,10 @@ if(isset($_POST['updateMuayThai'])){
       </div>
     </form>
 
-    <!-- - - - - - - - - - - - - - - - - - - - second column edit muay thai training - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - third column edit muay thai training - - - - - - - - - - - - - - - - - - -->
  
     <form action="" method="post">
-      <h2>muay thai training</h2>
-      <br>
-      <h4>Edit your training information</h4>
-      <br>
+      <h2>Muay Thai Training</h2>
       <br>
       <!-- title -->
       <label for="titel">Title</label>
@@ -200,7 +193,7 @@ if(isset($_POST['updateMuayThai'])){
       <br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="5" placeholder="Say something about your training"></textarea>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <br> 
       <!-- output -->
       <br>
@@ -212,7 +205,6 @@ if(isset($_POST['updateMuayThai'])){
       </div>
     </form>
   </section>
-
 
 </body>
 </html>

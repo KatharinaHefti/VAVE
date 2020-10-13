@@ -7,6 +7,8 @@
   require("class/UserService.class.php");
   $userService = new UserService();
 
+/* * * * * * * * * * * * * * * * * * * * event sign up * * * * * * * * * * * * * * * * * * * */
+
   // variables
   $nameValue = $familynameValue = $ageValue = $emailValue = $acceptTerms  = " ";
   $eventName = "Ginastica Natural Zürich at 30.10.2020";
@@ -15,7 +17,7 @@
   // is form sent?
   if (isset($_POST['submit'])) {
 
-    // validate input with class User Service
+  // validate input with class User Service
   $nameValue = $userService -> validateInput($_POST['name'],true,"Name","min_length-1|max_length-100","Must contain minimum 1 letter and maximum 100.");
   $familynameValue =  $userService -> validateInput($_POST['familyname'],true,"Familyname","min_length-1|max_length-100","Must contain minimum 1 letter and maximum 100.");
   $ageValue =  $userService -> validateInput($_POST['age'],true,"Age","age","you must be 18 years old or more");
@@ -35,8 +37,6 @@
     // if upload to database was succesfull, leave to login page
     if($result == true)
       {
-        // email
-
         $recipient = $emailValue;
         $subject = "Neues Passwort für deinen Account auf www.vave.ch";
         $from = "From: Valeria Verzar <valeria@vavesports.ch>"; 

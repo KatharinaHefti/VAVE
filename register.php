@@ -66,13 +66,12 @@
     $passwordValue = "";
   }
 
-    /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
     include ("./inc/header.inc.php"); 
     include ("./inc/nav.inc.php"); 
   
-    /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
-  
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
 <head>
@@ -81,9 +80,11 @@
     <link rel="stylesheet" href="style/elements/icon.style.css">
     <link rel="stylesheet" href="style/cd/typo.style.css">
   </head>
+
   <body class="dark">
     <div class="center">
-      <form action="register.php" method="post" novalidate>
+
+    <form action="register.php" method="post" novalidate>
       <!-- picture -->
       <div class="center"><img class="circle" src="img/circle/person.svg" alt=""></div>   
       <h2>register</h2><br>

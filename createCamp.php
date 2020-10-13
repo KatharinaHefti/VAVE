@@ -14,75 +14,10 @@
  include ("./inc/header.inc.php"); 
  include ("./inc/navPrivat.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * get existing camp names and allowed patricipants * * * * * * * * * * * * * * * * * * * */
-
-// variables
-$campList = $UserList = $upcomingCamps = "";
-
-// get campname & allowed patricipants
-$sql = "SELECT campHeadline, campPatricipants FROM camps";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-
-// fech array of campnames and allowed patricipants
-$campList = $stmt->fetchAll();
-
-// save values
-$count = count($campList);
-// print_r($count);
-
-for ( $i = 0; $i < $count; $i++ ){
-  echo '<pre>';
-  $camps = $campList[$i]['campHeadline'];
-  print_r($camps);
-  echo '<pre>';
-  $campPatricipants = $campList[$i]['campPatricipants'];
-  print_r($campPatricipants);
-}
-
-/* * * * * * * * * * * * * * * * * * * * get signed up participants * * * * * * * * * * * * * * * * * * * */
-
-// get camp names
-$sql = "SELECT camps FROM participants";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-
-// fech all 
-$UserList = $stmt->fetchAll();
-$count = count($UserList);
-
- // echo '<pre>';
- // echo 'CAMP PARTICIPANTS: ';
- //print_r($UserList);
-
- $count = count($UserList);
-// print_r($count);
-
-for ( $i = 0; $i < $count; $i++ ){
-
-  $campsBooked = $UserList[$i]['camps'];
-  //print_r($campsBooked);
-
-  $booking = array($campsBooked);
-  //print_r($booking[0]);
-
-  foreach ($booking as &$booked) {
-    echo $booked;
-    $value = '1';
-
-    if($booked = $campsBooked){
-      $campUpdate = $campPatricipants - $value;
-      print_r($campUpdate);
-    }
-  }
-}
-
-
-
 /* * * * * * * * * * * * * * * * * * * * camp information * * * * * * * * * * * * * * * * * * * */
 
   // camp variables
-  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $current = $imageType = $contentCampPage = '';
+  $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campTickets = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $current = $imageType = $contentCampPage = '';
 
   // is form sent?
   if (isset($_POST['submit'])) {
@@ -93,13 +28,13 @@ for ( $i = 0; $i < $count; $i++ ){
     $campEnd = $_POST['campEnd'];
     $campLocation = $_POST['campLocation'];
     $campPrice = $_POST['campPrice'];
-    $campShortDescription = $_POST['campShortDescription'];
     $campPatricipants = $_POST['campPatricipants'];
+    $campTickets = $_POST['campPatricipants'];
+    $campShortDescription = $_POST['campShortDescription'];
     $campButton = $_POST['campButton'];
-    $campTicketsLeft = '';
     $output = 'Event has been uploaded.';
 
-  /* * * * * * * * * * * * * * * * * * * * camp picture upload * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * camp picture upload * * * * * * * * * * * * * * * * * * * */
   
   // count total files
   $countfiles = count($_FILES['files']['name']);
@@ -146,9 +81,59 @@ for ( $i = 0; $i < $count; $i++ ){
         $campLink = 'camps/'.$campStart.'-'.$campName.'.php';
       }
 
+
+
   // upload information in camps
-  $stmt = $pdo->prepare("INSERT INTO camps (campHeadline, campDescription, campStart, campEnd, campLocation, campPrice, campPatricipants, campShortDescription, campLink, campButton, imageName, imageData, imageType ) VALUES ( :campHeadline, :campDescription, :campStart, :campEnd, :campLocation, :campPrice, :campPatricipants, :campShortDescription, :campLink, :campButton, :imageName, :imageData, :imageType)");
-	$result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton, 'imageName' => $imageName, 'imageData' => $imageData, 'imageType' => $imageType));
+  $stmt = $pdo->prepare("INSERT INTO camps (
+    campHeadline, 
+    campDescription,
+    campStart,
+    campEnd,
+    campLocation,
+    campPrice,
+    campPatricipants,
+    campTickets,
+    campShortDescription,
+    campLink,
+    campButton,
+    imageName,
+    imageData,
+    imageType) 
+  VALUES (
+    :campHeadline, 
+    :campDescription,
+    :campStart,
+    :campEnd,
+    :campLocation,
+    :campPrice,
+    :campPatricipants,
+    :campTickets,
+    :campShortDescription,
+    :campLink,
+    :campButton,
+    :imageName,
+    :imageData,
+    :imageType)"
+  );
+
+  $data = [
+    'campHeadline' => $campHeadline, 
+    'campDescription' => $campDescription, 
+    'campStart' => $campStart,
+    'campEnd' => $campEnd,
+    'campLocation' => $campLocation,
+    'campPrice' => $campPrice,
+    'campPatricipants' => $campPatricipants,
+    'campTickets' => $campTickets,
+    'campShortDescription' => $campShortDescription,
+    'campLink' => $campLink,
+    'campButton' => $campButton,
+    'imageName' => $imageName,
+    'imageData' => $imageData,
+    'imageType' => $imageType
+  ];
+  $result = $stmt->execute($data);
+
     
   // create new file
     $newPage = fopen('camps/'.$campStart.'-'.$campName.'.php', 'w');
@@ -163,6 +148,7 @@ for ( $i = 0; $i < $count; $i++ ){
     $contentCampPage .= '$campPrice = "'.$campPrice.'";';
     $contentCampPage .= '$campShortDescription = "'.$campShortDescription.'";';
     $contentCampPage .= '$campPatricipants = "'.$campPatricipants.'";';
+    $contentCampPage .= '$campTickets = "'.$campTickets.'";';
     $contentCampPage .= '$campButton = "'.$campButton.'";';
     $contentCampPage .= '$imagedata = "../'.$imageData.'";';
     $contentCampPage .= '$campLink = "joinCamp.php";';
@@ -234,21 +220,23 @@ for ( $i = 0; $i < $count; $i++ ){
         </div>
       </section>';
     fwrite($newPage, $contentCampPage);
-
     }
   }
   
   // feedback
   $output = 'Your camp is created.';
  }   
+
+
  
- /* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
+ 
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
 <body class="dark">
 <style><?php include "style/elements/form.style.css" ?></style>
 
-  <!-- - - - - - - - - - - - - - - - - - - - create new camp - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - create new camp - - - - - - - - - - - - - - - - - - -->
   <main>
 
     <form action="createCamp.php" method="post" enctype="multipart/form-data">
@@ -260,53 +248,54 @@ for ( $i = 0; $i < $count; $i++ ){
       <p>Please fill in the information and add a flyer to the camp.
         It creates a new Camp Page and will link in the camp agenda.</p>
       <br><br>
+
       <!-- name -->
       <label for="campHeadline">Camp Name</label>
-      <input type="text" id="campHeadline" name="campHeadline" value="<?=$campHeadline?>"><br>
-      <br>
+      <input type="text" id="campHeadline" name="campHeadline" value="<?=$campHeadline?>"><br><br>
+
       <!-- description -->
       <label for="campDescription">Camp Description</label>
-      <textarea name="campDescription" type="textarea" rows="5" placeholder="This is you Camp description"value="<?=$campDescription?>"></textarea><br>
-      <br>
+      <textarea name="campDescription" type="textarea" rows="5" placeholder="This is you Camp description"value="<?=$campDescription?>"></textarea><br><br>
+
       <!-- start -->
       <label for="campStart">Camp Start</label>
-      <input type="date" id="campStart" name="campStart" value="<?=$campStart?>"><br>
-      <br>
+      <input type="date" id="campStart" name="campStart" value="<?=$campStart?>"><br><br>
+
       <!-- end -->
       <label for="campEnd">Camp End</label>
-      <input type="date" id="campEnd" name="campEnd" value="<?=$campEnd?>"><br>
-      <br>
+      <input type="date" id="campEnd" name="campEnd" value="<?=$campEnd?>"><br><br>
+
       <!-- location -->
       <label for="campLocation">Camp Location</label>
-      <input type="text" id="campLocation" name="campLocation" value="<?=$campLocation?>"><br>
-      <br>
+      <input type="text" id="campLocation" name="campLocation" value="<?=$campLocation?>"><br><br>
+
       <!-- price -->
       <label for="campPrice">Camp Price</label>
-      <input type="text" id="campPrice" name="campPrice" value="<?=$campPrice?>"><br>
-      <br>
+      <input type="text" id="campPrice" name="campPrice" value="<?=$campPrice?>"><br><br>
+
       <!-- patricipants -->
       <label for="campPatricipants">Camp Patricipants</label>
-      <input type="text" id="campPatricipants" name="campPatricipants" value="<?=$campPatricipants?>"><br>
-      <br>
+      <input type="text" id="campPatricipants" name="campPatricipants" value="<?=$campPatricipants?>"><br><br>
+      
       <!-- short description -->
       <label for="campShortDescription">Camp Short Description</label>
-      <textarea name="campShortDescription" type="textarea" rows="3" placeholder="This is a short description of this camp"value="<?=$campShortDescription?>"></textarea><br>
+      <textarea name="campShortDescription" type="textarea" rows="3" placeholder="This is a short description of this camp"value="<?=$campShortDescription?>"></textarea><br><br>
 
-      <br>
       <!-- short description -->
       <label for="campButton">Camp Button</label>
-      <input type="text" id="campButton" name="campButton" value="<?=$campButton?>"><br>
-      <br>
+      <input type="text" id="campButton" name="campButton" value="<?=$campButton?>"><br><br>
+
       <!-- pictures upload -->
-      <input type='file' name='files[]' multiple />
-      <br>
+      <input type='file' name='files[]' multiple /><br><br>
+
       <!-- output -->
-      <br>
       <p class="paint-turquois"><?php echo $output;?></p>
+
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="submit">create new camp</button>
       </div>
+      
     </form>
   </main>
 </body>

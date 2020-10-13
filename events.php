@@ -1,7 +1,8 @@
 <?php 
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
-/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 
 <img class="headerPic" src="img/event/event_header.jpg" alt="surfer">

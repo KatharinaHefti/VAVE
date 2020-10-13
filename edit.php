@@ -127,8 +127,9 @@ for ($i = 0; $i < $count; $i++) {
   // echo '<pre>';
   //print_r($list[0]);
 }
-?>
 
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+?>
 <html>
   <head>
     <link rel="stylesheet" href="style/parts/privat.style.css">

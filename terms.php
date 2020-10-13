@@ -4,7 +4,6 @@ include ("./inc/nav.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * terms and condition * * * * * * * * * * * * * * * * * * * */
 ?>
-
 <main>
 
   <!-- scope -->
@@ -29,7 +28,7 @@ include ("./inc/nav.inc.php");
 		<p>3. online booking via the booking system of the website taibasurf.ch or www.taibasurf.com (“website”)</p>
 		<br>
 		<p>The contract is deemed concluded as soon as VAVE Sports & Camps has confirmed the booking to the customer and has issued an invoice.
-In case the customer books further services for additional persons, he or she is obligated to take responsibility for their contractual obligations.</p>
+    In case the customer books further services for additional persons, he or she is obligated to take responsibility for their contractual obligations.</p>
 	</div>
 	<br>
 

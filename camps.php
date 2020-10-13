@@ -7,7 +7,7 @@ require_once("./config/config.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
-<!-- <style><?php include "style/parts/grid.style.css" ?></style> -->
+<style><?php include "style/parts/grid.style.css" ?></style>
 
 <!-- Header Picture -->
 <img class="headerPic" src="img/camp/tim-marshall-y74zvFZ5mSU-unsplash.jpg" alt="camp">
@@ -33,6 +33,7 @@ foreach ($pdo->query($sql) as $row) {
   $MainCampButton = $row["campButton"];
   $MainCampTicketsLeft = $row["campTicketsLeft"];
   $imagedata = $row["imageData"]; 
+
   include ("inc/campSection.inc.php");
 }
 
@@ -47,6 +48,7 @@ foreach ($pdo->query($sql) as $row) {
   $CampSectionLocation = $row["campEnd"];
   $CampSectionLink = $row["campLink"];
   $CampSectionButton = $row["campButton"];
+  
   include ("./inc/campSectionShort.inc.php"); 
 }
 ?>

@@ -8,10 +8,8 @@
   require("class/UserService.class.php");
   $userService = new UserService();
 
-
 /* * * * * * * * * * * * * * * * * * * * existing user * * * * * * * * * * * * * * * * * * * */
 
-// import 1 Row from users
 // variables form database users
 $stmt = $pdo->prepare("SELECT name, familyname, email FROM users");
 $stmt->execute();
@@ -22,10 +20,11 @@ $UserList = $stmt->fetchAll();
 
 $count = count($UserList);
 for ($i = 0; $i < $count; $i++) {
-  $user = $UserList[$i]['name'];
 
+  // usernames of database
+  $user = $UserList[$i]['name'];
   $list = array($user);
-    //print_r($list[0]);
+  //print_r($list[0]);
 }
 
 $output = " ";
@@ -34,23 +33,20 @@ $output = " ";
 if(isset($_POST['submit']) && !empty($_POST['name'])){
     $name = $_POST['name'];
 
-
     // delete user
     $stmt = $pdo->prepare( "DELETE FROM users WHERE name =:name" );
     $stmt->bindParam(':name', $name);
     $stmt->execute();
 
     $output = "You deleted this user form your database.";
-     
-    }
+  }
   
+/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
-    /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
-
-    include ("./inc/header.inc.php"); 
-    include ("./inc/navPrivat.inc.php"); 
+  include ("./inc/header.inc.php"); 
+  include ("./inc/navPrivat.inc.php"); 
   
-    /* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
 <head>
@@ -63,29 +59,26 @@ if(isset($_POST['submit']) && !empty($_POST['name'])){
   <body class="dark">
     <div class="center">
       <form action="deleteUser.php" method="post" novalidate>
-      <!-- picture -->
-      <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
-        
 
+        <!-- picture -->
+        <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
+        
         <!-- delete user -->
         <h2>Delete user</h2><br>
         <label for="deleteUser">delete user</label>
         <select name="name" id="name">
-        <?php
-        $count = count($UserList);  
-            for ($i = 0; $i < $count; $i++) {
-            echo '<option value="'.$UserList[$i]['name'].'">'.$UserList[$i]['name'].'</option>';
-        }
-        ?>
-       </select>
+
+        <!-- get userlist -->
+        <?php $count = count($UserList);  
+              for ($i = 0; $i < $count; $i++) {
+              echo '<option value="'.$UserList[$i]['name'].'">'.$UserList[$i]['name'].'</option>';
+          }?></select><br>
 
         <!-- output -->
-        <br>
         <p class="paint-turquois"><?php echo $output;?></p>
 
         <!-- submit -->
         <button type="submit" name="submit"><a class="buttonType">delete user</a></button>
-
       </form>
     </div>
   </body>

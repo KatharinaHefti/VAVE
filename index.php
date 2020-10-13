@@ -7,9 +7,6 @@ require_once("./config/config.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
-// Main Text Variables
-$MainChapterTitle = $MainHeadline = $MainPragraph = $MainLink = $MainButton = $MainPicture = " ";
-
 $sql = "SELECT mainTitle, mainHeadline, mainPragraph, mainLink, mainButton, mainPicture FROM main WHERE id=1";
 foreach ($pdo->query($sql) as $row) {
   $MainChapterTitle = $row["mainTitle"];
@@ -23,9 +20,11 @@ include ("./inc/main.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * gallery section * * * * * * * * * * * * * * * * * * * */
 
-$GallerySectionChapterTitle = 'Gallery';
-$GallerySectionHeadline = 'Something about your Gallery Loerum ipsum dolor sit.';
-
+$sql = "SELECT mainTitle, mainHeadline FROM gallery WHERE id=1";
+foreach ($pdo->query($sql) as $row) {
+  $GallerySectionChapterTitle = $row["mainTitle"];
+  $GallerySectionHeadline = $row["mainHeadline"];
+}
 include ("./inc/gallerySection.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * event section * * * * * * * * * * * * * * * * * * * */
@@ -45,9 +44,12 @@ include ("./inc/eventSection.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * location section * * * * * * * * * * * * * * * * * * * */
 
-$LocationSectionChapterTitle = 'Location';
-$LocationSectionHeadline = 'Where you find me';
-$LocationPragraph = 'Lead text for your location. Describe the room you are in. Whats specials there and what is unique you can offer loerum ipsum dolor sit amen.';
+$sql = "SELECT locationTitle, locationHeadline, locationParagraph FROM location WHERE id=1";
+foreach ($pdo->query($sql) as $row) {
+  $LocationSectionChapterTitle = $row["locationTitle"];
+  $LocationSectionHeadline = $row["locationHeadline"];
+  $LocationPragraph = $row["locationParagraph"];
+}
 
 include ("./inc/location.inc.php"); 
 

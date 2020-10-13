@@ -5,9 +5,9 @@
   // database connection
   require_once("./config/config.inc.php");
 
-  /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+  /* * * * * * * * * * * * * * * * * * * * training * * * * * * * * * * * * * * * * * * * */
 
-// import variables form database trainings
+  // import variables form database trainings
   $sql = "SELECT chapter, titel, text FROM trainings WHERE id=1";
   foreach ($pdo->query($sql) as $row) {
   $MainChapterTitle = $row["chapter"];
@@ -19,39 +19,35 @@
   $MainPicture = './img/training/training_header.jpg';
   $MainLink = 'trainings/Ginastica-Natural-Zurich.php';
   $MainButton = 'Ginastica Natural';
-
   $WorkoutLink = 'trainings/VAVE-Workout.php';
   $WorkoutButton ='VAVE Workout';
-
-  $WorkoutLink = 'trainings/VAVE-Workout.php';
-  $WorkoutButton ='VAVE Workout';
-
   $MuayThaiLink = 'trainings/Muay-Thai.php';
   $MuayThaiButton = 'Muay Thai Training ';
   
-/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <style><?php include "style/elements/picture.style.css" ?></style>
+
+<!-- headerPic -->
 <img class="headerPic" src="img/training/training_header.jpg" alt="valeria verzar">
 <main class="main">
+
   <!-- chapter title -->
-  <h4><?php echo  $MainChapterTitle ?></h4>
-  <br>
+  <h4><?php echo  $MainChapterTitle ?></h4><br>
   <!-- headline -->
-  <h2><?php echo $MainHeadline ?></h2>
-  <br>
+  <h2><?php echo $MainHeadline ?></h2><br>
   <!-- paragraph -->
   <p><?php echo $MainPragraph ?></p>
-  <!-- button -->
+
+  <!-- buttons -->
   <div class="flexer">
   <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
   <button><a class="buttonType" href="<?php echo $WorkoutLink?>"><?php echo $WorkoutButton?></a></button>
   <button><a class="buttonType" href="<?php echo $MuayThaiLink?>"><?php echo $MuayThaiButton?></a></button>
   </div>
 </main>
-
-
 <?php
+
 /* * * * * * * * * * * * * * * * * * * * section * * * * * * * * * * * * * * * * * * * */
 
 $SectionChapterTitle = 'Qualifications';
@@ -71,7 +67,6 @@ $trainings = array(
   'Sport training (Snowboarding, Surfing etc.)',
   'Martial arts training (Muay Thai; Kickboxing & boxing)'
 );
-// var_dump($trainings);
 ?>
 
 <style><?php 
@@ -79,39 +74,27 @@ include "style/parts/main.style.css";
 include "style/parts/grid.style.css";
 include "style/elements/picture.style.css"; 
 ?></style>
+
 <main class="main">
 
-  <h4><?php echo $SectionChapterTitle?></h4>
-  <br>
-  <h3><?php echo $SectionHeadline?></h3>
-  <br>
+  <h4><?php echo $SectionChapterTitle?></h4><br>
+  <h3><?php echo $SectionHeadline?></h3><br>
   <div class="left">
-  <strong><?php echo $SectionLanguages?></strong>
-  <p><?php echo $Languages?></p>
-  <br>
-  <p><?php echo $SectionParagraph?></p>
-  <br>
-  <strong><?php echo $Help?></strong>
-  <p><?php
-
-  $amount = count($trainings);
-  // print_r($amount);
-
-  for ($i = 0; $i < $amount; $i++) {
-    $value = $trainings[$i];
-    echo '<strong class="paint-haze"><php?>- '.$trainings[$i].'</strong><br>';
-}
-  
-  
-  ?></p>
+    <strong><?php echo $SectionLanguages?></strong>
+    <p><?php echo $Languages?></p><br>
+    <p><?php echo $SectionParagraph?></p><br>
+    <strong><?php echo $Help?></strong>
+    
+    <p><?php
+    // list of trainings help
+    $amount = count($trainings);
+    for ($i = 0; $i < $amount; $i++) {
+      $value = $trainings[$i];
+      echo '<strong class="paint-haze"><php?>- '.$trainings[$i].'</strong><br>';
+    }?></p>
   </div>
-
 </main>
-
-
-
 <?php
-
 
 /* * * * * * * * * * * * * * * * * * * * footer * * * * * * * * * * * * * * * * * * * */
 

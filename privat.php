@@ -36,8 +36,8 @@ include ("./inc/main.inc.php");
   <link rel="stylesheet" href="style/parts/privat.style.css">
 </head>
 <html>
+
 <body class="dark">
   
-    
 </body>
 </html>

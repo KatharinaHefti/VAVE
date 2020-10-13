@@ -1,4 +1,4 @@
-<?php $campHeadline = "Test camp";$campDescription = "lsdfosdf";$campStart = "2020-10-16";$campEnd = "2020-10-22";$campLocation = "sdf";$campPrice = "213";$campShortDescription = "fsadf";$campPatricipants = "5";$campButton = "sdfggdf";$imagedata = "../img/camp/2020-10-16-Test-camp/marvin-meyer-iNYr-zbFEUE-unsplash.jpg";$campLink = "joinCamp.php";$MainCampTicketsLeft = 
+<?php $campHeadline = "Surf & BJJ Camps";$campDescription = "asdf";$campStart = "2020-11-16";$campEnd = "2020-11-23";$campLocation = "Rio de Janeiro";$campPrice = "800";$campShortDescription = "dfs";$campPatricipants = "10";$campTickets = "10";$campButton = "join us";$imagedata = "../img/camp/2020-11-16-Surf-&-BJJ-Camps/drew-farwell-9bKnuoXGWso-unsplash.jpg";$campLink = "joinCamp.php";$MainCampTicketsLeft = 
     include ("../inc/headerCamps.inc.php"); 
     include ("../inc/navCamps.inc.php"); 
 

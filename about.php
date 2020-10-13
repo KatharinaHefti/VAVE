@@ -5,7 +5,7 @@
   // database connection
   require_once("./config/config.inc.php");
 
-  /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * about * * * * * * * * * * * * * * * * * * * */
 
 // import variables form database contact
   $sql = "SELECT chapter, titel,  text, imageData FROM about";

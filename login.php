@@ -8,6 +8,8 @@
   require("class/UserService.class.php");
   $userService = new UserService();
 
+/* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
+
   // variables
   $emailValue = $passwordValue =  " ";
 
@@ -32,8 +34,6 @@
       setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
 
       $_SESSION["userID"] = $user["id"];
-      
-        // echo "valid!";
         header("location: privat.php");
         exit;
     } else {
@@ -50,12 +50,12 @@
       $passwordValue = "";
     }
 
-    /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
     include ("./inc/header.inc.php"); 
     include ("./inc/nav.inc.php"); 
   
-    /* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
 <head>
@@ -67,6 +67,7 @@
 
   <body class="dark">
     <div class="center">
+    
       <form action="login.php" method="post" novalidate>
       <!-- picture -->
       <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
@@ -85,8 +86,8 @@
 
         <!-- submit -->
         <button type="submit" name="submit"><a class="buttonType">login</a></button>
-
       </form>
+
     </div>
   </body>
 </html>

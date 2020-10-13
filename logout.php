@@ -12,9 +12,11 @@ unset($_SESSION['userid']);
 setcookie("identifier","",time()-(3600*24*365)); 
 setcookie("securitytoken","",time()-(3600*24*365)); 
 
+/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
+
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
 // Main Text Variables
