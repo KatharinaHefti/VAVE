@@ -1,4 +1,5 @@
 <style><?php include "style/cd/typo.style.css" ?></style>
+<style><?php include "style/parts/main.style.css" ?></style>
 
 <main>
   <!-- first column -->

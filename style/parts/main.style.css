@@ -1,5 +1,5 @@
 main {
-  padding: 10em 10em;
+  padding: 10em;
 }
 
 .dark {
@@ -8,7 +8,7 @@ main {
 
 @media screen and (max-width: 800px) {
   main {
-    padding: 2em 2em;
+    padding: 6em 2em;
   }
 }
 /*# sourceMappingURL=main.style.css.map */

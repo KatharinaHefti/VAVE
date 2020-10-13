@@ -62,4 +62,17 @@ strong {
 .feedbackNeg {
   color: #ff78b6;
 }
+
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+}
 /*# sourceMappingURL=typo.style.css.map */
