@@ -10,13 +10,29 @@ require_once("../config/config.inc.php");
 <!-- <style><?php include "../style/parts/grid.style.css" ?></style> -->
 
 <?php
-/* * * * * * * * * * * * * * * * * * * * join camp * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * download camps * * * * * * * * * * * * * * * * * * * */
+
+// import variables form database camps
+$sql = "SELECT campHeadline FROM camps";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+/* Fetch all of the remaining rows in the result set */
+$CampList = $stmt->fetchAll();
+// print_r($UserList);
+
+$count = count($CampList);
+for ($i = 0; $i < $count; $i++) {
+  $camp = $CampList[$i]['campHeadline'];
+  $list = array($camp);
+}
+
+/* * * * * * * * * * * * * * * * * * * * add participants * * * * * * * * * * * * * * * * * * * */
 
 //variables
-
 $name = $familyname = $email = $output = $terms = $camps = $count = $id = '';
-
-/* * * * * * * * * * * * * * * * * * * * join camp validation * * * * * * * * * * * * * * * * * * * */
+$campTickets =1;
 
 // if form sent
 if(isset($_POST['join'])){
@@ -36,25 +52,33 @@ if(isset($_POST['join'])){
   $sql = "INSERT INTO participants (name, familyname, email, camps) VALUES (:name, :familyname, :email, :camps)";
   $stmt= $pdo->prepare($sql);
   $stmt->execute($data);
+  $output = 'successfully added '.$name.' '.$familyname.' to the camp';
 
-  $output = 'successfully added '.$name.$familyname.' to the camp';
 
-}
+/* * * * * * * * * * * * * * * * * * * * get participants * * * * * * * * * * * * * * * * * * * */
 
 // import variables form database camps
-$sql = "SELECT campHeadline FROM camps";
+$sql = "SELECT campTickets FROM camps WHERE id = 1";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
-/* Fetch all of the remaining rows in the result set */
-$CampList = $stmt->fetchAll();
-// print_r($UserList);
+$PartList = $stmt->fetch();
+echo '<pre>';
+$allowedParticipantcs = $PartList['campTickets'];
+// print_r($allowedParticipantcs);
 
-$count = count($CampList);
-for ($i = 0; $i < $count; $i++) {
-  $camp = $CampList[$i]['campHeadline'];
-  $list = array($camp);
+$amount = $allowedParticipantcs - 1;
+print_r($amount);
+
+/* * * * * * * * * * * * * * * * * * * * update campheadline participants in camps * * * * * * * * * * * * * * * * * * * */
+
+$sql = "UPDATE camps SET campTickets=? WHERE id=1";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$amount]);
+
+echo 'done that';
 }
+
 
 ?>
 <body class="dark">
