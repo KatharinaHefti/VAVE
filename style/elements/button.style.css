@@ -17,4 +17,11 @@ button:hover {
   background: #8077B7;
   border-radius: 50px;
 }
+
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
+@media screen and (max-width: 600px) {
+  button {
+    padding: 2em;
+  }
+}
 /*# sourceMappingURL=button.style.css.map */

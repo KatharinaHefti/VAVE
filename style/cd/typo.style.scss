@@ -37,6 +37,10 @@ p {
   max-width: 600px;
 }
 
+a {
+  color: white;
+  font-size: 1rem;
+}
 strong {
   max-width: 600px;
 }
@@ -69,13 +73,16 @@ strong {
 @media screen and (max-width: 600px) {
 
   h1 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   h2 {
     font-size: 1.3rem;
   }
   h4 {
     font-size: 1.2rem;
+  }
+  p {
+    margin-bottom: 2em;
   }
 
 }

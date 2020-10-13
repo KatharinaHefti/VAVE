@@ -42,7 +42,7 @@
 
 		<!-- get your tickets -->
 		<div class="flexBtn">
-      <button><a href="<?php echo $EventShortDescription?>"></a><?php echo $EventButton?></button>
+      <button><a class="buttonType" href="<?php echo $EventShortDescription?>"></a><?php echo $EventButton?></button>
       <p><?php echo $EventTicketsLeft ?></p>
     </div> 
 	</div>
