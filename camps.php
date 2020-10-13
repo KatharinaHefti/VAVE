@@ -29,9 +29,8 @@ foreach ($pdo->query($sql) as $row) {
   $MainCampPrice = $row["campPrice"];
   $MainCampPatricipants = $row["campPatricipants"];
   $MainCampShortDescription = $row["campShortDescription"];
-  $MainCampLink = $row["campLink"];
   $MainCampButton = $row["campButton"];
-  $MainCampTicketsLeft = $row["campTicketsLeft"];
+  $MainCampTickets = $row["campTickets"];
   $imagedata = $row["imageData"]; 
 
   include ("inc/campSection.inc.php");

@@ -48,8 +48,8 @@
 
 		<!-- get your tickets -->
 		<div class="flexBtn">
-      <button><a href="<?php echo $MainCampShortDescription?>"></a><?php echo $MainCampButton?></button>
-      <p>just  <?php echo $MainCampTicketsLeft ?> tickets left</p>
+		<button><a class="buttonType" href="camps/joinCamp.php">join camp</a></button>
+      <p>just  <?php echo $MainCampTickets ?> tickets left</p>
     </div> 
 	</div>
 
