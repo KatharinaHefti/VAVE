@@ -81,6 +81,13 @@ li{
 // media 1600 px
 @media screen and (max-width: 1600px) {
   .waveBg{
+    margin-top: -150%;
+  } 
+}
+
+// media 1600 px
+@media screen and (max-width: 1600px) {
+  .waveBg{
     margin-top: -142%;
   } 
 }
@@ -99,8 +106,10 @@ li{
     width: 100vw;
     top: 0;
     left: 0;
-    margin-top: -146%;
+    margin-top: -143%;
   } 
+
+  
   
   // navigation background wave animation
   @keyframes slideDown {
@@ -113,6 +122,13 @@ li{
 }
 }
 
+// media 1400 px
+@media screen and (max-width: 1000px) {
+  .waveBg{
+    margin-top: -142%;
+  } 
+}
+
 // media 900 px
 @media screen and (max-width: 900px) {
   nav{
@@ -122,13 +138,21 @@ li{
     padding: 2em;
   } 
   .waveBg{
-    margin-top: -140%;
+    margin-top: -138%;
   } 
 }
 
 // media 600 px
 @media screen and (max-width: 600px) {
   .waveBg{
-    margin-top: -135%;
+    margin-top: -125%;
   } 
 }
+
+// media 600 px
+@media screen and (max-width: 300px) {
+  .waveBg{
+    margin-top: -120%;
+  } 
+}
+

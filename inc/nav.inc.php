@@ -1,5 +1,5 @@
-<style><?php include "style/cd/typo.style.css" ?></style>
-<style><?php include "style/parts/nav.style.css" ?></style>
+<style><?php include "../style/cd/typo.style.css" ?></style>
+<style><?php include "../style/parts/nav.style.css" ?></style>
 
 <nav>
   <!-- brand -->

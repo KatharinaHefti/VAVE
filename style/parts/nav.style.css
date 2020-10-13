@@ -116,6 +116,12 @@ li {
 
 @media screen and (max-width: 1600px) {
   .waveBg {
+    margin-top: -150%;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .waveBg {
     margin-top: -142%;
   }
 }
@@ -131,7 +137,7 @@ li {
     width: 100vw;
     top: 0;
     left: 0;
-    margin-top: -146%;
+    margin-top: -143%;
   }
   @-webkit-keyframes slideDown {
     from {
@@ -151,6 +157,12 @@ li {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .waveBg {
+    margin-top: -142%;
+  }
+}
+
 @media screen and (max-width: 900px) {
   nav {
     padding: 2em;
@@ -159,13 +171,19 @@ li {
     padding: 2em;
   }
   .waveBg {
-    margin-top: -140%;
+    margin-top: -138%;
   }
 }
 
 @media screen and (max-width: 600px) {
   .waveBg {
-    margin-top: -135%;
+    margin-top: -125%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .waveBg {
+    margin-top: -120%;
   }
 }
 /*# sourceMappingURL=nav.style.css.map */
