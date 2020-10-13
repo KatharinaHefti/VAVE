@@ -81,13 +81,6 @@ li{
 // media 1600 px
 @media screen and (max-width: 1600px) {
   .waveBg{
-    margin-top: -150%;
-  } 
-}
-
-// media 1600 px
-@media screen and (max-width: 1600px) {
-  .waveBg{
     margin-top: -142%;
   } 
 }
@@ -108,18 +101,15 @@ li{
     left: 0;
     margin-top: -143%;
   } 
-
-  
-  
   // navigation background wave animation
   @keyframes slideDown {
-  from {
-    margin-top: -145%;
+    from {
+      margin-top: -143%;
+    }
+    to {
+      margin-top: 0%;
+    }
   }
-  to {
-    margin-top: 0%;
-  }
-}
 }
 
 // media 1400 px
@@ -127,6 +117,15 @@ li{
   .waveBg{
     margin-top: -142%;
   } 
+  // navigation background wave animation
+  @keyframes slideDown {
+    from {
+      margin-top: -142%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
 }
 
 // media 900 px
@@ -139,7 +138,16 @@ li{
   } 
   .waveBg{
     margin-top: -138%;
-  } 
+  }
+  // navigation background wave animation
+  @keyframes slideDown {
+    from {
+      margin-top: -138%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
 }
 
 // media 600 px
@@ -147,12 +155,30 @@ li{
   .waveBg{
     margin-top: -125%;
   } 
+  // navigation background wave animation
+  @keyframes slideDown {
+    from {
+      margin-top: -125%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
 }
 
-// media 600 px
+// media 300 px
 @media screen and (max-width: 300px) {
   .waveBg{
     margin-top: -120%;
   } 
+  // navigation background wave animation
+  @keyframes slideDown {
+    from {
+      margin-top: -120%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
 }
 

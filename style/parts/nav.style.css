@@ -116,12 +116,6 @@ li {
 
 @media screen and (max-width: 1600px) {
   .waveBg {
-    margin-top: -150%;
-  }
-}
-
-@media screen and (max-width: 1600px) {
-  .waveBg {
     margin-top: -142%;
   }
 }
@@ -141,7 +135,7 @@ li {
   }
   @-webkit-keyframes slideDown {
     from {
-      margin-top: -145%;
+      margin-top: -143%;
     }
     to {
       margin-top: 0%;
@@ -149,7 +143,7 @@ li {
   }
   @keyframes slideDown {
     from {
-      margin-top: -145%;
+      margin-top: -143%;
     }
     to {
       margin-top: 0%;
@@ -160,6 +154,22 @@ li {
 @media screen and (max-width: 1000px) {
   .waveBg {
     margin-top: -142%;
+  }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -142%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -142%;
+    }
+    to {
+      margin-top: 0%;
+    }
   }
 }
 
@@ -173,17 +183,65 @@ li {
   .waveBg {
     margin-top: -138%;
   }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -138%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -138%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
   .waveBg {
     margin-top: -125%;
   }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -125%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -125%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
 }
 
 @media screen and (max-width: 300px) {
   .waveBg {
     margin-top: -120%;
+  }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -120%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -120%;
+    }
+    to {
+      margin-top: 0%;
+    }
   }
 }
 /*# sourceMappingURL=nav.style.css.map */
