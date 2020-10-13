@@ -2,9 +2,12 @@
   session_start();
   
   // database connection
-  require_once("./config/config.inc.php");
+  require_once("config/config.inc.php");
 
-  // include class UserService to validate form inputs
+  // funtions
+  require_once("inc/functions.inc.php");
+
+  // class UserService – to validate form inputs
   require("class/UserService.class.php");
   $userService = new UserService();
 
@@ -25,12 +28,16 @@
     $stmt->execute([$_POST['email']]);
     $user = $stmt->fetch();
 
+    $identifier = random_string(); //create cryptographic string
+    $token = random_string(); //create cryptographic string
+
     if ($user && password_verify($_POST['password'], $user['password']))
     {
       // save security token into database
       $insert = $pdo->prepare("INSERT INTO security (userID, identifier, token) VALUES (:userID, :identifier, :token)");
 			$insert->execute(array('userID' => $user['id'], 'identifier' => $identifier, 'token' => sha1($token)));
-			setcookie("identifier",$identifier,time()+(3600*24*365)); //Valid for 1 year
+      
+      setcookie("identifier",$identifier,time()+(3600*24*365)); //Valid for 1 year
       setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
 
       $_SESSION["userID"] = $user["id"];

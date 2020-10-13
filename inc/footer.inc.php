@@ -55,7 +55,7 @@
         </svg> 
       </a>
       <!-- instagram -->
-      <a href="https://www.instagram.com/surfbjjcamps/?hl=de">
+      <a href="https://www.instagram.com/vave_ch">
         <svg class="small">
           <use xlink:href="#icon-social_insta"></use>
         </svg> 

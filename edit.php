@@ -45,7 +45,8 @@ if(isset($_POST['updateContact'])){
   $phone = $_POST['phone'];
 
   // upload updated contact information
-  $stmt = $pdo->prepare("UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone");
+  $sql = "UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone WHERE id = :id";
+  $stmt = $pdo->prepare($sql);
   $stmt->execute(array('id' => 1, 'name' => $name, 'street' => $street, 'city' => $city, 'email' => $email, 'phone' => $phone));
 
   // feedback
