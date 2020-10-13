@@ -9,7 +9,9 @@
     <h1><?php echo $MainHeadline?></h1>
     <br>
     <p><?php echo $MainPragraph?></p>
+    <div class="buttonCenter">
     <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
+    </div>
   </div>
 
 

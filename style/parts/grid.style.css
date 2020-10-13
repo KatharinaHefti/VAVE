@@ -1,7 +1,3 @@
-.test {
-  background-color: pink;
-}
-
 main {
   display: -ms-grid;
   display: grid;

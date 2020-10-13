@@ -10,6 +10,19 @@
   padding: 10em;
 }
 
+.locationPic {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media screen and (max-width: 1400px) {
   .location {
     padding: 6em 10em;
@@ -17,6 +30,27 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #5f8ac2), to(#66ccff));
     background: linear-gradient(#5f8ac2 20%, #66ccff 100%);
     background-size: 120%;
+  }
+  .locationPic {
+    width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .iconHolder {
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
   }
 }
 

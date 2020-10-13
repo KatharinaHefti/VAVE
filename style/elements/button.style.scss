@@ -15,6 +15,13 @@ button{
     background: #8077B7;
     border-radius: 50px;
   }
+
+  .buttonCenter{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
 /* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 

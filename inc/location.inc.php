@@ -18,10 +18,9 @@
     <svg class="hugeIcon">
         <use xlink:href="#icon_location"></use>
       </svg>
-    <img class="hugeIcon" src="./img/location/location.png" alt="valeria">
+    <img class="locationPic" src="./img/location/location.png" alt="valeria">
   </div>
-
-
+  
 </section>
 
 
