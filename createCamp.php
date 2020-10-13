@@ -81,8 +81,6 @@
         $campLink = 'camps/'.$campStart.'-'.$campName.'.php';
       }
 
-
-
   // upload information in camps
   $stmt = $pdo->prepare("INSERT INTO camps (
     campHeadline, 
@@ -116,24 +114,7 @@
     :imageType)"
   );
 
-  $data = [
-    'campHeadline' => $campHeadline, 
-    'campDescription' => $campDescription, 
-    'campStart' => $campStart,
-    'campEnd' => $campEnd,
-    'campLocation' => $campLocation,
-    'campPrice' => $campPrice,
-    'campPatricipants' => $campPatricipants,
-    'campTickets' => $campTickets,
-    'campShortDescription' => $campShortDescription,
-    'campLink' => $campLink,
-    'campButton' => $campButton,
-    'imageName' => $imageName,
-    'imageData' => $imageData,
-    'imageType' => $imageType
-  ];
-  $result = $stmt->execute($data);
-
+	$result = $stmt->execute(array('campHeadline' => $campHeadline, 'campDescription' => $campDescription, 'campStart' => $campStart, 'campEnd' => $campEnd, 'campLocation' => $campLocation, 'campPrice' => $campPrice, 'campPatricipants' => $campPatricipants, 'campTickets' => $campTickets, 'campShortDescription' => $campShortDescription, 'campLink' => $campLink, 'campButton' => $campButton, 'imageName' => $imageName, 'imageData' => $imageData, 'imageType' => $imageType));
     
   // create new file
     $newPage = fopen('camps/'.$campStart.'-'.$campName.'.php', 'w');
@@ -148,11 +129,10 @@
     $contentCampPage .= '$campPrice = "'.$campPrice.'";';
     $contentCampPage .= '$campShortDescription = "'.$campShortDescription.'";';
     $contentCampPage .= '$campPatricipants = "'.$campPatricipants.'";';
-    $contentCampPage .= '$campTickets = "'.$campTickets.'";';
     $contentCampPage .= '$campButton = "'.$campButton.'";';
     $contentCampPage .= '$imagedata = "../'.$imageData.'";';
     $contentCampPage .= '$campLink = "joinCamp.php";';
-    $contentCampPage .= '$MainCampTicketsLeft = ';
+    $contentCampPage .= '$campTickets = "'.$campTickets.'";';
 
     // content of new file
     $contentCampPage .= '
@@ -226,9 +206,6 @@
   // feedback
   $output = 'Your camp is created.';
  }   
-
-
- 
  
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
