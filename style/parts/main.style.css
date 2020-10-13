@@ -6,9 +6,9 @@ main {
   background-color: #B4DEE7;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   main {
-    padding: 6em 2em;
+    padding: 6em 2em 0 2em;
   }
 }
 /*# sourceMappingURL=main.style.css.map */

@@ -6,9 +6,9 @@ main{
   background-color: #B4DEE7;
 }
 
-// media 800 px
-@media screen and (max-width: 800px) {
-    main{
-      padding: 6em 2em;
-    }
+// media 900 px
+@media screen and (max-width: 900px) {
+  main{
+    padding: 6em 2em 0 2em;
   }
+}

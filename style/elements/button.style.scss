@@ -19,17 +19,22 @@ button{
   .buttonCenter{
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
   
 /* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 
 // media 600 px
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
 
   button{
-    padding: 2em 0;
+    padding: 1.8em 0;
+  }
+  .buttonCenter{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 
 }

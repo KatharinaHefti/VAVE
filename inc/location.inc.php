@@ -14,13 +14,13 @@
   </div>
 
   <!-- second column -->
-  <div>
+  <div class="iconHolder">
     <svg class="hugeIcon">
         <use xlink:href="#icon_location"></use>
       </svg>
     <img class="locationPic" src="./img/location/location.png" alt="valeria">
   </div>
-  
+
 </section>
 
 
