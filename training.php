@@ -1,28 +1,32 @@
 <?php 
-  include ("./inc/header.inc.php"); 
-  include ("./inc/nav.inc.php"); 
 
-  // database connection
-  require_once("./config/config.inc.php");
+// database connection
+require_once("./config/config.inc.php");
 
-  /* * * * * * * * * * * * * * * * * * * * training * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
-  // import variables form database trainings
-  $sql = "SELECT chapter, titel, text FROM trainings WHERE id=1";
-  foreach ($pdo->query($sql) as $row) {
+// includes nav template
+include ("./inc/header.inc.php"); 
+include ("./inc/nav.inc.php"); 
+
+/* * * * * * * * * * * * * * * * * * * * training * * * * * * * * * * * * * * * * * * * */
+
+// import variables form database trainings
+$sql = "SELECT chapter, titel, text FROM trainings WHERE id=1";
+foreach ($pdo->query($sql) as $row) {
   $MainChapterTitle = $row["chapter"];
   $MainHeadline = $row["titel"];
   $MainPragraph = $row["text"];
-  }
+}
 
-  // Main Text Variables not changeble
-  $MainPicture = './img/training/training_header.jpg';
-  $MainLink = 'trainings/Ginastica-Natural-Zurich.php';
-  $MainButton = 'Ginastica Natural';
-  $WorkoutLink = 'trainings/VAVE-Workout.php';
-  $WorkoutButton ='VAVE Workout';
-  $MuayThaiLink = 'trainings/Muay-Thai.php';
-  $MuayThaiButton = 'Muay Thai Training ';
+// Main Text Variables not changeble
+$MainPicture = './img/training/training_header.jpg';
+$MainLink = 'trainings/Ginastica-Natural-Zurich.php';
+$MainButton = 'Ginastica Natural';
+$WorkoutLink = 'trainings/VAVE-Workout.php';
+$WorkoutButton ='VAVE Workout';
+$MuayThaiLink = 'trainings/Muay-Thai.php';
+$MuayThaiButton = 'Muay Thai Training ';
   
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
@@ -48,7 +52,7 @@
 </main>
 <?php
 
-/* * * * * * * * * * * * * * * * * * * * section * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * qualifications * * * * * * * * * * * * * * * * * * * */
 
 $SectionChapterTitle = 'Qualifications';
 $SectionHeadline = 'Health specialist EFZ; Fitness instructor';
@@ -76,7 +80,6 @@ include "style/elements/picture.style.css";
 ?></style>
 
 <main class="main">
-
   <h4><?php echo $SectionChapterTitle?></h4><br>
   <h3><?php echo $SectionHeadline?></h3><br>
   <div class="left">

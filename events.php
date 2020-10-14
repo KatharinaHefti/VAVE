@@ -1,16 +1,42 @@
 <?php 
+
+// includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 
+// database connection
+require_once("./config/config.inc.php");
+
+
+/* * * * * * * * * * * * * * * * * * * * events * * * * * * * * * * * * * * * * * * * */
+
+// variables
+$id = 1;
+$eventChapterTitle = "Events";
+
+// import variables form database 
+// * EVENTS *
+
+// eventName
+// eventLead
+
+$sql = "SELECT eventName, eventLead FROM events";
+// fetch row form about
+foreach ($pdo->query($sql) as $row) {
+  $eventHeadline = $row["eventName"];
+  $eventPragraph = $row["eventLead"];
+}
+
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+
 ?>
 
+<!-- header picture -->
 <img class="headerPic" src="img/event/event_header.jpg" alt="surfer">
 
-<section class="gallery">
-  <h4 class="paint-white">Events</h4>
-  <br>
-  <h2 class="paint-white">Something about your Event Loerum ipsum dolor sit.</h2>
-  <br>
-  <p class="paint-white">Try to finde one sentence or two to describe the concept of your page. Sports and camps describe a mood to make people feel whatever bla bla.</p>
+<!-- gallery icons -->
+<section class="event">
+  <h4><?php echo $eventChapterTitle; ?></h4><br>
+  <h2><?php echo $eventHeadline; ?></h2><br>
+  <p><?php echo $eventPragraph; ?></p>
 </section>

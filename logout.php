@@ -1,4 +1,6 @@
 <?php 
+
+// session
 session_start();
 
 // database connection
@@ -14,6 +16,7 @@ setcookie("securitytoken","",time()-(3600*24*365));
 
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
+// includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 
@@ -27,6 +30,7 @@ $MainLink = 'index.php';
 $MainButton = 'go to main page';
 $MainPicture = 'img/circle/hand.svg';
 
+// includes main template
 include ("./inc/main.inc.php"); 
 
 ?>

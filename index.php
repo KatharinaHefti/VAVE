@@ -36,9 +36,9 @@ $EventDate = 'Thursday, 23.06.2020';
 $EventTime = '12:00 until 14:00';
 $EventLocation = '8003 Zürich, Street 33';
 $EventShortDescription = 'Get your tickets before it’s too late. Loerum ipsum dolor sit amen.  Loerum ipsum dolor sit amen.  Loerum ipsum dolor sit ame ipsum dolor sit amen.';
-$EventLink = 'training.php';
+$EventLink = 'event_signUp.php';
 $EventButton = 'get your tickets';
-$EventTicketsLeft = 'just 3 tickets left';
+$EventTicketsLeft = '';
 
 include ("./inc/eventSection.inc.php"); 
 

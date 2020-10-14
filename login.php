@@ -1,66 +1,87 @@
 <?php
-  session_start();
+
+// session
+session_start();
+
+// database connection
+require_once("./config/config.inc.php");
   
-  // database connection
-  require_once("config/config.inc.php");
+// functions
+require_once("./inc/functions.inc.php");
 
-  // funtions
-  require_once("inc/functions.inc.php");
-
-  // class UserService – to validate form inputs
-  require("class/UserService.class.php");
-  $userService = new UserService();
+// include class UserService to validate form inputs
+require("class/UserService.class.php");
+$userService = new UserService();
 
 /* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
 
-  // variables
-  $emailValue = $passwordValue =  " ";
+// variables
+$emailValue = $passwordValue =  " ";
 
-  // if form sent
-  if(isset($_POST['submit'])){
-
+// is form sent ?
+if(isset($_POST['submit'])){
     // validate input with class User Service
     $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not in Database");
     $passwordValue =  $userService -> validateInput($_POST['password'],true,"password","password","Is not valid. Must contain at least 8 characters, 1 lowercase letter, 1 uppercase letter and 1 number");
 
-    // check if user email is in databasex
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->execute([$_POST['email']]);
-    $user = $stmt->fetch();
+/* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
 
-    $identifier = random_string(); //create cryptographic string
-    $token = random_string(); //create cryptographic string
+// import variables form database 
+// * USERS *
 
-    if ($user && password_verify($_POST['password'], $user['password']))
-    {
-      // save security token into database
-      $insert = $pdo->prepare("INSERT INTO security (userID, identifier, token) VALUES (:userID, :identifier, :token)");
-			$insert->execute(array('userID' => $user['id'], 'identifier' => $identifier, 'token' => sha1($token)));
+// email
+
+$sql = "SELECT * FROM users WHERE email = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$_POST['email']]);
+$user = $stmt->fetch();
+
+$identifier = random_string(); //create cryptographic string
+$token = random_string(); //create cryptographic string
+
+if ($user && password_verify($_POST['password'], $user['password']))
+  {
+
+/* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
+
+// insert variables to database 
+// * security *
+
+// userID
+// identifier
+// token
+
+// save security token to database
+$stmt = $pdo->prepare("INSERT INTO security (userID, identifier, token) VALUES (:userID, :identifier, :token)");
+$stmt->execute(array('userID' => $user['id'], 'identifier' => $identifier, 'token' => sha1($token)));
       
-      setcookie("identifier",$identifier,time()+(3600*24*365)); //Valid for 1 year
-      setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
-
-      $_SESSION["userID"] = $user["id"];
-        header("location: privat.php");
-        exit;
-    } else {
-        $output = "<div class=\"feedbackNeg\">";
-        foreach ($userService -> feedbackArray as $out) {
-          $output .=  $out."<br>";
-        }
-        $output .= "</div>\n";
-      }     
-    }
-    else {
-      $output = "";
-      $emailValue = "";
-      $passwordValue = "";
-    }
+// set cookie  
+setcookie("identifier",$identifier,time()+(3600*24*365)); //Valid for 1 year
+setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
+      
+// save user ID to session for user check
+$_SESSION["userID"] = $user["id"];
+  header("location: privat.php");
+    exit;
+  } else {
+  $output = "<div class=\"feedbackNeg\">";
+    foreach ($userService -> feedbackArray as $out) {
+  $output .=  $out."<br>";
+  }
+  $output .= "</div>\n";
+  }     
+}
+else {
+  $output = "";
+  $emailValue = "";
+  $passwordValue = "";
+  }
 
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
-    include ("./inc/header.inc.php"); 
-    include ("./inc/nav.inc.php"); 
+// includes nav template
+include ("./inc/header.inc.php"); 
+include ("./inc/nav.inc.php"); 
   
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
@@ -74,7 +95,8 @@
 
   <body class="dark">
     <div class="center">
-    
+
+      <!-- - - - - - - - - - - - - - - - - - - - login - - - - - - - - - - - - - - - - - - -->
       <form action="login.php" method="post" novalidate>
       <!-- picture -->
       <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   

@@ -1,11 +1,18 @@
 <?php
 
-  // database connection
-  require_once("./config/config.inc.php");
+// includes nav template
+include ("./inc/header.inc.php"); // header links 
+include ("./inc/nav.inc.php"); // navigation 
 
-  // include class UserService to validate form inputs
-  require("class/UserService.class.php");
-  $userService = new UserService();
+// database connection
+require_once("./config/config.inc.php");
+
+// functions
+require_once("./inc/functions.inc.php");
+
+// include class UserService to validate form inputs
+require("class/UserService.class.php");
+$userService = new UserService();
 
 /* * * * * * * * * * * * * * * * * * * * event sign up * * * * * * * * * * * * * * * * * * * */
 
@@ -42,9 +49,8 @@
         $from = "From: Valeria Verzar <valeria@vavesports.ch>"; 
         $text = 'Hi '.$nameValue.',
           You have signed up succecefully to following Event'.$eventName.'
-
-          Viele Grüße,
-          Vave';
+          Greetings,
+          Valeria Verzar';
                   
         mail($recipient, $subject, $text, $from);
 
@@ -73,46 +79,55 @@
     $emailValue = "";
     $acceptTerms = "";
   }
+
+/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 
-<!DOCTYPE html>
-<html lang="de">
 <head>
-	<meta charset="utf-8" />
-	<title>event sign Up</title>
-	<link rel="stylesheet" href="../../generalstyles.css">
-</head>
+    <link rel="stylesheet" href="style/parts/privat.style.css">
+    <link rel="stylesheet" href="style/elements/form.style.css">
+    <link rel="stylesheet" href="style/elements/button.style.css">
+    <link rel="stylesheet" href="style/elements/icon.style.css">
+    <link rel="stylesheet" href="style/parts/edit.style.css">
+    <link rel="stylesheet" href="style/cd/typo.style.css">
+  </head>
+
 <body>
-	<h2>Event sign Up</h2>
-	<hr>
-<?php
-  echo $output;
-?>
-	<form action="event_signUp.php" method="post" novalidate>
-		<h3>Event sign Up</h3>
+
+  <section class="event">
+
+  <!-- - - - - - - - - - - - - - - - - - - - event sign up - - - - - - - - - - - - - - - - - - -->
+  <form action="event_signUp.php" method="post" novalidate>
+    <h2>Sign up to this event</h2><br>
 		<div>
 			<label for="name">Name</label>
-			<input type="text" id="name" name="name" value="<?=$nameValue?>"><br>
+			<input type="text" id="name" name="name" value="<?=$nameValue?>"><br><br>
 			<label for="familyname">Familyname</label>
-			<input type="text" id="familyname" name="familyname" value="<?=$familynameValue?>">
-		</div>
-
+			<input type="text" id="familyname" name="familyname" value="<?=$familynameValue?>"><br>
+		</div><br>
+    <!-- age -->
 		<div>
 			<label for="age">Age</label>
-			<input type="text" id="age" name="age" value="<?=$ageValue?>">
-		</div>
-
+			<input type="text" id="age" name="age" value="<?=$ageValue?>"><br>
+		</div><br>
+    <!-- email -->
 		<div>
 			<label for="email">E-Mail Adresse</label>
 			<input type="email" id="email" name="email" value="<?=$emailValue?>">
-		</div>
-
+		</div><br>
+    <!-- terms -->
 		<div>
 			<label for="terms">accept terms</label><br>
 			<input type="checkbox" id="terms" name="terms" value="accept">
-		</div>
+    </div>
 
+    <!-- output -->
+    <?php echo $output; ?>
+
+    <!-- submit -->
 		<button type="submit" name="submit">sign up</button>
-	</form>
+  
+  </form>
+  </section>
   </body>
 </html>
