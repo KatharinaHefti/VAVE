@@ -16,6 +16,8 @@
   align-items: center;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
+
 // media 1400 px
 @media screen and (max-width: 1400px) {
   .location{
@@ -31,17 +33,16 @@
     justify-content: center;
     align-items: center;
   }
-  
-.iconHolder{
-  width: 100%;
-  display: flex;
-  justify-items: center;
-  align-content: center;
-}
+  .iconHolder{
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    align-content: center;
+  }
 }
 
 // media 900 px
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .location{
     padding: 2em 2em;
   }

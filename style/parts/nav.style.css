@@ -114,15 +114,48 @@ li {
   display: block;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 @media screen and (max-width: 1600px) {
   .waveBg {
     margin-top: -142%;
+  }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -142%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -142%;
+    }
+    to {
+      margin-top: 0%;
+    }
   }
 }
 
 @media screen and (max-width: 1400px) {
   .waveBg {
     margin-top: -144%;
+  }
+  @-webkit-keyframes slideDown {
+    from {
+      margin-top: -144%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
+  @keyframes slideDown {
+    from {
+      margin-top: -144%;
+    }
+    to {
+      margin-top: 0%;
+    }
   }
 }
 

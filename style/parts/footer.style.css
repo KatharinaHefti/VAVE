@@ -20,6 +20,7 @@ footer {
           justify-content: flex-end;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 @media screen and (max-width: 1400px) {
   footer {
     margin-top: 0;

@@ -11,6 +11,7 @@ hr {
   padding: 4em 10em;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 @media screen and (max-width: 800px) {
   .camp {
     padding: 2em 2em;

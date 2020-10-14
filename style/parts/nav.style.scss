@@ -78,18 +78,37 @@ li{
   display: block;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
+
 // media 1600 px
 @media screen and (max-width: 1600px) {
   .waveBg{
     margin-top: -142%;
   } 
+  // navigation background wave animation
+  @keyframes slideDown {
+    from {
+      margin-top: -142%;
+    }
+    to {
+      margin-top: 0%;
+    }
+  }
 }
-
 
 // media 1400 px
 @media screen and (max-width: 1400px) {
   .waveBg{
     margin-top: -144%;
+  } 
+  // navigation background wave animation
+  @keyframes slideDown {
+    from {
+      margin-top: -144%;
+    }
+    to {
+      margin-top: 0%;
+    }
   } 
 }
 

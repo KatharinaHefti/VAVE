@@ -35,6 +35,7 @@
           transform: scale(1.04);
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 @media screen and (max-width: 1200px) {
   .circle {
     width: 110px;

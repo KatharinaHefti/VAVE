@@ -1,16 +1,17 @@
 
 main{
-    padding: 10em 10em;
+  padding: 10em 10em;
 }
 
 .dark{
   background-color: #B4DEE7;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 
 // media 800 px
 @media screen and (max-width: 800px) {
-    main{
+  main{
       padding: 4em 2em 0 2em;
       height: 50vh;
     }

@@ -6,6 +6,7 @@ main {
   background-color: #B4DEE7;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 @media screen and (max-width: 800px) {
   main {
     padding: 4em 2em 0 2em;

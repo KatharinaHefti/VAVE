@@ -10,22 +10,20 @@ button{
   margin-left: -5px; // optical alignment
   box-shadow: -2px 2px 10px rgba(128,128,128,0.25); 
 }
-  button:hover{
-    background: #8077B7;
-    border-radius: 50px;
-  }
-
-  .buttonCenter{
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
+button:hover{
+  background: #8077B7;
+  border-radius: 50px;
+}
+.buttonCenter{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
   
 /* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 
 // media 600 px
 @media screen and (max-width: 900px) {
-
   button{
     padding: 1.8em 1;
   }

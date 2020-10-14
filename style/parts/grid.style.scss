@@ -1,4 +1,14 @@
-// main grid proportions 2:1
+// main 
+// event 
+// camp
+// gallery 
+// location
+// footer 
+// edit 
+// @media
+
+/* * * * * * * * * * * * * * * * * * * * parts * * * * * * * * * * * * * * * * * * * */
+
 main {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -6,50 +16,39 @@ main {
   height: 100%;
   margin-bottom: 6em;
 }
-
-// event grid proportions 1:1
 .event {
 	display: grid;
 	max-width: 100vw;
-  	grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
 	grid-gap: 6em;
 }
-
-// camp grid proportions 1:1
 .camp {
 	display: grid;
-  	grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr;
 	grid-gap: 15em;
 }
-
-// gallery grid proportions 1:1
 .gallery {
 	display: grid;
-  	grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
 	grid-gap: 2em;
 }
-
-// location grid proportions 1:1
 .location {
 	display: grid;
   grid-template-columns: 1fr 1fr;
 	grid-gap: 2em;
 }
-  
-
-// footer grid proportions 1:1:1
 .footer{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 2em;
 }
-
-// footer grid proportions 1:1:1
 .edit{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 2em;
 }
+
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 
 // media 1600 px
 @media screen and (max-width: 1600px) {
@@ -101,11 +100,11 @@ main {
 		height: 100%;
 		grid-template-columns: 1fr;
   	}
-  	.camp {
+  .camp {
 		height: 100%;
 		grid-template-columns: 1fr;
 	}
-  	.location {
+  .location {
 		height: 100vh;
 		grid-template-columns: 1fr;
 	}

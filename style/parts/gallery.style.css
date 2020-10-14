@@ -23,6 +23,7 @@
   width: auto;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 @media screen and (max-width: 1200px) {
   .gallery {
     padding: 6em 10em;

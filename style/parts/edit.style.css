@@ -4,6 +4,7 @@
   width: 100%;
 }
 
+/* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 @media screen and (max-width: 1600) {
   .edit {
     padding: 6em 10em;
