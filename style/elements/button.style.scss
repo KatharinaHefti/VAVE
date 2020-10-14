@@ -23,12 +23,12 @@ button:hover{
 /* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
 
 // media 600 px
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
   button{
     padding: 1.8em 1;
   }
   .buttonCenter{
-    max-width: 900px;
+    max-width: 600px;
     align-items: center;
     justify-content: center;
   }

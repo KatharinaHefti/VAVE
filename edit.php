@@ -1,4 +1,6 @@
 <?php
+
+// session
 session_start();
 
 // database connection
@@ -16,12 +18,13 @@ $userService = new UserService();
 
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
+// includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 
-// Main Text Variables
+// variables
 $MainChapterTitle = 'Edit';
 $MainHeadline = 'Here you can edit your texts';
 $MainPragraph = 'You can always change your texts form the main site here whenever you want. It will upload the text to your database and store it savely. It will be updated imediatly, so make sure that your texts are correct.  ';
@@ -29,61 +32,116 @@ $MainLink = 'privat.php';
 $MainButton = 'go back';
 $MainPicture = 'img/circle/octopus.svg';
 
+// includes main template
 include ("./inc/main.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * contact  * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * contact POST * * * * * * * * * * * * * * * * * * * */
 
-// contact text variables
+// variables
 $name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout = "";
 
-// if form sent
+// is form sent?
 if(isset($_POST['updateContact'])){
+  // save inputs to variables
   $name = $_POST['name'];
   $city = $_POST['street'];
   $street = $_POST['city'];
   $email =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid");
   $phone = $_POST['phone'];
 
-  // upload updated contact information
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+
+/* * * * * * * * * * * * * * * * * * * * contact UPDATE * * * * * * * * * * * * * * * * * * * */
+    
+  // insert variables to database 
+  // * CONTACT *
+
+  // name
+  // street
+  // city
+  // email
+  // phone
+
   $sql = "UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone WHERE id = :id";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(array('id' => 1, 'name' => $name, 'street' => $street, 'city' => $city, 'email' => $email, 'phone' => $phone));
-
+  // save contact variables from POST inputs to array
+  $data = [
+    'id' => 1, 
+    'name' => $name, 
+    'street' => $street, 
+    'city' => $city, 
+    'email' => $email, 
+    'phone' => $phone,
+  ];
+  // replace variables in database contact – row 1
+  $stmt->execute($data);
   // feedback
   $picture = '<div class="center"><img class="hugeIcon" src="img/circle/thumbsup.svg" alt=""></div>';
 }
 
-/* * * * * * * * * * * * * * * * * * * * about validation * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * about POST * * * * * * * * * * * * * * * * * * * */
 
-// about text Variables
+// variables
 $titel = $text = $chapter = "";
 $id = 1;
 
-// if form sent
-if(isset($_POST['updateAbout'])){
+  // is form sent?
+  if(isset($_POST['updateAbout'])){
   $titel = $_POST['titel'];
   $text = $_POST['text'];
 
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+
+/* * * * * * * * * * * * * * * * * * * * about UPDATE * * * * * * * * * * * * * * * * * * * */
+
+  // insert variables to database 
+  // * ABOUT *
+
+  // chapter 
+  // title
+  // text
+
+  $sql = "UPDATE about SET chapter = :chapter, titel = :titel, text = :text WHERE id = :id";
+  $stmt= $pdo->prepare($sql);
+  // save about variables from POST inputs to array
   $data = [
     'chapter' => 'About',
     'titel' => $titel,
     'text' => $text,
     'id' => $id,
   ];
-  $stmt= $pdo->prepare("UPDATE about SET chapter = :chapter, titel = :titel, text = :text WHERE id = :id");
   $stmt->execute($data);
 
 /* * * * * * * * * * * * * * * * * * * * picture upload * * * * * * * * * * * * * * * * * * * */
 
+// count total files
 $countfiles = count($_FILES['files']['name']);
  
+/* * * * * * * * * * * * * * * * * * * * about IMAGE * * * * * * * * * * * * * * * * * * * */
+
+  // insert variables to database 
+  // * ABOUT *
+
+  // imageName 
+  // imageData
+  // imageType
+
   // Prepared statement
-  $query = "UPDATE about SET imageName = :imageName, imageData = :imageData, imageType = :imageType WHERE id = :id";
-  $stmt = $pdo->prepare($query);
+  $sql = "UPDATE about SET imageName = :imageName, imageData = :imageData, imageType = :imageType WHERE id = :id";
+  $stmt = $pdo->prepare($sql);
 
-  // Loop all files
+  // loop all files
   for($i=0;$i<$countfiles;$i++){
-
     // File name
     $filename = $_FILES['files']['name'][$i];
 
@@ -98,10 +156,8 @@ $countfiles = count($_FILES['files']['name']);
     $valid_extension = array("png","jpeg","jpg");
 
     if(in_array($imageType, $valid_extension)){
-
       // Upload file
       if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
-
       // Execute query
 	    $stmt->execute(array('id' => 1, 'imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
        }
@@ -113,20 +169,28 @@ $countfiles = count($_FILES['files']['name']);
 
 /* * * * * * * * * * * * * * * * * * * * import user list * * * * * * * * * * * * * * * * * * * */
 
+// import variables form database 
+// * USERS *
+
+// name
+// familyname
+// email
+
 // import variables form database users
-$stmt = $pdo->prepare("SELECT name, familyname, email FROM users");
+$sql = "SELECT name, familyname, email FROM users";
+$stmt = $pdo->prepare($sql);
 $stmt->execute();
 
-/* Fetch all of the remaining rows in the result set */
+// fetch all
 $UserList = $stmt->fetchAll();
-// print_r($UserList);
 
+// count total files
 $count = count($UserList);
+
+// loop all files
 for ($i = 0; $i < $count; $i++) {
   $user = $UserList[$i]['name'];
   $list = array($user);
-  // echo '<pre>';
-  //print_r($list[0]);
 }
 
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
@@ -143,40 +207,30 @@ for ($i = 0; $i < $count; $i++) {
   <style><?php include "style/cd/typo.style.css" ?></style>
   <style><?php include "style/elements/form.style.css" ?></style>
   <style><?php include "style/elements/button.style.css" ?></style>
-
 <body class="dark">
 
   <!-- - - - - - - - - - - - - - - - - - - - edit contact info - - - - - - - - - - - - - - - - - - -->
   <section class="edit">
     <form action="" method="post">
-      <h2>Contact</h2>
-      <br>
-      <h4>Edit your contact information</h4>
-      <br>
-      <br>
+      <h2>Contact</h2><br>
+      <h4>Edit your contact information</h4><br><br>
       <!-- name -->
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" value="<?=$name?>"><br>
-      <br> 
+      <input type="text" id="name" name="name" value="<?=$name?>"><br><br> 
       <!-- street -->
       <label for="street">Street</label>
-      <input type="text" id="street" name="street" value="<?=$street?>"><br>
-      <br> 
+      <input type="text" id="street" name="street" value="<?=$street?>"><br><br> 
       <!-- city -->
       <label for="city">City</label>
-      <input type="text" id="city" name="city" value="<?=$city?>"><br>
-      <br>
+      <input type="text" id="city" name="city" value="<?=$city?>"><br><br>
       <!-- email -->
       <label for="email">E-Mail Adresse</label>
-      <input type="email" id="email" name="email" value="<?=$email?>"><br>
-      <br>
+      <input type="email" id="email" name="email" value="<?=$email?>"><br><br>
       <!-- phone -->
       <label for="phone">Phone</label>
-      <input type="text" id="phone" name="phone" value="<?=$phone?>"><br>
+      <input type="text" id="phone" name="phone" value="<?=$phone?>"><br><br>
       <!-- output -->
-      <br>
       <p class="paint-turquois"><?php echo $output;?></p>
-
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="updateContact">update contact</button>
@@ -187,33 +241,24 @@ for ($i = 0; $i < $count; $i++) {
     <!-- - - - - - - - - - - - - - - - - - - - edit about info - - - - - - - - - - - - - - - - - - -->
 
     <form action="" enctype="multipart/form-data" method="post">
-      <h2>About</h2>
-      <br>
-      <h4>Edit your about page</h4>
-      <br>
-      <br>
+      <h2>About</h2><br>
+      <h4>Edit your about page</h4><br><br>
       <!-- headline -->
       <label for="titel">Headline</label>
-      <input type="text" id="titel" name="titel" value="<?=$titel?>"><br>
-      <br> 
+      <input type="text" id="titel" name="titel" value="<?=$titel?>"><br><br> 
       <!-- description -->
-      <label for="text">Description</label><br>
-      <br>
-      <textarea name="text" type="text" rows="5" placeholder="Say something about yourself"></textarea>
-      <br> 
-      <br> 
-
+      <label for="text">Description</label><br><br>
+      <textarea name="text" type="text" rows="5" placeholder="Say something about yourself"></textarea><br><br> 
       <!-- pictures upload -->
-      <input class="files" type='file' name='files[]' multiple />
-
+      <input class="files" type='file' name='files[]' multiple /><br>
       <!-- output -->
-      <br>
       <p class="paint-turquois"><?php echo $output;?></p>
-
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="updateAbout">update about</button>
       </div>
+
+      <!-- feedback -->
       <?php echo $feedbackAbout; ?>
     </form>
 
@@ -221,10 +266,10 @@ for ($i = 0; $i < $count; $i++) {
   <!-- - - - - - - - - - - - - - - - - - - - register - - - - - - - - - - - - - - - - - - -->
   
   <form action="" enctype="multipart/form-data" method="post">
-      <h2>Admin Users</h2>
-      <br>
+      <h2>Admin Users</h2><br>
       <h4>List of users with admin rights</h4>
-            <!-- List of registered users --> 
+
+      <!-- List of registered users --> 
       <p class="paint-haze"><?php 
       $count = count($UserList);  
         for ($i = 0; $i < $count; $i++) {
@@ -232,16 +277,16 @@ for ($i = 0; $i < $count; $i++) {
         $list = array($user);
         echo '- '.$list[0].'<br>';
       }
-      ?></p>
-      <br>
+      ?></p><br>
+
       <p>You can add new user to maintain your webpage.</p>
       <!-- delete user button --> 
-      <button><a class="buttonType"href="register.php">new user</a></button><br>
-      <br>
+      <button><a class="buttonType"href="register.php">new user</a></button><br><br>
       <!-- delete user --> 
       <p>You can delete an existing user here.</p>
       <button><a class="buttonType"href="deleteUser.php">delete user</a></button>
     </form>
+    
   </section>
 </body>
 </html>

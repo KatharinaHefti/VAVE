@@ -12,6 +12,7 @@ $user = check_user();
 
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
+// includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
@@ -37,7 +38,5 @@ include ("./inc/main.inc.php");
 </head>
 <html>
 
-<body class="dark">
-  
-</body>
+<body class="dark"></body>
 </html>

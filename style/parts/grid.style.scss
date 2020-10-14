@@ -90,8 +90,8 @@ main {
 	}
 }
 
-// media 800 px
-@media screen and (max-width: 800px) {
+// media 900 px
+@media screen and (max-width: 900px) {
 	main {
 		height: 100%;
 		grid-template-columns: 1fr;
@@ -113,6 +113,7 @@ main {
 	}
 	.edit {
 		width: 100vw;
+		height: 100%;
 		grid-template-columns: 1fr;
 	}
 }
