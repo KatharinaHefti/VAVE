@@ -56,6 +56,7 @@ main {
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2em;
+  height: 50%;
 }
 
 /* * * * * * * * * * * * * * * * * * * * @media * * * * * * * * * * * * * * * * * * * */
@@ -119,7 +120,7 @@ main {
         grid-template-columns: 1fr;
   }
   .location {
-    height: 100vh;
+    height: 100%;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
@@ -128,8 +129,7 @@ main {
         grid-template-columns: 1fr;
   }
   .edit {
-    width: 100vw;
-    height: 100%;
+    height: 50%;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
