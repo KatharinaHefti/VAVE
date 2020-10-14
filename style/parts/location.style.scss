@@ -10,9 +10,7 @@
   padding: 10em;
 }
 
-
 .locationPic{
-  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,13 +26,14 @@
   }
   .locationPic{
     width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
 .iconHolder{
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-items: center;
   align-content: center;

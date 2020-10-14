@@ -4,14 +4,17 @@ main {
   -ms-grid-columns: 2fr 1fr;
       grid-template-columns: 2fr 1fr;
   grid-gap: 2em;
+  height: 100%;
+  margin-bottom: 6em;
 }
 
 .event {
   display: -ms-grid;
   display: grid;
+  max-width: 100vw;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
-  grid-gap: 15em;
+  grid-gap: 6em;
 }
 
 .camp {
@@ -33,8 +36,8 @@ main {
 .location {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
 }
 
@@ -55,21 +58,37 @@ main {
 }
 
 @media screen and (max-width: 1600px) {
+  main {
+    grid-gap: 10em;
+  }
   .camp {
     grid-gap: 10em;
   }
-  .event {
+  .location {
     grid-gap: 10em;
+  }
+  .event {
+    grid-gap: 8em;
   }
 }
 
 @media screen and (max-width: 1200px) {
+  main {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 2em;
+  }
   .camp {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     grid-gap: 2em;
   }
   .event {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 2em;
+  }
+  .location {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     grid-gap: 2em;
@@ -83,32 +102,33 @@ main {
 
 @media screen and (max-width: 800px) {
   main {
-    height: 100vh;
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    height: 100%;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
   .event {
     height: 100%;
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
   .camp {
     height: 100%;
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
   .location {
     height: 100vh;
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
   .footer {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
   .edit {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    width: 100vw;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 /*# sourceMappingURL=grid.style.css.map */

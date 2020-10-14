@@ -39,7 +39,7 @@ p {
 
 a {
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 strong {
@@ -72,15 +72,19 @@ strong {
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 1.5rem;
+    min-width: 300px;
+    max-width: 350px;
   }
   h2 {
     font-size: 1.3rem;
+    min-width: 350px;
   }
   h4 {
     font-size: 1.2rem;
+    min-width: 350px;
   }
   p {
-    margin-bottom: 2em;
+    min-width: 350px;
   }
 }
 /*# sourceMappingURL=typo.style.css.map */

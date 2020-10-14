@@ -94,10 +94,3 @@ include "style/elements/picture.style.css";
     }?></p>
   </div>
 </main>
-<?php
-
-/* * * * * * * * * * * * * * * * * * * * footer * * * * * * * * * * * * * * * * * * * */
-
-  // include footer template
-  include ("./inc/footer.inc.php"); 
-?>

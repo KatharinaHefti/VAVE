@@ -218,9 +218,10 @@
 
     <form action="createCamp.php" method="post" enctype="multipart/form-data">
       <h4>create camp</h4>
+      <br>
       <h2>Upload</h2>
       <br>
-      <h4>Create a new camp</h4>
+      <h4>Here you can create a new camp and add it to your website.</h4>
       <br>
       <p>Please fill in the information and add a flyer to the camp.
         It creates a new Camp Page and will link in the camp agenda.</p>

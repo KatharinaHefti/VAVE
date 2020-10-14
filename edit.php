@@ -221,9 +221,9 @@ for ($i = 0; $i < $count; $i++) {
   <!-- - - - - - - - - - - - - - - - - - - - register - - - - - - - - - - - - - - - - - - -->
   
   <form action="" enctype="multipart/form-data" method="post">
-      <h2>Register</h2>
+      <h2>Admin Users</h2>
       <br>
-      <h4>Admin users</h4>
+      <h4>List of users with admin rights</h4>
             <!-- List of registered users --> 
       <p class="paint-haze"><?php 
       $count = count($UserList);  
@@ -240,7 +240,7 @@ for ($i = 0; $i < $count; $i++) {
       <br>
       <!-- delete user --> 
       <p>You can delete an existing user here.</p>
-      <button><a class="buttonType"href="deleteUser.php">delete</a></button>
+      <button><a class="buttonType"href="deleteUser.php">delete user</a></button>
     </form>
   </section>
 </body>

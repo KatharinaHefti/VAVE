@@ -1,10 +1,7 @@
 <section class="event">
-
+	
 	<!-- flyer event -->
-	<div>
-		<img src="img/event/flyer/event.jpg" alt="Flyer event">
-	</div>
-
+	<img class="flyerPic" src="img/event/flyer/event.jpg" alt="Flyer event">
 	<div>
 		<h4><?php echo $EventSectionChapterTitle?></h4>
 		<br>
