@@ -5,10 +5,10 @@
  * --------------------------------------------------------------------------------------
  * 
  * desinfect 
- * minlength
- * maxlenght
  * email
  * password 
+ * minlength
+ * maxlenght
  *  
  **/
 
@@ -37,23 +37,30 @@ class UserService {
 			$this -> feedbackArray[] = $elementName.": ".$this -> emptyRequiredFieldsFeedback;
 			$this -> validationState = false;
 		}
+
+		// email
 		elseif(strlen($value) > 0) {
 			if (in_array('email',$kindArray)) {
 				if(!$this->emailValidator($value)) {
 					$check = "negative";
 				}
 			}
+
+			// password
 			if (in_array('password',$kindArray)) {
 				if(!$this->passwordValidator($value)) {
 					$check = "negative";
 				}
 			}
+
+			// age
 			if (in_array('age',$kindArray)) {
 				if(!$this->ageValidator($value)) {
 					$check = "negative";
 				}
 			}
-			
+
+			// minlength
 			$arr1 = preg_grep("/^min_length-\d*/",$kindArray);
 			$key1 = key($arr1);
 			if (count($arr1) > 0) {
@@ -62,7 +69,7 @@ class UserService {
 					$check = "negative";
 				}
 			}
-			
+			// maxlength
 			$arr2 = preg_grep("/^max_length-\d*/",$kindArray);
 			$key2 = key($arr2);
 			if (count($arr2) > 0) {

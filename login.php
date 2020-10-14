@@ -24,7 +24,7 @@ if(isset($_POST['submit']) && isset($_POST['email'])  && isset($_POST['password'
     $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not in Database");
     $passwordValue =  $userService -> validateInput($_POST['password'],true,"password","password","Is not valid. Must contain at least 8 characters, 1 lowercase letter, 1 uppercase letter and 1 number");
 
-/* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * selectlogin * * * * * * * * * * * * * * * * * * * */
 
 // import variables form database 
 // * USERS *

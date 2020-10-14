@@ -230,11 +230,10 @@ for ($i = 0; $i < $count; $i++) {
       <label for="phone">Phone</label>
       <input type="text" id="phone" name="phone" value="<?=$phone?>"><br><br>
       <!-- output -->
-      <p>The update will take a few seconds. please refresh your browser after updating.</p>
       <p class="paint-turquois"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
-      <button><a class="buttonType" type="submit" name="updateContact">update</a></button>
+      <button class="buttonType" type="submit" name="updateContact">update</button>
       </div>
       <?php echo $picture; ?>
     </form>
@@ -251,14 +250,14 @@ for ($i = 0; $i < $count; $i++) {
       <label for="text">Description</label><br><br>
       <textarea name="text" type="text" rows="5" placeholder="Say something about yourself"></textarea><br><br> 
       <!-- pictures upload -->
-      <input class="files" type='file' name='files[]' multiple /><br><br>
+      <input class="files" type='file' name='files[]' multiple /><br>
       <!-- output -->
-      <p>The update will take a few seconds. please refresh your browser after updating.</p>
       <p class="paint-turquois"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
-      <button><a class="buttonType" type="submit" name="updateAbout">update</a></button>
+      <button class="buttonType" type="submit" name="updateAbout">update</button>
       </div>
+
       <!-- feedback -->
       <?php echo $feedbackAbout; ?>
     </form>
@@ -281,11 +280,12 @@ for ($i = 0; $i < $count; $i++) {
       ?></p><br>
 
       <p>You can add new user to maintain your webpage.</p>
-      <!-- delete user button --> 
-      <button><a class="buttonType"href="register.php">new user</a></button><br><br>
+      <!-- add user  --> 
+      <a href="register.php"><button class="buttonType">new user</button></a><br><br>
+
       <!-- delete user --> 
       <p>You can delete an existing user here.</p>
-      <button><a class="buttonType" href="deleteUser.php">delete user</a></button>
+      <a href="deleteUser.php"><button class="buttonType">delete user</button></a>
     </form>
     
   </section>
