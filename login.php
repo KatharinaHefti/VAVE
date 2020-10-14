@@ -16,10 +16,10 @@ $userService = new UserService();
 /* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
 
 // variables
-$emailValue = $passwordValue =  " ";
+$emailValue = $passwordValue = $user = " ";
 
 // is form sent ?
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']) && isset($_POST['email'])  && isset($_POST['password'])){
     // validate input with class User Service
     $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not in Database");
     $passwordValue =  $userService -> validateInput($_POST['password'],true,"password","password","Is not valid. Must contain at least 8 characters, 1 lowercase letter, 1 uppercase letter and 1 number");
@@ -39,8 +39,7 @@ $user = $stmt->fetch();
 $identifier = random_string(); //create cryptographic string
 $token = random_string(); //create cryptographic string
 
-if ($user && password_verify($_POST['password'], $user['password']))
-  {
+if ($user && password_verify($_POST['password'], $user['password'])){
 
 /* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
 
@@ -63,7 +62,8 @@ setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
 $_SESSION["userID"] = $user["id"];
   header("location: privat.php");
     exit;
-  } else {
+} 
+else {
   $output = "<div class=\"feedbackNeg\">";
     foreach ($userService -> feedbackArray as $out) {
   $output .=  $out."<br>";
@@ -71,11 +71,24 @@ $_SESSION["userID"] = $user["id"];
   $output .= "</div>\n";
   }     
 }
+
+if ( empty($emailValue)) {
+  $output = "email is required.";
+}
+if ( empty($emailValue) && empty($passwordValue)) {
+  $output = "please fill in form.";
+}
+if ($passwordValue != $user['password']){
+  $output = "passwords did not match.";
+}
+
+
 else {
   $output = "";
   $emailValue = "";
   $passwordValue = "";
-  }
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
@@ -111,7 +124,7 @@ include ("./inc/nav.inc.php");
 
         <!-- output -->
         <br>
-        <p class="paint-turquois"><?php echo $output;?></p>
+        <p class="feedbackNeg"><?php echo $output;?></p>
 
         <!-- submit -->
         <button type="submit" name="submit"><a class="buttonType">login</a></button>
