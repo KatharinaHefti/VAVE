@@ -17,7 +17,7 @@
   <li><a class="paint-turquois" href="edit.php">EDIT</a></li>
   <li><a class="paint-turquois" href="editTrainings.php">TRAININGS</a></li>
   <li><a class="paint-turquois" href="createCamp.php">CAMPS</a></li>
-  <li><a class="paint-turquois" href="createGallery.php">GALLERY</a></li>
+  <li><a class="paint-turquois" href="editEvents.php">EVENTS</a></li>
   <li><a class="paint-turquois" href="logout.php">LOGOUT</a></li>
 </ul>
 

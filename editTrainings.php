@@ -208,13 +208,14 @@ if(isset($_POST['updateMuayThai'])){
       <label for="titel">Title</label>
       <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
-      <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br><br>
+      <label for="text">Text</label><br><br>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea> 
       <!-- output -->
+      <p>The update will take a few seconds. please refresh your browser after updating.</p>
       <p class="paint-turquois"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
-        <button class="buttonType" type="submit" name="updateTrainings">update Trainings</button>
+        <button class="buttonType" type="submit" name="updateTrainings">update</button>
       </div>
     </form>
 
@@ -235,9 +236,10 @@ if(isset($_POST['updateMuayThai'])){
       <label for="titel">Title</label>
       <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
-      <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br><br>
+      <label for="text">Text</label><br><br>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <!-- output -->
+      <p>The update will take a few seconds. please refresh your browser after updating.</p>
       <p class="paint-turquois"><?php echo $outputGinastica;?></p>
       <!-- submit -->
       <div class="center">
@@ -252,9 +254,10 @@ if(isset($_POST['updateMuayThai'])){
       <label for="titel">Title</label>
       <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
-      <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br><br>
+      <label for="text">Text</label><br><br>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <!-- output -->
+      <p>The update will take a few seconds. please refresh your browser after updating.</p>
       <p class="paint-turquois"><?php echo $outputWorkout;?></p>
       <!-- submit -->
       <div class="center">
@@ -269,9 +272,10 @@ if(isset($_POST['updateMuayThai'])){
       <label for="titel">Title</label>
       <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
-      <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br> <br> 
+      <label for="text">Text</label><br><br>
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <!-- output -->
+      <p>The update will take a few seconds. please refresh your browser after updating.</p>
       <p class="paint-turquois"><?php echo $outputThai;?></p>
       <!-- submit -->
       <div class="center">
