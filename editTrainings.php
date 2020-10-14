@@ -1,4 +1,6 @@
 <?php
+
+// session
 session_start();
 
 // database connection
@@ -16,72 +18,168 @@ $userService = new UserService();
 
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 
+// includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * trainings * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * trainings POST * * * * * * * * * * * * * * * * * * * */
 
-// training text variables
-$title = $text = $output = "";
+// variables
+$title = $text = $output = $outputGinastica = $outputWorkout = $outputThai = "";
 
-// if form sent
+// if form sent?
 if(isset($_POST['updateTrainings'])){
+  // save inputs to variables
   $title = $_POST['titel'];
   $text = $_POST['text'];
 
-  // upload updated contact information
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // variables
+    $id = 1;
+
+/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+  
+  // insert variables to database 
+  // * TRAININGS * row 1 *
+
+  // title
+  // text
+
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(array('id' => 1, 'titel' => $title, 'text' => $text));
+  // save trainings variables from POST inputs to array
+  $data = [ 
+    'id' => $id, 
+    'titel' => $title, 
+    'text' => $text,
+  ];
+  // replace variables in database contact – row 1
+  $stmt->execute($data);
 
   // feedback
-  $output = 'updated';
+  $output = 'Updated your training informations.';
 }
 
-/* * * * * * * * * * * * * * * * * * * * ginastica natural zurich * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * ginastica natural zurich POST * * * * * * * * * * * * * * * * * * * */
 
-// if form sent
+// if form sent?
 if(isset($_POST['updateGinastica'])){
+  // save inputs to variables
   $title = $_POST['titel'];
   $text = $_POST['text'];
 
-  // upload updated contact information
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    $id = 2;
+
+/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+  
+  // insert variables to database 
+  // * TRAININGS * row 2 *
+
+  // title
+  // text
+
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(array('id' => 2, 'titel' => $title, 'text' => $text));
+  // save trainings variables from POST inputs to array
+  $data = [
+  'id' => $id, 
+  'titel' => $title, 
+  'text' => $text,
+  ];
+  // replace variables in database contact – row 2
+  $stmt->execute($data);
 
   // feedback
-  $output = 'updated Ginastica Natural Zurich';
+  $outputGinastica = 'Updated Ginastica Natural Zurich';
 }
 
 /* * * * * * * * * * * * * * * * * * * * VAVE Workout * * * * * * * * * * * * * * * * * * * */
 
-// if form sent
+// if form sent?
+
 if(isset($_POST['updateWorkout'])){
+  // save inputs to variables
   $title = $_POST['titel'];
   $text = $_POST['text'];
 
-  // upload updated contact information
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+
+    $id = 3;
+
+/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+  
+  // insert variables to database 
+  // * TRAININGS * row 3 *
+
+  // title
+  // text
+
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(array('id' => 3, 'titel' => $title, 'text' => $text));
+  // save contact variables from POST inputs to array
+  $data = [
+    'id' => $id, 
+    'titel' => $title, 
+    'text' => $text,
+  ];
+  // replace variables in database contact – row 3
+  $stmt->execute($data);
 
   // feedback
-  $output = 'updated VAVE Workout';
+  $outputWorkout = 'updated VAVE Workout';
 }
 
-// if form sent
+// if form sent ?
 if(isset($_POST['updateMuayThai'])){
+  // save inputs to variables
   $title = $_POST['titel'];
   $text = $_POST['text'];
 
-  // upload updated contact information
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+    // validation !!!!
+
+    $id = 4;
+
+/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+  
+  // insert variables to database 
+  // * TRAININGS * row 4 *
+
+  // title
+  // text
+
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(array('id' => 4, 'titel' => $title, 'text' => $text));
+  $data = [
+    'id' => $id, 
+    'titel' => $title, 
+    'text' => $text,
+  ];
+  // replace variables in database contact – row 4
+  $stmt->execute($data);
 
   // feedback
-  $output = 'updated Muay Thai training';
+  $outputThai = 'updated Muay Thai training';
 }
 
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
@@ -100,22 +198,19 @@ if(isset($_POST['updateMuayThai'])){
   <!-- - - - - - - - - - - - - - - - - - - - first column edit trainings - - - - - - - - - - - - - - - - - - -->
   
   <section class="edit">
+
+    <!-- - - - - - - - - - - - - - - - - - - - edit trainings - - - - - - - - - - - - - - - - - - -->
     <form action="" method="post">
-      <h2>Trainings</h2>
-      <br>
-      <h4>Edit your training information</h4>
-      <br>
+      <h2>Trainings</h2><br>
+      <h4>Edit your training information</h4><br>
       <br>
       <!-- title -->
       <label for="titel">Title</label>
-      <input type="text" id="titel" name="titel" value="<?=$title?>"><br>
-      <br> 
+      <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
-      <br> 
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br><br>
       <!-- output -->
-      <br>
       <p class="paint-turquois"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
@@ -123,85 +218,64 @@ if(isset($_POST['updateMuayThai'])){
       </div>
     </form>
 
-    <!-- - - - - - - - - - - - - - - - - - - - second column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - -->
- 
-    
-
-    <!-- - - - - - - - - - - - - - - - - - - - third column icon - - - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - - - - - - - second column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - --> 
     <div><img class="hugeIcon" src="img/circle/training.svg" alt=""></div>
+
   </section>
   
 
 <!--! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - SECOND ROW - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! -->
-
-
-<!-- - - - - - - - - - - - - - - - - - - - first column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - -->
-
+  
   <section class="edit">
 
+<!-- - - - - - - - - - - - - - - - - - - - first column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - -->
     <form action="" method="post">
-      <h2>Ginastica Natural</h2>
-      <br>
+      <h2>Ginastica Natural</h2><br>
       <!-- title -->
       <label for="titel">Title</label>
-      <input type="text" id="titel" name="titel" value="<?=$title?>"><br>
-      <br> 
+      <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
-      <br> 
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br><br>
       <!-- output -->
-      <br>
-      <p class="paint-turquois"><?php echo $output;?></p>
-
+      <p class="paint-turquois"><?php echo $outputGinastica;?></p>
       <!-- submit -->
       <div class="center">
-        <button class="buttonType" type="submit" name="updateGinastica">update Trainings</button>
+        <button class="buttonType" type="submit" name="updateGinastica">update</button>
       </div>
     </form>
 
 <!-- - - - - - - - - - - - - - - - - - - - second column edit VAVE Workout - - - - - - - - - - - - - - - - - - -->
-
     <form action="" method="post">
-      <h2>VAVE Workout</h2>
-      <br>
+      <h2>VAVE Workout</h2><br>
       <!-- title -->
       <label for="titel">Title</label>
-      <input type="text" id="titel" name="titel" value="<?=$title?>"><br>
-      <br> 
+      <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
-      <br> 
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br><br>
       <!-- output -->
-      <br>
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <p class="paint-turquois"><?php echo $outputWorkout;?></p>
       <!-- submit -->
       <div class="center">
-        <button class="buttonType" type="submit" name="updateWorkout">update Trainings</button>
+        <button class="buttonType" type="submit" name="updateWorkout">update</button>
       </div>
     </form>
 
 <!-- - - - - - - - - - - - - - - - - - - - third column edit muay thai training - - - - - - - - - - - - - - - - - - -->
- 
     <form action="" method="post">
-      <h2>Muay Thai Training</h2>
-      <br>
+      <h2>Muay Thai Training</h2><br>
       <!-- title -->
       <label for="titel">Title</label>
-      <input type="text" id="titel" name="titel" value="<?=$title?>"><br>
-      <br> 
+      <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
       <!-- text -->
       <label for="text">Text</label>
-      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
-      <br> 
+      <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea><br> <br> 
       <!-- output -->
-      <br>
-      <p class="paint-turquois"><?php echo $output;?></p>
-
+      <p class="paint-turquois"><?php echo $outputThai;?></p>
       <!-- submit -->
       <div class="center">
-        <button class="buttonType" type="submit" name="updateMuayThai">update Trainings</button>
+        <button class="buttonType" type="submit" name="updateMuayThai">update</button>
       </div>
     </form>
   </section>
