@@ -30,16 +30,13 @@ $title = $text = $output = "";
 // if form sent?
 if(isset($_POST['updateEvents'])){
   // save inputs to variables
-  $title = $_POST['titel'];
-  $text = $_POST['text'];
+  // save inputs to variables
+  $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
+  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // variables
+  // is everything filled in?
+  if ($userService -> validationState) {
+
     $id = 1;
 
 /* * * * * * * * * * * * * * * * * * * * events UPDATE * * * * * * * * * * * * * * * * * * * */
@@ -63,8 +60,14 @@ if(isset($_POST['updateEvents'])){
 
   // feedback
   $output = 'Updated your training informations.';
+  }
+  else {
+  // no
+    foreach ($userService -> feedbackArray as $out) {
+      $output .=  $out.'<br>';
+    }
+  }
 }
-
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
@@ -95,7 +98,7 @@ if(isset($_POST['updateEvents'])){
       <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea> 
       <!-- output -->
       <p>The update will take a few seconds. please refresh your browser after updating.</p>
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="updateEvents">update</button>

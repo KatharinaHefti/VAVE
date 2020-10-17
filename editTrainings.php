@@ -33,8 +33,8 @@ if(isset($_POST['updateTrainings'])){
   $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
   $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
 
-// is everything filled in?
-if ($userService -> validationState) {
+  // is everything filled in?
+  if ($userService -> validationState) {
 
     $id = 1;
 
@@ -63,9 +63,9 @@ if ($userService -> validationState) {
   else {
   // no
     foreach ($userService -> feedbackArray as $out) {
-      $output .=  $out.'<br>';
+      $output .= $out.'<br>';
     }
-}
+  }
 }
 /* * * * * * * * * * * * * * * * * * * * ginastica natural zurich POST * * * * * * * * * * * * * * * * * * * */
 
@@ -105,7 +105,7 @@ if(isset($_POST['updateGinastica'])){
   else {
     // no
     foreach ($userService -> feedbackArray as $out) {
-      $outputGinastica =  $out.'<br>';
+      $outputGinastica .= $out.'<br>';
     }
   }
 }
@@ -147,7 +147,7 @@ if(isset($_POST['updateWorkout'])){
   else {
     // no
     foreach ($userService -> feedbackArray as $out) {
-      $outputWorkout =  $out.'<br>';
+      $outputWorkout .= $out.'<br>';
     }
   }
 }
@@ -189,7 +189,7 @@ if(isset($_POST['updateMuayThai'])){
   else {
     // no
     foreach ($userService -> feedbackArray as $out) {
-      $outputThai =  $out.'<br>';
+      $outputThai .= $out.'<br>';
     }
   }
 }
