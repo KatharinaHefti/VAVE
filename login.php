@@ -25,8 +25,9 @@ if(isset($_POST['submit'])){
     $passwordValue =  $userService -> validateInput($_POST['password'],true,"password","password","Is not valid. Must contain at least 8 characters, 1 lowercase letter, 1 uppercase letter and 1 number");
 
     if ($userService -> validationState) {
-      // yes
-      /* * * * * * * * * * * * * * * * * * * * selectlogin * * * * * * * * * * * * * * * * * * * */
+      // validation state is true
+      
+/* * * * * * * * * * * * * * * * * * * * selectlogin * * * * * * * * * * * * * * * * * * * */
 
 // import variables form database 
 // * USERS *

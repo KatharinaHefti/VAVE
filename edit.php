@@ -44,19 +44,15 @@ $name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout 
 if(isset( $_POST['updateContact'] )){
 
   // save inputs to variables
-  $name = $userService -> validateInput($_POST['name'],true,"Name","name","Name","is not valid");
-  $city = $userService -> validateInput($_POST['street'],true,"Street","street","Street is not valid");
-  $street = $userService -> validateInput($_POST['city'],true,"City","city","City is not valid");
-  $email = $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid");
-  $phone = $userService -> validateInput($_POST['phone'],true,"Phone","phone","Phone is not valid");
+  $name = $userService -> validateInput($_POST['name'],true,"Name","name"," Is not a valid name. Contains invalid characters. Only letters allowed.");
+  $street = $userService -> validateInput($_POST['street'],true,"Street","street"," Is not a valid street.");
+  $city = $userService -> validateInput($_POST['city'],true,"City","city","City is not valid");
+  $email = $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid.");
+  $phone = $userService -> validateInput($_POST['phone'],true,"Phone","phone","Phone is not valid swiss number. No space allowed.");
 
   // is everything filled in?
-  if (empty( $_POST['name']) || empty($_POST['street']) || empty($_POST['city']) || empty($_POST['email']) || empty($_POST['phone']) ) {
-    $output = 'Please fill in all information.';
-  }
-else{
-  
-/* * * * * * * * * * * * * * * * * * * * contact UPDATE * * * * * * * * * * * * * * * * * * * */
+  if ($userService -> validationState) {
+    /* * * * * * * * * * * * * * * * * * * * contact UPDATE * * * * * * * * * * * * * * * * * * * */
     
   // insert variables to database 
   // * CONTACT *
@@ -83,8 +79,13 @@ else{
   // feedback
   $output = 'Updated your contacts.';
   }
+  else {
+    // no
+    foreach ($userService -> feedbackArray as $out) {
+      $output .=  $out.'<br>';
+  }
 }
-
+}
 /* * * * * * * * * * * * * * * * * * * * about POST * * * * * * * * * * * * * * * * * * * */
 
 // variables
@@ -120,7 +121,7 @@ $id = 1;
     'id' => $id,
   ];
   $stmt->execute($data);
-  
+
 /* * * * * * * * * * * * * * * * * * * * picture upload * * * * * * * * * * * * * * * * * * * */
 
 // count total files
@@ -163,7 +164,7 @@ $countfiles = count($_FILES['files']['name']);
     }
   }
   // feedback
-  $feedbackAbout = 'is uploaded.';
+  $feedbackAbout = 'About is updated.';
 }
 }
 /* * * * * * * * * * * * * * * * * * * * import user list * * * * * * * * * * * * * * * * * * * */
@@ -227,7 +228,7 @@ for ($i = 0; $i < $count; $i++) {
       <input type="email" id="email" name="email" value="<?=$email?>"><br><br>
       <!-- phone -->
       <label for="phone">Phone</label>
-      <input type="text" id="phone" name="phone" value="<?=$phone?>"><br><br>
+      <input type="text" id="phone" name="phone" placeholder="+41774147474" value="<?=$phone?>"><br><br>
       <!-- output -->
       <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
