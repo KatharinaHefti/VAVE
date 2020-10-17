@@ -5,6 +5,10 @@ include ("../inc/navCamps.inc.php");
 // database connection
 require_once("../config/config.inc.php");
 
+// include class UserService – to validate form inputs
+require("../class/UserService.class.php");
+$userService = new UserService();
+
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 ?>
 <!-- <style><?php include "../style/parts/grid.style.css" ?></style> -->
@@ -36,10 +40,14 @@ $campTickets =1;
 
 // if form sent
 if(isset($_POST['join'])){
-  $name = $_POST['name'];
-  $familyname = $_POST['familyname'];
-  $email = $_POST['email'];
+  $name = $userService -> validateInput($_POST['name'],true,"Name","name"," Is not a valid name. Contains invalid characters. Only letters allowed.");
+  $familyname = $userService -> validateInput($_POST['familyname'],true,"Familyname","familyname"," Is not a valid name. Contains invalid characters. Only letters allowed.");
+  $email = $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid.");
   $camps = $_POST['camps'];
+  $camps = $userService -> validateInput($_POST['terms'],true,"Terms","terms","Terms must be accepted.");
+
+  // is everything filled in?
+  if ($userService -> validationState) {
 
   $data = [
     'name' => $name,
@@ -76,9 +84,15 @@ $sql = "UPDATE camps SET campTickets=? WHERE id=1";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$amount]);
 
-echo 'done that';
+$output = 'Welcome to the camp.';
 }
-
+else {
+  // no
+  foreach ($userService -> feedbackArray as $out) {
+    $output .=  $out.'<br>';
+}
+}
+}
 
 ?>
 <body class="dark">
@@ -118,12 +132,13 @@ echo 'done that';
       <br>
       <!-- checkbox -->
       <label for="terms">Terms</label>
-      <input type="checkbox" id="terms" name="terms"><br>
-      <p>by accepting terms and conditions</p>
+      <input type="checkbox" id="terms" value="accepted" name="terms"><br>
+      <p>I accept the Terms of Service</p>
+      <a class="paint-turquois" target="_blank" href="../terms.php">read the terms</a><br>
       
       <!-- output -->
       <br>
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="join">join</button>
