@@ -16,15 +16,17 @@ $userService = new UserService();
 /* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
 
 // variables
-$emailValue = $passwordValue = $user = " ";
+$emailValue = $passwordValue = $user = $output = " ";
 
 // is form sent ?
-if(isset($_POST['submit']) && isset($_POST['email'])  && isset($_POST['password'])){
+if(isset($_POST['submit'])){
     // validate input with class User Service
-    $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not in Database");
+    $emailValue =  $userService -> validateInput($_POST['email'],true,"E-Mail Adresse","email","must be a valid Email.");
     $passwordValue =  $userService -> validateInput($_POST['password'],true,"password","password","Is not valid. Must contain at least 8 characters, 1 lowercase letter, 1 uppercase letter and 1 number");
 
-/* * * * * * * * * * * * * * * * * * * * selectlogin * * * * * * * * * * * * * * * * * * * */
+    if ($userService -> validationState) {
+      // yes
+      /* * * * * * * * * * * * * * * * * * * * selectlogin * * * * * * * * * * * * * * * * * * * */
 
 // import variables form database 
 // * USERS *
@@ -62,33 +64,18 @@ setcookie("token",$token,time()+(3600*24*365)); //Valid for 1 year
 $_SESSION["userID"] = $user["id"];
   header("location: privat.php");
     exit;
-} 
-else {
-  $output = "<div class=\"feedbackNeg\">";
-    foreach ($userService -> feedbackArray as $out) {
-  $output .=  $out."<br>";
+}else{
+  $output = 'Email or Password is wrong.';
+}
+    }
+    else {
+      // no
+      foreach ($userService -> feedbackArray as $out) {
+        $output .=  $out.'<br>';
+    }
   }
-  $output .= "</div>\n";
-  }     
+  
 }
-
-if ( empty($emailValue)) {
-  $output = "email is required.";
-}
-if ( empty($emailValue) && empty($passwordValue)) {
-  $output = "please fill in form.";
-}
-if ($passwordValue != $user['password']){
-  $output = "passwords did not match.";
-}
-
-
-else {
-  $output = "";
-  $emailValue = "";
-  $passwordValue = "";
-}
-
 
 /* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
 

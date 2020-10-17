@@ -40,22 +40,22 @@ include ("./inc/main.inc.php");
 // variables
 $name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout = "";
 
-// is form sent?
-if(isset($_POST['updateContact'])){
+// is form sent ?
+if(isset( $_POST['updateContact'] )){
+
   // save inputs to variables
-  $name = $_POST['name'];
-  $city = $_POST['street'];
-  $street = $_POST['city'];
-  $email =  $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid");
-  $phone = $_POST['phone'];
+  $name = $userService -> validateInput($_POST['name'],true,"Name","name","Name","is not valid");
+  $city = $userService -> validateInput($_POST['street'],true,"Street","street","Street is not valid");
+  $street = $userService -> validateInput($_POST['city'],true,"City","city","City is not valid");
+  $email = $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid");
+  $phone = $userService -> validateInput($_POST['phone'],true,"Phone","phone","Phone is not valid");
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-
+  // is everything filled in?
+  if (empty( $_POST['name']) || empty($_POST['street']) || empty($_POST['city']) || empty($_POST['email']) || empty($_POST['phone']) ) {
+    $output = 'Please fill in all information.';
+  }
+else{
+  
 /* * * * * * * * * * * * * * * * * * * * contact UPDATE * * * * * * * * * * * * * * * * * * * */
     
   // insert variables to database 
@@ -81,7 +81,8 @@ if(isset($_POST['updateContact'])){
   // replace variables in database contact – row 1
   $stmt->execute($data);
   // feedback
-  $picture = '<div class="center"><img class="hugeIcon" src="img/circle/thumbsup.svg" alt=""></div>';
+  $output = 'Updated your contacts.';
+  }
 }
 
 /* * * * * * * * * * * * * * * * * * * * about POST * * * * * * * * * * * * * * * * * * * */
@@ -92,16 +93,14 @@ $id = 1;
 
   // is form sent?
   if(isset($_POST['updateAbout'])){
-  $titel = $_POST['titel'];
-  $text = $_POST['text'];
+  $titel = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
+  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-
+  // is everything filled in?
+  if (empty( $_POST['titel']) || empty($_POST['text'])  ) {
+    $feedbackAbout = 'Please fill in all information.';
+  }
+  else{
 /* * * * * * * * * * * * * * * * * * * * about UPDATE * * * * * * * * * * * * * * * * * * * */
 
   // insert variables to database 
@@ -121,7 +120,7 @@ $id = 1;
     'id' => $id,
   ];
   $stmt->execute($data);
-
+  
 /* * * * * * * * * * * * * * * * * * * * picture upload * * * * * * * * * * * * * * * * * * * */
 
 // count total files
@@ -164,9 +163,9 @@ $countfiles = count($_FILES['files']['name']);
     }
   }
   // feedback
-  $feedbackAbout = '<img class="iconBig" src="img/circle/thumbsup.svg" alt="">';
+  $feedbackAbout = 'is uploaded.';
 }
-
+}
 /* * * * * * * * * * * * * * * * * * * * import user list * * * * * * * * * * * * * * * * * * * */
 
 // import variables form database 
@@ -230,12 +229,11 @@ for ($i = 0; $i < $count; $i++) {
       <label for="phone">Phone</label>
       <input type="text" id="phone" name="phone" value="<?=$phone?>"><br><br>
       <!-- output -->
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
       <button class="buttonType" type="submit" name="updateContact">update</button>
       </div>
-      <?php echo $picture; ?>
     </form>
 
     <!-- - - - - - - - - - - - - - - - - - - - edit about info - - - - - - - - - - - - - - - - - - -->
@@ -250,18 +248,16 @@ for ($i = 0; $i < $count; $i++) {
       <label for="text">Description</label><br><br>
       <textarea name="text" type="text" rows="5" placeholder="Say something about yourself"></textarea><br><br> 
       <!-- pictures upload -->
-      <input class="files" type='file' name='files[]' multiple /><br>
-      <!-- output -->
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <input class="files" type='file' name='files[]' multiple /><br><br>
+
+      <!-- feedback -->
+      <p class="feedbackNeg"><?php echo $feedbackAbout;?></p>
+
       <!-- submit -->
       <div class="center">
       <button class="buttonType" type="submit" name="updateAbout">update</button>
       </div>
-
-      <!-- feedback -->
-      <?php echo $feedbackAbout; ?>
     </form>
-
     
   <!-- - - - - - - - - - - - - - - - - - - - admin users - - - - - - - - - - - - - - - - - - -->
   
@@ -281,11 +277,11 @@ for ($i = 0; $i < $count; $i++) {
 
       <p>You can add new user to maintain your webpage.</p>
       <!-- add user  --> 
-      <a href="register.php"><button class="buttonType">new user</button></a><br><br>
+      <button><a class="buttonType" href="register.php">new user</a></button><br><br>
 
       <!-- delete user --> 
       <p>You can delete an existing user here.</p>
-      <a href="deleteUser.php"><button class="buttonType">delete user</button></a>
+      <button><a class="buttonType" href="deleteUser.php">delete user</a></button>
     </form>
     
   </section>

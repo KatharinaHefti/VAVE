@@ -3,7 +3,7 @@ include ("./inc/header.inc.php");
 include ("./inc/nav.inc.php"); 
 
 // database connection
-require_once("./config/config.inc.php");
+require_once("config/config.inc.php");
 
 /* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
 

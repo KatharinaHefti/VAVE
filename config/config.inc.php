@@ -4,7 +4,7 @@
     $db_name = 'VAVE_Sports';
     $db_user = 'root';
     $db_password = 'root';
-
+    
     // $db_host = 'localhost';
     // $db_name = 'id15117272_vave_sports';
     // $db_user = 'id15117272_valeria';

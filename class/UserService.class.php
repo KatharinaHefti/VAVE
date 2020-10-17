@@ -52,32 +52,7 @@ class UserService {
 					$check = "negative";
 				}
 			}
-
-			// age
-			if (in_array('age',$kindArray)) {
-				if(!$this->ageValidator($value)) {
-					$check = "negative";
-				}
-			}
-
-			// minlength
-			$arr1 = preg_grep("/^min_length-\d*/",$kindArray);
-			$key1 = key($arr1);
-			if (count($arr1) > 0) {
-				$parts1 = explode("-",$arr1[$key1]);
-				if(!$this->minLength($value,$parts1[1])) {
-					$check = "negative";
-				}
-			}
-			// maxlength
-			$arr2 = preg_grep("/^max_length-\d*/",$kindArray);
-			$key2 = key($arr2);
-			if (count($arr2) > 0) {
-				$parts2 = explode("-",$arr2[$key2 ]);
-				if(!$this->maxLength($value,$parts2[1])) {
-					$check = "negative";
-				}
-			}
+			
 		}
 		
 		if ($check == "negative") {
@@ -87,13 +62,14 @@ class UserService {
 		
 		return $cleanValue;
 	}
-	
+
+/* ------------------------------------------------ METHODS -------------------------------------
 
  /** Desinfect inputs
   * --------------------------------------------------------------------------------------
   * @return Returns clean input
   */
-	private function desinfect($str) {
+	public function desinfect($str) {
 		$cleanStr = filter_var($str, FILTER_SANITIZE_STRING);
 		$cleanStr = trim($cleanStr);
 		return $cleanStr;
@@ -103,7 +79,7 @@ class UserService {
   * --------------------------------------------------------------------------------------
   * @return Returns true or false
   */
-	private function emailValidator($str) {
+	public function emailValidator($str) {
 		// Ist die E-Mail-Adresse gültig?
 		if (filter_var($str, FILTER_VALIDATE_EMAIL)) {
 			return true;

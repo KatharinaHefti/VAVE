@@ -30,16 +30,14 @@ $title = $text = $output = $outputGinastica = $outputWorkout = $outputThai = "";
 // if form sent?
 if(isset($_POST['updateTrainings'])){
   // save inputs to variables
-  $title = $_POST['titel'];
-  $text = $_POST['text'];
+  $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
+  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // variables
+  // is everything filled in?
+  if (empty( $_POST['titel']) || empty($_POST['text']) ) {
+    $output = 'Please fill in all information.';
+  }
+else{
     $id = 1;
 
 /* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
@@ -63,25 +61,24 @@ if(isset($_POST['updateTrainings'])){
 
   // feedback
   $output = 'Updated your training informations.';
+  }
 }
-
 /* * * * * * * * * * * * * * * * * * * * ginastica natural zurich POST * * * * * * * * * * * * * * * * * * * */
 
 // if form sent?
 if(isset($_POST['updateGinastica'])){
   // save inputs to variables
-  $title = $_POST['titel'];
-  $text = $_POST['text'];
+  $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
+  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    $id = 2;
+  // is everything filled in?
+  if (empty( $_POST['titel']) || empty($_POST['text']) ) {
+    $outputGinastica = 'Please fill in all information.';
+  }
+  else{
+  $id = 2;
 
-/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * ginastica natural zurich UPDATE * * * * * * * * * * * * * * * * * * * */
   
   // insert variables to database 
   // * TRAININGS * row 2 *
@@ -103,26 +100,23 @@ if(isset($_POST['updateGinastica'])){
   // feedback
   $outputGinastica = 'Updated Ginastica Natural Zurich';
 }
-
-/* * * * * * * * * * * * * * * * * * * * VAVE Workout * * * * * * * * * * * * * * * * * * * */
+}
+/* * * * * * * * * * * * * * * * * * * * VAVE Workout POST  * * * * * * * * * * * * * * * * * * * */
 
 // if form sent?
-
 if(isset($_POST['updateWorkout'])){
   // save inputs to variables
   $title = $_POST['titel'];
   $text = $_POST['text'];
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-
+   // is everything filled in?
+   if (empty( $_POST['titel']) || empty($_POST['text']) ) {
+    $outputWorkout = 'Please fill in all information.';
+  }
+  else{
     $id = 3;
 
-/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * VAVE Workout UPDATE * * * * * * * * * * * * * * * * * * * */
   
   // insert variables to database 
   // * TRAININGS * row 3 *
@@ -143,7 +137,10 @@ if(isset($_POST['updateWorkout'])){
 
   // feedback
   $outputWorkout = 'updated VAVE Workout';
+  }
 }
+
+/* * * * * * * * * * * * * * * * * * * * Muay Thai UPDATE * * * * * * * * * * * * * * * * * * * */
 
 // if form sent ?
 if(isset($_POST['updateMuayThai'])){
@@ -151,12 +148,11 @@ if(isset($_POST['updateMuayThai'])){
   $title = $_POST['titel'];
   $text = $_POST['text'];
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
+   // is everything filled in?
+   if (empty( $_POST['titel']) || empty($_POST['text']) ) {
+    $outputThai = 'Please fill in all information.';
+  }
+  else{
 
     $id = 4;
 
@@ -180,8 +176,8 @@ if(isset($_POST['updateMuayThai'])){
 
   // feedback
   $outputThai = 'updated Muay Thai training';
+  }
 }
-
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
@@ -212,7 +208,7 @@ if(isset($_POST['updateMuayThai'])){
       <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea> 
       <!-- output -->
       <p>The update will take a few seconds. please refresh your browser after updating.</p>
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="updateTrainings">update</button>
@@ -240,7 +236,7 @@ if(isset($_POST['updateMuayThai'])){
       <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <!-- output -->
       <p>The update will take a few seconds. please refresh your browser after updating.</p>
-      <p class="paint-turquois"><?php echo $outputGinastica;?></p>
+      <p class="feedbackNeg"><?php echo $outputGinastica;?></p>
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="updateGinastica">update</button>
@@ -258,7 +254,7 @@ if(isset($_POST['updateMuayThai'])){
       <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <!-- output -->
       <p>The update will take a few seconds. please refresh your browser after updating.</p>
-      <p class="paint-turquois"><?php echo $outputWorkout;?></p>
+      <p class="feedbackNeg"><?php echo $outputWorkout;?></p>
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="updateWorkout">update</button>
@@ -276,7 +272,7 @@ if(isset($_POST['updateMuayThai'])){
       <textarea name="text" type="text" rows="10" placeholder="Say something about your training"></textarea>
       <!-- output -->
       <p>The update will take a few seconds. please refresh your browser after updating.</p>
-      <p class="paint-turquois"><?php echo $outputThai;?></p>
+      <p class="feedbackNeg"><?php echo $outputThai;?></p>
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="updateMuayThai">update</button>
