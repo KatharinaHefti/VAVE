@@ -95,7 +95,7 @@ if(isset($_POST['submit']) && !empty($_POST['name'])){
           }?></select><br>
 
         <!-- output -->
-        <p class="paint-turquois"><?php echo $output;?></p>
+        <p class="feedbackNeg"><?php echo $output;?></p>
         <!-- submit -->
         <button type="submit" name="submit"><a class="buttonType">delete user</a></button>
       </form>

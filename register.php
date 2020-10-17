@@ -47,19 +47,15 @@ if (isset($_POST['submit'])) {
       }
       // if upload to database did not work.
       else {
-        $output = "<div class=\"feedback_negativ\">";
-        $output .= "Upload to database did not work.";
-        $output .=  "</div>\n";
+        $output = "Upload to database did not work.";
       }
     }
 
     // Validation was NOT succecfull
     else {
-        $output = "<div class=\"feedback_negativ\">";
       foreach ($userService -> feedbackArray as $out) {
         $output .=  $out."<br>";
-      }
-      $output .= "</div>\n";
+      }     
     }
   }
   else {
@@ -107,7 +103,7 @@ include ("./inc/nav.inc.php");
       <label for="password">Password</label>
       <input type="password" id="password" name="password" value="<?=$passwordValue?>"><br><br>
       <!-- output -->
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
       <button type="submit" name="submit">register</button>
       <!-- login -->

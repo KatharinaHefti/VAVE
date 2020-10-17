@@ -33,11 +33,9 @@ if(isset($_POST['updateTrainings'])){
   $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
   $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
 
-  // is everything filled in?
-  if (empty( $_POST['titel']) || empty($_POST['text']) ) {
-    $output = 'Please fill in all information.';
-  }
-else{
+// is everything filled in?
+if ($userService -> validationState) {
+
     $id = 1;
 
 /* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
@@ -61,21 +59,25 @@ else{
 
   // feedback
   $output = 'Updated your training informations.';
-  }
+  }  
+  else {
+  // no
+    foreach ($userService -> feedbackArray as $out) {
+      $output .=  $out.'<br>';
+    }
+}
 }
 /* * * * * * * * * * * * * * * * * * * * ginastica natural zurich POST * * * * * * * * * * * * * * * * * * * */
 
 // if form sent?
 if(isset($_POST['updateGinastica'])){
   // save inputs to variables
-  $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
-  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
+  $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid. Not more than 60 characters allowed.");
+  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid. Not more than 1000 characters allowed.");
 
   // is everything filled in?
-  if (empty( $_POST['titel']) || empty($_POST['text']) ) {
-    $outputGinastica = 'Please fill in all information.';
-  }
-  else{
+  if ($userService -> validationState) {
+
   $id = 2;
 
 /* * * * * * * * * * * * * * * * * * * * ginastica natural zurich UPDATE * * * * * * * * * * * * * * * * * * * */
@@ -99,22 +101,26 @@ if(isset($_POST['updateGinastica'])){
 
   // feedback
   $outputGinastica = 'Updated Ginastica Natural Zurich';
-}
+  }
+  else {
+    // no
+    foreach ($userService -> feedbackArray as $out) {
+      $outputGinastica =  $out.'<br>';
+    }
+  }
 }
 /* * * * * * * * * * * * * * * * * * * * VAVE Workout POST  * * * * * * * * * * * * * * * * * * * */
 
 // if form sent?
 if(isset($_POST['updateWorkout'])){
   // save inputs to variables
-  $title = $_POST['titel'];
-  $text = $_POST['text'];
+  $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid. Not more than 60 characters allowed.");
+  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid. Not more than 1000 characters allowed.");
 
-   // is everything filled in?
-   if (empty( $_POST['titel']) || empty($_POST['text']) ) {
-    $outputWorkout = 'Please fill in all information.';
-  }
-  else{
-    $id = 3;
+  // is everything filled in?
+  if ($userService -> validationState) {
+
+  $id = 3;
 
 /* * * * * * * * * * * * * * * * * * * * VAVE Workout UPDATE * * * * * * * * * * * * * * * * * * * */
   
@@ -136,7 +142,13 @@ if(isset($_POST['updateWorkout'])){
   $stmt->execute($data);
 
   // feedback
-  $outputWorkout = 'updated VAVE Workout';
+  $outputWorkout = 'Updated VAVE Workout';
+  }
+  else {
+    // no
+    foreach ($userService -> feedbackArray as $out) {
+      $outputWorkout =  $out.'<br>';
+    }
   }
 }
 
@@ -145,14 +157,11 @@ if(isset($_POST['updateWorkout'])){
 // if form sent ?
 if(isset($_POST['updateMuayThai'])){
   // save inputs to variables
-  $title = $_POST['titel'];
-  $text = $_POST['text'];
+  $title = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid. Not more than 60 characters allowed.");
+  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid. Not more than 1000 characters allowed.");
 
-   // is everything filled in?
-   if (empty( $_POST['titel']) || empty($_POST['text']) ) {
-    $outputThai = 'Please fill in all information.';
-  }
-  else{
+  // is everything filled in?
+  if ($userService -> validationState) {
 
     $id = 4;
 
@@ -175,7 +184,13 @@ if(isset($_POST['updateMuayThai'])){
   $stmt->execute($data);
 
   // feedback
-  $outputThai = 'updated Muay Thai training';
+  $outputThai = 'Updated Muay Thai Training';
+  }
+  else {
+    // no
+    foreach ($userService -> feedbackArray as $out) {
+      $outputThai =  $out.'<br>';
+    }
   }
 }
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */

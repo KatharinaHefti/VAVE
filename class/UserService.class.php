@@ -80,6 +80,20 @@ class UserService {
 					$check = "negative";
 				}
 			}
+
+			// title
+			if (in_array('title',$kindArray)) {
+				if(!$this->titleValidator($value)) {
+					$check = "negative";
+				}
+			}
+
+			// text
+			if (in_array('text',$kindArray)) {
+				if(!$this->textValidator($value)) {
+					$check = "negative";
+				}
+			}
 		}
 		
 		if ($check == "negative") {
@@ -195,8 +209,8 @@ class UserService {
   * @return Returns true or false
   */
 	private function maxLength($str,$length) {
-		$anzZeichen = strlen($str);
-    	if ($anzZeichen <= $length) {
+		$strLenght = strlen($str);
+    	if ($strLenght <= $length) {
     		return true;
 		}
 		else {
@@ -246,18 +260,18 @@ class UserService {
 	}
 }
 
-
 /** Title Validator
   * --------------------------------------------------------------------------------------
   * @return Returns true or false
   */
-  private function titleValidator($length,$str) {
+  private function titleValidator($str) {
 		$strLenght = strlen($str);
-    	if ($strLenght <= $length) {
-    		return true;
+		$maxLenght = 60;
+		if ($strLenght >= $maxLenght){
+    	return false;
 		}
 		else {
-			return false;
+			return true;
 		}
 	}
 
@@ -266,10 +280,15 @@ class UserService {
   * @return Returns true or false
   */
   private function textValidator($str) {
-		
-		return false;
+		$strLenght = strlen($str);
+		$maxLenght = 1000;
+		if ($strLenght >= $maxLenght){
+    	return false;
+		}
+		else {
+			return true;
+		}
 	}
-	
 
 
 
