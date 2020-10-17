@@ -30,24 +30,20 @@ include ("./inc/navPrivat.inc.php");
   // is form sent?
   if (isset($_POST['submit'])) {
     // save inputs to variables
-    $campHeadline = $_POST['campHeadline'];
-    $campDescription = $_POST['campDescription'];
-    $campStart = $_POST['campStart'];
-    $campEnd = $_POST['campEnd'];
-    $campLocation = $_POST['campLocation'];
-    $campPrice = $_POST['campPrice'];
-    $campPatricipants = $_POST['campPatricipants'];
-    $campTickets = $_POST['campPatricipants'];
-    $campShortDescription = $_POST['campShortDescription'];
-    $campButton = $_POST['campButton'];
-    $output = 'Event has been uploaded.';
+    $campHeadline = $userService -> validateInput($_POST['campHeadline'],true,"Headline","title","Headline is not valid. Max 60 characters allowed.");
+    $campDescription = $userService -> validateInput($_POST['campDescription'],true,"Text","text","Description is not valid. Max 1000 characters allowed.");
+    $campStart = $userService -> validateInput($_POST['campStart'],true,"Start","start","Start is not valid");
+    $campEnd = $userService -> validateInput($_POST['campEnd'],true,"End","end","End is not valid");
+    $campLocation = $userService -> validateInput($_POST['campLocation'],true,"Location","location","Location is not valid");
+    $campPrice = $userService -> validateInput($_POST['campPrice'],true,"Price","price","Price is not valid. Must be a nummer.");
+    $campPatricipants = $userService -> validateInput($_POST['campPatricipants'],true,"Patricipants","patricipants","Patricipants is not valid. Must be a nummer.");
+    $campTickets = $userService -> validateInput($_POST['campPatricipants'],true,"Tickets","tickets","Tickets is not valid. Must be a nummer.");
+    $campShortDescription = $userService -> validateInput($_POST['campShortDescription'],true,"ShortDescription","shortDescription","ShortDescription is not valid");
+    $campButton = $userService -> validateInput($_POST['campButton'],true,"Button","button","Button is not valid");
 
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
-    // validation !!!!
+    // is everything filled in?
+    if ($userService -> validationState) {
+
 
 /* * * * * * * * * * * * * * * * * * * * camp picture UPLOAD * * * * * * * * * * * * * * * * * * * */
   
@@ -93,6 +89,7 @@ include ("./inc/navPrivat.inc.php");
         $imageData = 'img/camp/'.$folder.'/'.$filename;
         $campLink = 'camps/'.$campStart.'-'.$campName.'.php';
       }
+
 
 /* * * * * * * * * * * * * * * * * * * * camp * * * * * * * * * * * * * * * * * * * */
 
@@ -207,9 +204,15 @@ include ("./inc/navPrivat.inc.php");
   }
   
   // feedback
-  $output = 'camp'.$campHeadline.'has been created,.';
+  $output = 'camp'.$campHeadline.'has been created.';
  }   
- 
+ else {
+  // no
+    foreach ($userService -> feedbackArray as $out) {
+      $output .=  $out.'<br>';
+    }
+  }
+}
 /* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
@@ -226,35 +229,35 @@ include ("./inc/navPrivat.inc.php");
       <br><br>
       <!-- name -->
       <label for="campHeadline">Camp Name</label>
-      <input type="text" id="campHeadline" name="campHeadline" value="<?=$campHeadline?>"><br><br>
+      <input type="text" id="campHeadline" name="campHeadline" value="<?=$campHeadline?>" required><br><br>
       <!-- description -->
       <label for="campDescription">Camp Description</label>
-      <textarea name="campDescription" type="textarea" rows="5" placeholder="Describe your camp"value="<?=$campDescription?>"></textarea><br><br>
+      <textarea name="campDescription" type="textarea" rows="5" placeholder="Describe your camp"value="<?=$campDescription?>" required></textarea><br><br>
       <!-- start -->
       <label for="campStart">Camp Start</label>
-      <input type="date" id="campStart" name="campStart" value="<?=$campStart?>"><br><br>
+      <input type="date" id="campStart" name="campStart" value="<?=$campStart?>" required><br><br>
       <!-- end -->
       <label for="campEnd">Camp End</label>
-      <input type="date" id="campEnd" name="campEnd" value="<?=$campEnd?>"><br><br>
+      <input type="date" id="campEnd" name="campEnd" value="<?=$campEnd?>" required><br><br>
       <!-- location -->
       <label for="campLocation">Camp Location</label>
-      <input type="text" id="campLocation" name="campLocation" value="<?=$campLocation?>"><br><br>
+      <input type="text" id="campLocation" name="campLocation" value="<?=$campLocation?>" required><br><br>
       <!-- price -->
       <label for="campPrice">Camp Price</label>
-      <input type="text" id="campPrice" name="campPrice" value="<?=$campPrice?>"><br><br>
+      <input type="text" id="campPrice" name="campPrice" value="<?=$campPrice?>" required><br><br>
       <!-- patricipants -->
       <label for="campPatricipants">Camp Patricipants</label>
-      <input type="text" id="campPatricipants" name="campPatricipants" value="<?=$campPatricipants?>"><br><br>
+      <input type="text" id="campPatricipants" name="campPatricipants" value="<?=$campPatricipants?>" required><br><br>
       <!-- short description -->
       <label for="campShortDescription">Camp Short Description</label>
-      <textarea name="campShortDescription" type="textarea" rows="3" placeholder="This is a short description of this camp"value="<?=$campShortDescription?>"></textarea><br><br>
+      <textarea name="campShortDescription" type="textarea" rows="3" placeholder="This is a short description of this camp"value="<?=$campShortDescription?>" required></textarea><br><br>
       <!-- short description -->
       <label for="campButton">Camp Button</label>
-      <input type="text" id="campButton" name="campButton" value="<?=$campButton?>"><br><br>
+      <input type="text" id="campButton" name="campButton" value="<?=$campButton?>" required><br><br>
       <!-- pictures upload -->
       <input type='file' name='files[]' multiple /><br><br>
       <!-- output -->
-      <p class="paint-turquois"><?php echo $output;?></p>
+      <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
       <div class="center">
         <button class="buttonType" type="submit" name="submit">create new camp</button>

@@ -94,6 +94,33 @@ class UserService {
 					$check = "negative";
 				}
 			}
+
+			// campHeadline
+			if (in_array('campHeadline',$kindArray)) {
+				if(!$this->titleValidator($value)) {
+					$check = "negative";
+				}
+			}
+
+			// campDescription
+			if (in_array('campDescription',$kindArray)) {
+				if(!$this->textValidator($value)) {
+					$check = "negative";
+				}
+			}
+
+			// campPrice 
+			if (in_array('campPrice',$kindArray)) {
+				if(!$this->isNumber($value)) {
+					$check = "negative";
+				}
+			}
+			// campPatricipants
+			if (in_array('campPatricipants',$kindArray)) {
+				if(!$this->isNumber($value)) {
+					$check = "negative";
+				}
+			}
 		}
 		
 		if ($check == "negative") {
@@ -291,6 +318,33 @@ class UserService {
 	}
 
 
+/** Text Validator
+  * --------------------------------------------------------------------------------------
+  * @return Returns true or false
+  */
+  private function campHeadlineValidator($str) {
+	$strLenght = strlen($str);
+	$maxLenght = 1000;
+	if ($strLenght >= $maxLenght){
+	return false;
+	}
+	else {
+		return true;
+	}
+}
 
+/** Text Validator
+  * --------------------------------------------------------------------------------------
+  * @return Returns true or false
+  */
+  private function isNumber($str) {
+	$isNum = is_numeric($str);
+	if ($isNum === true){
+	return false;
+	}
+	else {
+		return true;
+	}
+}
 }
 ?>
