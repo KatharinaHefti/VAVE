@@ -3,15 +3,22 @@
 // database connection
 require_once("./config/config.inc.php");
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * training * * * * * * * * * * * * * * * * * * * */
+/* TRAINING  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+   select variables form database 
+   TRAININGS 
 
-// import variables form database trainings
+* chapter
+* titel
+* text
+
+*/
+
 $sql = "SELECT chapter, titel, text FROM trainings WHERE id=1";
 foreach ($pdo->query($sql) as $row) {
   $MainChapterTitle = $row["chapter"];
@@ -28,21 +35,19 @@ $WorkoutButton ='VAVE Workout';
 $MuayThaiLink = 'trainings/Muay-Thai.php';
 $MuayThaiButton = 'Muay Thai Training ';
   
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-<style><?php include "style/elements/picture.style.css" ?></style>
 
 <!-- headerPic -->
 <img class="headerPic" src="img/training/training_header.jpg" alt="valeria verzar">
-<main class="main">
 
+<main class="main">
   <!-- chapter title -->
   <h4><?php echo  $MainChapterTitle ?></h4><br>
   <!-- headline -->
   <h2><?php echo $MainHeadline ?></h2><br>
   <!-- paragraph -->
   <p><?php echo $MainPragraph ?></p>
-
   <!-- buttons -->
   <div class="flexer">
   <button><a class="buttonType" href="<?php echo $MainLink?>"><?php echo $MainButton?></a></button>
@@ -52,7 +57,7 @@ $MuayThaiButton = 'Muay Thai Training ';
 </main>
 <?php
 
-/* * * * * * * * * * * * * * * * * * * * qualifications * * * * * * * * * * * * * * * * * * * */
+/* QUALIFICATIONS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 $SectionChapterTitle = 'Qualifications';
 $SectionHeadline = 'Health specialist EFZ; Fitness instructor';
@@ -72,12 +77,6 @@ $trainings = array(
   'Martial arts training (Muay Thai; Kickboxing & boxing)'
 );
 ?>
-
-<style><?php 
-include "style/parts/main.style.css";
-include "style/parts/grid.style.css";
-include "style/elements/picture.style.css"; 
-?></style>
 
 <main class="main">
   <h4><?php echo $SectionChapterTitle?></h4><br>
