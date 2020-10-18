@@ -13,7 +13,7 @@ require_once("./inc/functions.inc.php");
 require("class/UserService.class.php");
 $userService = new UserService();
 
-/* LOGIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* LOGIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // variables
 $emailValue = $passwordValue = $output = '';
@@ -22,8 +22,8 @@ $emailValue = $passwordValue = $output = '';
 if(isset($_POST['submit'])){
 
     // validate input with class User Service
-    $emailValue =  $userService -> validateInput($_POST['email'],true,
-                   "E-Mail Adresse","email","must be a valid Email.");
+    $emailValue = $userService -> validateInput($_POST['email'],true,
+                  "E-Mail Adresse","email","must be a valid Email.");
     $passwordValue =  $userService -> validateInput($_POST['password'],true,
                   "password","password","Is not valid. Must contain minimum of 
                   8 characters, 1 lower-case letter, 1 upper-case letter and 1 number");
@@ -31,13 +31,14 @@ if(isset($_POST['submit'])){
     // If Validation is succecfull
     if ($userService -> validationState) {
        
-/* SELECT LOGIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* LOGIN EMAIL * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-// import variables form database 
-// * USERS *
+   select variables form database 
+   USERS 
 
-// email
-
+ * email
+ 
+*/
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$_POST['email']]);
@@ -48,18 +49,25 @@ if(isset($_POST['submit'])){
 
     if ($user && password_verify($_POST['password'], $user['password'])){
 
-/* LOGIN * * * * * * * * * * * * * * * * * * * 
+/* LOGIN SECURITY * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-// insert variables to database 
-// * security *
+   insert variables to database 
+   SECURITY
 
-// userID
-// identifier
-// token
+ * userID
+ * identifier
+ * token
+ 
 */
       // save security token to database
-      $stmt = $pdo->prepare("INSERT INTO security (userID, identifier, token) VALUES (:userID, :identifier, :token)");
-      $stmt->execute(array('userID' => $user['id'], 'identifier' => $identifier, 'token' => sha1($token)));
+      $stmt = $pdo->prepare("INSERT INTO security (userID, identifier, token) 
+                            VALUES (:userID, :identifier, :token)");
+      $data = [
+        'userID' => $user['id'], 
+        'identifier' => $identifier, 
+        'token' => sha1($token),
+      ];
+      $stmt->execute($data);
             
       // set cookie  
       setcookie("identifier",$identifier,time()+(3600*24*365)); // Valid for 1 year
@@ -83,19 +91,19 @@ if(isset($_POST['submit'])){
   }
 } // end of form sent
 
-/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
   
-/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
   <body class="dark">
     <div class="center">
 
-<!-- LOGIN FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- LOGIN FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
 
       <form action="login.php" method="post" novalidate>
         <!-- picture -->
@@ -113,7 +121,7 @@ include ("./inc/nav.inc.php");
         <button type="submit" name="submit"><a class="buttonType">login</a></button>
       </form>
 
-<!-- end of login form - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- end of login form - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     </div>
   </body>
