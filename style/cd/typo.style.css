@@ -14,6 +14,12 @@ li {
   font-weight: 600;
 }
 
+.buttonTypeHaze {
+  color: #7079B6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 h1 {
   font-size: 2rem;
   color: #7079B6;

@@ -9,11 +9,14 @@ require_once("./config/config.inc.php");
 // functions
 require_once("./inc/functions.inc.php");
 
+// is user logged in?
+$user = check_user();
+
 // include class UserService to validate form inputs
 require("class/UserService.class.php");
 $userService = new UserService();
 
-/* * * * * * * * * * * * * * * * * * * * register * * * * * * * * * * * * * * * * * * * */
+/* REGISTER INPUTS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // variables
 $nameValue = $familynameValue = $emailValue = $passwordValue = " ";
@@ -28,16 +31,32 @@ if (isset($_POST['submit'])) {
     
   // Validation was succecfull
   if ($userService -> validationState) {
-      $output = "<div class=\"feedback_positiv\">";
-      $output .= "All inputs are valid.";
-      $output .=  "</div>\n";
+      $output = "All inputs are valid.";
 
       // hash password
       $passwordHash = password_hash($passwordValue, PASSWORD_DEFAULT);
 
-      // upload form inputs to database
-      $stmt = $pdo->prepare("INSERT INTO users (name, familyname, email, password) VALUES (:name, :familyname, :email, :password)");
-      $result = $stmt->execute(array('name' => $nameValue, 'familyname' => $familynameValue, 'email' => $emailValue, 'password' => $passwordHash));
+/* REGISTER * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+   insert variables to database 
+   USERS 
+
+ * name
+ * familyname
+ * email
+ * password
+
+*/
+
+      $stmt = $pdo->prepare("INSERT INTO users (name, familyname, email, password) 
+                            VALUES (:name, :familyname, :email, :password)");
+      $data = [
+        'name' => $nameValue, 
+        'familyname' => $familynameValue, 
+        'email' => $emailValue, 
+        'password' => $passwordHash
+      ];
+      $result = $stmt->execute($data);
       
       // if upload to database was succesfull, leave to login page
       if($result == true)
@@ -66,26 +85,19 @@ if (isset($_POST['submit'])) {
     $passwordValue = "";
   }
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
   
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-<html>
-<head>
-    <link rel="stylesheet" href="style/parts/privat.style.css">
-    <link rel="stylesheet" href="style/elements/form.style.css">
-    <link rel="stylesheet" href="style/elements/icon.style.css">
-    <link rel="stylesheet" href="style/cd/typo.style.css">
-  </head>
+<body class="dark">
+  <div class="center">
 
-  <body class="dark">
-    <div class="center">
+<!-- REGISTER FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
 
-    <!-- - - - - - - - - - - - - - - - - - - - register - - - - - - - - - - - - - - - - - - -->
     <form action="register.php" method="post" novalidate>
       <!-- picture -->
       <div class="center"><img class="circle" src="img/circle/person.svg" alt=""></div>   
@@ -109,7 +121,8 @@ include ("./inc/nav.inc.php");
       <!-- login -->
       <a href="login.php">login</a><br>
     </form>
-    
+
+<!-- end of register form - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+ 
   </div>
 </body>
-</html>

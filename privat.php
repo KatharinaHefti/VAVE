@@ -12,13 +12,13 @@ require_once("./inc/functions.inc.php");
 // is user logged in?
 $user = check_user();
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+/* MAIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // Logged in User Name
 $userName = $user['name'];
@@ -26,19 +26,25 @@ $userName = $user['name'];
 // Main Text Variables
 $MainChapterTitle = 'Privat Space';
 $MainHeadline = 'Hi '. $userName;
-$MainPragraph = 'This is your editing area. You can upload Events, update your content and create gallerys. After you finish please log out for safety.';
+$MainPragraph = 'Welcome to your editing area. Here you can maintain your website.<br><br>
+                  <a class="buttonTypeHaze" href="edit.php">Edit</a><br>
+                  Here you can update your contact information and the text in your about page.
+                  You also can add or delete a admin to the editing area.<br>
+                  <a class="buttonTypeHaze" href="createCamps.php">Camps</a><br>
+                  Create a new camp and upload it with your flyer to your website.<br>
+                  <a class="buttonTypeHaze" href="editTrainings.php">Trainings</a><br>
+                  Update all your training information in Trainings.<br>
+                  <a class="buttonTypeHaze" href="editEvents.php">Events</a><br>
+                  Update all your event information in this section.<br>
+                  <a class="buttonTypeHaze" href="logout.php">Logout</a><br>
+                  Logout when you are done for savety reasons.<br><br>';
 $MainLink = 'logout.php';
 $MainButton = 'logout';
 $MainPicture = 'img/circle/horse.svg';
 
 include ("./inc/main.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * body * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-<head>
-  <link rel="stylesheet" href="style/parts/privat.style.css">
-</head>
-<html>
-
-<body class="dark"></body>
-</html>
+<body class="dark">
+</body>
