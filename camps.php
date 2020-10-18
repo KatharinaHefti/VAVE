@@ -1,39 +1,42 @@
 <?php 
 
+// database connection
+require_once("./config/config.inc.php");
+
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 
-// database connection
-require_once("./config/config.inc.php");
-
-/* * * * * * * * * * * * * * * * * * * * camps * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
 
 <!-- camps header picture -->
 <img class="headerPic" src="img/camp/tim-marshall-y74zvFZ5mSU-unsplash.jpg" alt="camp">
 
 <?php
-/* * * * * * * * * * * * * * * * * * * * main camp * * * * * * * * * * * * * * * * * * * */
+/* MAIN CAMP * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-// import variables form database 
-// * CAMPS *
+   select variables form database 
+   CAMPS 
 
-// campHeadline
-// campDescription
-// campStart
-// campEnd 
-// campLocation
-// campPrice
-// campPatricipants
-// campShortDescription
-// campButton
-// campTickets
-// imageData
+ * campHeadline
+ * campDescription
+ * campStart
+ * campEnd 
+ * campLocation
+ * campPrice
+ * campPatricipants
+ * campShortDescription
+ * campButton
+ * campTickets
+ * imageData
+
+*/
 
 $sql = "SELECT * FROM camps WHERE id=1";
-// fetch row form camps
-// ID=1
+
 foreach ($pdo->query($sql) as $row) {
   $MainCampSectionHeadline = $row["campHeadline"];
   $MainCampLongDescription = $row["campDescription"];
@@ -54,17 +57,28 @@ foreach ($pdo->query($sql) as $row) {
   include ("inc/campSection.inc.php");
 }
 
-/* * * * * * * * * * * * * * * * * * * * camp short sections * * * * * * * * * * * * * * * * * * * */
+/* SECTIONS CAMPS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+   
+   select variables form database 
+   CAMPS 
 
+ * campHeadline
+ * campDescription
+ * campStart
+ * campEnd 
+ * campLocation
+ * campShortDescription
+ * campButton
+
+*/
 $sql = "SELECT * FROM camps WHERE id!=1";
-// fetch row form camps
-// ID=! 1
+
 foreach ($pdo->query($sql) as $row) {
   $CampSectionHeadline = $row["campHeadline"];
   $CampSectionLongDescription = $row["campDescription"];
   $CampSectionDateStart = $row["campStart"];
   $CampSectionDateEnd = $row["campEnd"];
-  $CampSectionLocation = $row["campEnd"];
+  $CampSectionLocation = $row["campLocation"];
   $CampSectionLink = $row["campLink"];
   $CampSectionButton = $row["campButton"];
   
