@@ -1,6 +1,4 @@
 <?php 
-include ("../inc/headerCamps.inc.php"); 
-include ("../inc/navCamps.inc.php"); 
 
 // database connection
 require_once("../config/config.inc.php");
@@ -9,24 +7,25 @@ require_once("../config/config.inc.php");
 require("../class/UserService.class.php");
 $userService = new UserService();
 
-/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
-?>
-<!-- <style><?php include "../style/parts/grid.style.css" ?></style> -->
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-<?php
+include ("../inc/headerCamps.inc.php"); 
+include ("../inc/navCamps.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * import campHeadlines * * * * * * * * * * * * * * * * * * * */
+/* CAMP NAMES * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-// for select input 
+   select variables form database 
+   CAMPS
 
-// import variables form database camps
+   * campHeadline
+
+*/
+
 $sql = "SELECT campHeadline FROM camps";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
-/* Fetch all of the remaining rows in the result set */
 $CampList = $stmt->fetchAll();
-// print_r($UserList);
 
 $count = count($CampList);
 for ($i = 0; $i < $count; $i++) {
@@ -34,22 +33,35 @@ for ($i = 0; $i < $count; $i++) {
   $list = array($camp);
 }
 
-/* * * * * * * * * * * * * * * * * * * * select participants * * * * * * * * * * * * * * * * * * * */
+/* PARTICIPANTS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// variables
+$name = $familyname = $email = $output = '';
 
 // if form sent
 if(isset($_POST['join'])){
-  $name = $userService -> validateInput($_POST['name'],true,"Name","name"," Is not a valid name. Contains invalid characters. Only letters allowed.");
-  $familyname = $userService -> validateInput($_POST['familyname'],true,"Familyname","familyname"," Is not a valid name. Contains invalid characters. Only letters allowed.");
-  $email = $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid.");
+  $name = $userService -> validateInput($_POST['name'],true,
+          "Name","name"," Is not a valid name. Contains invalid characters. Only letters allowed.");
+  $familyname = $userService -> validateInput($_POST['familyname'],true,
+          "Familyname","familyname"," Is not a valid name. Contains invalid characters. Only letters allowed.");
+  $email = $userService -> validateInput($_POST['email'],true,
+          "E-Mail","email","Email is not valid.");
   $camp = $_POST['camps'];
-  $terms = $userService -> validateInput($_POST['terms'],true,"Terms","terms","Terms must be accepted.");
+  $terms = $userService -> validateInput($_POST['terms'],true,
+          "Terms","terms","Terms must be accepted.");
 
   // is everything filled in?
   if ($userService -> validationState) {
   
-/* * * * * * * * * * * * * * * * * * * * Ticket availability * * * * * * * * * * * * * * * * * * * */
+/* TICKET AVAILABILITY * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-    // check Ticket availability
+   select variables form database 
+   CAMPS
+
+* campHeadline
+
+*/
+   
     $sql = "SELECT * FROM camps WHERE campHeadline = :campHeadline";
     $stmt = $pdo->prepare($sql);
     $data = [
@@ -68,11 +80,22 @@ if(isset($_POST['join'])){
     // Ampount of Participants - Tickets
     $ticketsLeft = $tickets - 1 ;
 
+    // if there is more than 0 Tickets left
     if ($ticketsLeft > 0){
-/* * * * * * * * * * * * * * * * * * * * insert participant to participants * * * * * * * * * * * * * * * * * * * */
 
-      // upload data to participants
-      $sql = "INSERT INTO participants (name, familyname, email, camps) VALUES (:name, :familyname, :email, :camps)";
+/* INSERT PARTICIPANTS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+   insert variables to database 
+   PARTICIPANTS
+
+ * name
+ * familyname
+ * email
+ * camp
+ 
+*/
+      $sql = "INSERT INTO participants (name, familyname, email, camps) 
+              VALUES (:name, :familyname, :email, :camps)";
       $stmt= $pdo->prepare($sql);
       $data = [
         'name' => $name,
@@ -82,10 +105,18 @@ if(isset($_POST['join'])){
       ];
       $stmt->execute($data);
     
-/* * * * * * * * * * * * * * * * * * * * update campheadline participants in camps * * * * * * * * * * * * * * * * * * * */
-    
-      // update campTickets in camps
-      $sql = "UPDATE camps SET campTickets = :campTickets WHERE campHeadline = :campHeadline";
+/* UPDATE CAMPNAME * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+   
+   update variables in database 
+   CAMPS
+
+ * campHeadline
+ * campTickets
+
+*/   
+      $sql = "UPDATE camps 
+              SET campTickets = :campTickets 
+              WHERE campHeadline = :campHeadline";
       $stmt = $pdo->prepare($sql);
       $data = [
         'campHeadline' => $camp,
@@ -105,56 +136,47 @@ if(isset($_POST['join'])){
     $output = 'The camp '.$camp.' is sold out.';
   } 
 } // end of User service
+
+/* HMTL * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
 <body class="dark">
+  <main class="main">
+    
+<!-- JOIN CAMP FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
 
-<style><?php include "../style/elements/form.style.css" ?></style>
-
-<main class="main">
     <form action="joinCamp.php" method="post">
-      <h2>Camp</h2>
-      <br>
-      <h4>Join our Camps</h4>
-      <br>
-      <br>
-      <!-- camp -->
-      <label for="camps">Choose your camp:</label><br>
-      <br>
+      <h2>Camp</h2><br>
+      <h4>Join our Camps</h4><br><br>
+      <!-- select -->
+      <label for="camps">Choose your camp:</label><br><br>
+      <!-- camps -->
       <select name="camps" id="camps">
-        <?php
-        $count = count($CampList);  
-            for ($i = 0; $i < $count; $i++) {
-            echo '<option value="'.$CampList[$i]['campHeadline'].'">'.$CampList[$i]['campHeadline'].'</option>';
-        }
-        ?>
-       </select>
-  <br><br>
+        <?php $count = count($CampList);  
+          for ($i = 0; $i < $count; $i++) {
+          echo '<option value="'.$CampList[$i]['campHeadline'].'">'.$CampList[$i]['campHeadline'].'</option>';
+          }
+        ?></select><br><br>
       <!-- name -->
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" value="<?=$name?>"><br>
-      <br> 
+      <input type="text" id="name" name="name" value="<?=$name?>"><br><br>
       <!-- familyname -->
       <label for="familyname">Family Name</label>
-      <input type="text" id="familyname" name="familyname" value="<?=$familyname?>"><br>
-      <br> 
+      <input type="text" id="familyname" name="familyname" value="<?=$familyname?>"><br><br>
       <!-- email -->
       <label for="email">E-Mail Adresse</label>
-      <input type="email" id="email" name="email" value="<?=$email?>"><br>
-      <br>
-      <!-- checkbox -->
+      <input type="email" id="email" name="email" value="<?=$email?>"><br><br>
+      <!-- terms -->
       <label for="terms">Terms</label>
       <input type="checkbox" id="terms" value="accepted" name="terms"><br>
       <p>I accept the Terms of Service</p>
-      <a class="paint-turquois" target="_blank" href="../terms.php">read the terms</a><br>
-      
+      <a class="paint-turquois" target="_blank" href="../terms.php">read the terms</a><br><br>
       <!-- output -->
-      <br>
       <p class="feedbackNeg"><?php echo $output;?></p>
       <!-- submit -->
-      <div class="center">
-        <button class="buttonType" type="submit" name="join">join</button>
-      </div>
+      <div class="center"><button class="buttonType" type="submit" name="join">join</button></div>
     </form>
-</main>
 
+<!-- end of join camp form - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  </main>
 </body>

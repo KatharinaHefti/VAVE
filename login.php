@@ -118,7 +118,7 @@ include ("./inc/nav.inc.php");
         <!-- output -->
         <p class="feedbackNeg"><?php echo $output;?></p>
         <!-- submit -->
-        <button type="submit" name="submit"><a class="buttonType">login</a></button>
+        <div class="center"><button type="submit" name="submit"><a class="buttonType">login</a></button></div>
       </form>
 
 <!-- end of login form - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
