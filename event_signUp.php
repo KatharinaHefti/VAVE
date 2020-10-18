@@ -31,8 +31,8 @@ $userService = new UserService();
   $emailValue = $userService -> validateInput($_POST['email'],true,"E-Mail","email","is not a valid Email");
   $acceptTerms = $userService -> validateInput($_POST['terms'],true,"Terms","terms","must be accepted");
 
-  // Validation was succecfull
   if ($userService -> validationState) {
+    // Validation was succecfull
     $output = "<div class=\"feedback_positiv\">";
     $output .= "All inputs are valid.";
     $output .=  "</div>\n";
