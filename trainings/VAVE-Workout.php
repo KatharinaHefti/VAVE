@@ -1,39 +1,42 @@
 <?php 
-include ("../inc/headerCamps.inc.php"); 
-include ("../inc/navCamps.inc.php"); 
-
 // database connection
 require_once("../config/config.inc.php");
 
-/* * * * * * * * * * * * * * * * * * * * ginastica natural zürich * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-// Main Chapter Variabl not changeble
+include ("../inc/headerCamps.inc.php"); 
+include ("../inc/navCamps.inc.php"); 
+
+// variables 
+$TrainingHeadline = $TrainingParagraph = '';
 $id = 3;
 $TrainingChapterTitle = 'Training';
 $TrainingPicture = '../img/training/Workout/Workout_header.jpg';
 
-$TrainingHeadline = $TrainingParagraph = "";
+/* VAVE-WORKOUT * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+   select variables form database 
+   TRAININGS 
+
+* titel
+* text
+
+*/
 
 $sql = "SELECT * FROM trainings WHERE id = $id";
 foreach ($pdo->query($sql) as $row) {
     $TrainingHeadline =$row['titel'];
     $TrainingParagraph =$row['text'];
-
 }
 
-
-/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-<style><?php include "../style/elements/picture.style.css" ?></style>
-<img class="headerPic" src="<?php echo $TrainingPicture ?>" alt="valeria verzar">
+<img class="headerPic" src="<?php echo $TrainingPicture ?>" alt="VAVE Training VAVE-Workout">
 <main class="main">
   <!-- chapter title -->
-  <h4><?php echo $TrainingChapterTitle ?></h4>
-  <br>
+  <h4><?php echo $TrainingChapterTitle ?></h4><br>
   <!-- headline -->
-  <h2><?php echo $TrainingHeadline ?></h2>
-  <br>
+  <h2><?php echo $TrainingHeadline ?></h2><br>
   <!-- paragraph -->
   <p><?php echo $TrainingParagraph ?></p>
-
 </main>
