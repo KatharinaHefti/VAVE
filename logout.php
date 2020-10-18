@@ -14,13 +14,13 @@ unset($_SESSION['userid']);
 setcookie("identifier","",time()-(3600*24*365)); 
 setcookie("securitytoken","",time()-(3600*24*365)); 
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // Main Text Variables
 $MainChapterTitle = 'Logout';

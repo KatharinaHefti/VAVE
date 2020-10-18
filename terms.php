@@ -1,11 +1,15 @@
 <?php 
+
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * terms and condition * * * * * * * * * * * * * * * * * * * */
+/* TERMS & CONDITION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-<main>
 
+<main>
   <!-- scope -->
   <div>
     <h4>terms and conditions</h4>
