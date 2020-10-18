@@ -15,7 +15,9 @@ $userService = new UserService();
 
 <?php
 
-/* * * * * * * * * * * * * * * * * * * * download camps * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * import campHeadlines * * * * * * * * * * * * * * * * * * * */
+
+// for select input 
 
 // import variables form database camps
 $sql = "SELECT campHeadline FROM camps";
@@ -32,18 +34,14 @@ for ($i = 0; $i < $count; $i++) {
   $list = array($camp);
 }
 
-/* * * * * * * * * * * * * * * * * * * * add participants * * * * * * * * * * * * * * * * * * * */
-
-//variables
-$name = $familyname = $email = $output = $terms = $camps = $count = $id = '';
-$campTickets =1;
+/* * * * * * * * * * * * * * * * * * * * select participants * * * * * * * * * * * * * * * * * * * */
 
 // if form sent
 if(isset($_POST['join'])){
   $name = $userService -> validateInput($_POST['name'],true,"Name","name"," Is not a valid name. Contains invalid characters. Only letters allowed.");
   $familyname = $userService -> validateInput($_POST['familyname'],true,"Familyname","familyname"," Is not a valid name. Contains invalid characters. Only letters allowed.");
   $email = $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid.");
-  $camps = $_POST['camps'];
+  $camp = $_POST['camps'];
   $terms = $userService -> validateInput($_POST['terms'],true,"Terms","terms","Terms must be accepted.");
 
   // is everything filled in?
@@ -68,44 +66,44 @@ if(isset($_POST['join'])){
     $tickets = $PartList[0]['campTickets'];
 
     // Ampount of Participants - Tickets
-    $ticketsLeft = $participants - $tickets;
+    $ticketsLeft = $tickets - 1 ;
 
     if ($ticketsLeft > 0){
 /* * * * * * * * * * * * * * * * * * * * insert participant to participants * * * * * * * * * * * * * * * * * * * */
 
+      // upload data to participants
+      $sql = "INSERT INTO participants (name, familyname, email, camps) VALUES (:name, :familyname, :email, :camps)";
+      $stmt= $pdo->prepare($sql);
       $data = [
         'name' => $name,
         'familyname' => $familyname,
         'email' => $email,
-        'camps' => $camps,
+        'camps' => $camp,
       ];
-
-      // upload data to participants
-      $sql = "INSERT INTO participants (name, familyname, email, camps) VALUES (:name, :familyname, :email, :camps)";
-      $stmt= $pdo->prepare($sql);
       $stmt->execute($data);
-    }
-
+    
 /* * * * * * * * * * * * * * * * * * * * update campheadline participants in camps * * * * * * * * * * * * * * * * * * * */
-    $newTicketNr = $ticketsLeft -1;
-
-    $sql = "UPDATE camps SET campTickets WHERE campHeadline = :campHeadline";
-    $stmt = $pdo->prepare($sql);
-    $data = [
-      'campHeadline' => $camps,
-      'campTickets' => $newTicketNr,
-    ];
-    $stmt->execute($data);
-
-    $output = 'Successfully added '.$name.' '.$familyname.' to the camp '.$camp;
+    
+      // update campTickets in camps
+      $sql = "UPDATE camps SET campTickets = :campTickets WHERE campHeadline = :campHeadline";
+      $stmt = $pdo->prepare($sql);
+      $data = [
+        'campHeadline' => $camp,
+        'campTickets' => $ticketsLeft,
+      ];
+      $stmt->execute($data);
+    
+      $output = 'Successfully added '.$name.' '.$familyname.' to the camp '.$camp;
     }
-   // tickets left
     else {
     // no
     foreach ($userService -> feedbackArray as $out) {
       $output .=  $out.'<br>';
+      }
     }
-  }
+  }else{ // end of tickets left
+    $output = 'The camp '.$camp.' is sold out.';
+  } 
 } // end of User service
 ?>
 <body class="dark">
