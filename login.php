@@ -15,8 +15,6 @@ $userService = new UserService();
 
 /* * * * * * * * * * * * * * * * * * * * login * * * * * * * * * * * * * * * * * * * */
 
-// variables
-$emailValue = $passwordValue = $user = $output = " ";
 
 // is form sent ?
 if(isset($_POST['submit'])){
