@@ -1,24 +1,26 @@
 <?php 
 
+// database connection
+require_once("./config/config.inc.php");
+
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/nav.inc.php"); 
 
-// database connection
-require_once("./config/config.inc.php");
+/* EVENTS  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  import variables form database 
+  EVENTS
 
+ * eventName
+ * eventLead
 
-/* * * * * * * * * * * * * * * * * * * * events * * * * * * * * * * * * * * * * * * * */
+*/
 
 // variables
 $id = 1;
 $eventChapterTitle = "Events";
-
-// import variables form database 
-// * EVENTS *
-
-// eventName
-// eventLead
 
 $sql = "SELECT eventName, eventLead FROM events";
 // fetch row form about
@@ -27,8 +29,7 @@ foreach ($pdo->query($sql) as $row) {
   $eventPragraph = $row["eventLead"];
 }
 
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
-
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
 
 <!-- header picture -->

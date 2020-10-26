@@ -16,20 +16,22 @@ $user = check_user();
 require("class/UserService.class.php");
 $userService = new UserService();
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * existing user * * * * * * * * * * * * * * * * * * * */
+/* EXISTING USER  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-// import variables form database 
-// * USERS *
+   import variables form database 
+   USERS 
 
-// name
-// familyname
-// email
+ * name
+ * familyname
+ * email
+
+*/
 
 // variables form database users
 $sql = "SELECT name, familyname, email FROM users";
@@ -49,7 +51,7 @@ for ($i = 0; $i < $count; $i++) {
   //print_r($list[0]);
 }
 
-/* * * * * * * * * * * * * * * * * * * * user name POST * * * * * * * * * * * * * * * * * * * */
+/* USER NAME POST  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // variables
 $output = '';
@@ -66,9 +68,8 @@ if(isset($_POST['submit']) && !empty($_POST['name'])){
     $output = "You deleted this user form your database.";
   }
 
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-
 <html>
 <head>
   <link rel="stylesheet" href="style/parts/privat.style.css">
@@ -79,7 +80,7 @@ if(isset($_POST['submit']) && !empty($_POST['name'])){
   <body class="dark">
     <div class="center">
 
-      <!-- - - - - - - - - - - - - form POST delete user - - - - - - - - - - - - -->
+    <!-- DELETE USER FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
       <form action="deleteUser.php" method="post" novalidate>
         <!-- picture -->
         <div class="center"><img class="circle" src="img/valeria/valeria.png" alt=""></div>   
@@ -99,7 +100,6 @@ if(isset($_POST['submit']) && !empty($_POST['name'])){
         <!-- submit -->
         <button type="submit" name="submit"><a class="buttonType">delete user</a></button>
       </form>
-
     </div>
   </body>
 </html>

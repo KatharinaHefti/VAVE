@@ -16,13 +16,13 @@ $user = check_user();
 require("class/UserService.class.php");
 $userService = new UserService();
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * camp POST * * * * * * * * * * * * * * * * * * * */
+/* CAMP POST * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
   // variables
   $campHeadline = $campDescription = $campStart = $campEnd = $campLocation = $campPrice = $campPatricipants = $campTickets = $campShortDescription = $output = $campLink = $campButton = $imageName = $imageData = $current = $imageType = $contentCampPage = '';
@@ -44,8 +44,7 @@ include ("./inc/navPrivat.inc.php");
     // is everything filled in?
     if ($userService -> validationState) {
 
-
-/* * * * * * * * * * * * * * * * * * * * camp picture UPLOAD * * * * * * * * * * * * * * * * * * * */
+/* CAMP PICTURE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
   
   // count total files
   $countfiles = count($_FILES['files']['name']);
@@ -90,26 +89,27 @@ include ("./inc/navPrivat.inc.php");
         $campLink = 'camps/'.$campStart.'-'.$campName.'.php';
       }
 
+/* INSERT CAMP * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  
+  insert variables to database 
+  CAMPS *
 
-/* * * * * * * * * * * * * * * * * * * * camp * * * * * * * * * * * * * * * * * * * */
-
-      // insert variables to database 
-      // * CAMPS *
-
-      // campHeadline 
-      // campDescription
-      // campStart
-      // campEnd
-      // campLocation
-      // campPrice
-      // campPatricipants
-      // campTickets
-      // campShortDescription
-      // campLink
-      // campButton
-      // imageName
-      // imageData
-      // imageType
+ * campHeadline 
+ * campDescription
+ * campStart
+ * campEnd
+ * campLocation
+ * campPrice
+ * campPatricipants
+ * campTickets
+ * campShortDescription
+ * campLink
+ * campButton
+ * imageName
+ * imageData
+ * imageType
+ 
+*/
 
   $sql = "INSERT INTO camps (campHeadline, campDescription,campStart, campEnd, campLocation, campPrice, campPatricipants, campTickets, campShortDescription, campLink, campButton, imageName, imageData, imageType) VALUES (:campHeadline, :campDescription, :campStart, :campEnd, :campLocation, :campPrice, :campPatricipants, :campTickets, :campShortDescription, :campLink, :campButton, :imageName, :imageData, :imageType)";
   $stmt = $pdo->prepare($sql);
@@ -213,20 +213,20 @@ include ("./inc/navPrivat.inc.php");
     }
   }
 }
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
 <body class="dark">
   <main>
 
-    <!-- - - - - - - - - - - - - form POST create camp - - - - - - - - - - - - -->
+    <!-- CREATE CAMP FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
     <form action="createCamp.php" method="post" enctype="multipart/form-data">
       <h4>create camp</h4><br>
       <h2>Upload</h2><br>
       <h4>Here you can create a new camp and add it to your website.</h4><br>
       <p>Please fill in the information and add a flyer to the camp.
-        It creates a new camp site and will upload it to the camp database.</p>
-      <br><br>
+        It creates a new camp site and will upload it to the camp database.</p><br><br>
       <!-- name -->
       <label for="campHeadline">Camp Name</label>
       <input type="text" id="campHeadline" name="campHeadline" value="<?=$campHeadline?>" required><br><br>
@@ -263,7 +263,6 @@ include ("./inc/navPrivat.inc.php");
         <button class="buttonType" type="submit" name="submit">create new camp</button>
       </div>   
     </form>
-
   </main>
 </body>
 </html>

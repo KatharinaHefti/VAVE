@@ -16,13 +16,13 @@ $user = check_user();
 require("class/UserService.class.php");
 $userService = new UserService();
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * events POST * * * * * * * * * * * * * * * * * * * */
+/* EVENTS POST  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // variables
 $title = $text = $output = "";
@@ -39,13 +39,15 @@ if(isset($_POST['updateEvents'])){
 
     $id = 1;
 
-/* * * * * * * * * * * * * * * * * * * * events UPDATE * * * * * * * * * * * * * * * * * * * */
+/* EVENTS UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   
-  // insert variables to database 
-  // * EVENTS * row 1 *
+  update variables in database 
+  EVENTS * row 1 *
 
-  // eventName
-  // eventLead
+ * eventName
+ * eventLead
+
+*/
 
   $sql = "UPDATE events SET eventName = :eventName, eventLead = :eventLead WHERE id = :id";
   $stmt = $pdo->prepare($sql);
@@ -68,7 +70,7 @@ if(isset($_POST['updateEvents'])){
     }
   }
 }
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
 <html>
   <head>
@@ -80,16 +82,12 @@ if(isset($_POST['updateEvents'])){
     <link rel="stylesheet" href="style/cd/typo.style.css">
   </head>
 <body class="dark">
-
-  <!-- - - - - - - - - - - - - - - - - - - - first column edit trainings - - - - - - - - - - - - - - - - - - -->
   
   <section class="edit">
-
-    <!-- - - - - - - - - - - - - - - - - - - - edit trainings - - - - - - - - - - - - - - - - - - -->
+    <!-- EDIT EVENTS FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
     <form action="" method="post">
       <h2>Events</h2><br>
-      <h4>Edit your event informations</h4><br>
-      <br>
+      <h4>Edit your event informations</h4><br><br>
       <!-- title -->
       <label for="titel">Title</label>
       <input type="text" id="titel" name="titel" value="<?=$title?>"><br><br> 
@@ -104,13 +102,8 @@ if(isset($_POST['updateEvents'])){
         <button class="buttonType" type="submit" name="updateEvents">update</button>
       </div>
     </form>
-
-    <!-- - - - - - - - - - - - - - - - - - - - second column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - --> 
+    <!-- icon -->
     <div><img class="hugeIcon" src="img/circle/events.svg" alt=""></div>
-
   </section>
-  
-
-
 </body>
 </html>

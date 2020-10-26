@@ -30,7 +30,7 @@ $MainPragraph = 'Welcome to your editing area. Here you can maintain your websit
                   <a class="buttonTypeHaze" href="edit.php">Edit</a><br>
                   Here you can update your contact information and the text in your about page.
                   You also can add or delete a admin to the editing area.<br>
-                  <a class="buttonTypeHaze" href="createCamps.php">Camps</a><br>
+                  <a class="buttonTypeHaze" href="createCamp.php">Camps</a><br>
                   Create a new camp and upload it with your flyer to your website.<br>
                   <a class="buttonTypeHaze" href="editTrainings.php">Trainings</a><br>
                   Update all your training information in Trainings.<br>

@@ -1,9 +1,5 @@
 <?php
 
-// includes nav template
-include ("./inc/header.inc.php"); // header links 
-include ("./inc/nav.inc.php"); // navigation 
-
 // database connection
 require_once("./config/config.inc.php");
 
@@ -14,7 +10,14 @@ require_once("./inc/functions.inc.php");
 require("class/UserService.class.php");
 $userService = new UserService();
 
-/* * * * * * * * * * * * * * * * * * * * event sign up * * * * * * * * * * * * * * * * * * * */
+
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// includes nav template
+include ("./inc/header.inc.php"); // header links 
+include ("./inc/nav.inc.php"); // navigation 
+
+/* EVENT SIGN UP * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
   // variables
   $nameValue = $familynameValue = $ageValue = $emailValue = $acceptTerms  = " ";
@@ -80,24 +83,13 @@ $userService = new UserService();
     $acceptTerms = "";
   }
 
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-
-<head>
-    <link rel="stylesheet" href="style/parts/privat.style.css">
-    <link rel="stylesheet" href="style/elements/form.style.css">
-    <link rel="stylesheet" href="style/elements/button.style.css">
-    <link rel="stylesheet" href="style/elements/icon.style.css">
-    <link rel="stylesheet" href="style/parts/edit.style.css">
-    <link rel="stylesheet" href="style/cd/typo.style.css">
-  </head>
-
-<body>
 
   <section class="event">
 
-  <!-- - - - - - - - - - - - - - - - - - - - event sign up - - - - - - - - - - - - - - - - - - -->
-  <form action="event_signUp.php" method="post" novalidate>
+<!-- EVENT SIGN UP FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
+<form action="event_signUp.php" method="post" novalidate>
     <h2>Sign up to this event</h2><br>
 		<div>
 			<label for="name">Name</label>
@@ -120,14 +112,9 @@ $userService = new UserService();
 			<label for="terms">accept terms</label><br>
 			<input type="checkbox" id="terms" name="terms" value="accept">
     </div>
-
     <!-- output -->
     <?php echo $output; ?>
-
     <!-- submit -->
 		<button type="submit" name="submit">sign up</button>
-  
   </form>
-  </section>
-  </body>
-</html>
+</section>

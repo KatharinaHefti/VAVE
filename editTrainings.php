@@ -16,13 +16,13 @@ $user = check_user();
 require("class/UserService.class.php");
 $userService = new UserService();
 
-/* * * * * * * * * * * * * * * * * * * * header and navigation * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // includes nav template
 include ("./inc/header.inc.php"); 
 include ("./inc/navPrivat.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * trainings POST * * * * * * * * * * * * * * * * * * * */
+/* TRAININGS POST * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // variables
 $title = $text = $output = $outputGinastica = $outputWorkout = $outputThai = "";
@@ -38,13 +38,16 @@ if(isset($_POST['updateTrainings'])){
 
     $id = 1;
 
-/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+/* TRAININGS UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   
-  // insert variables to database 
-  // * TRAININGS * row 1 *
+  update variables in database 
+  TRAININGS * row 1 *
 
-  // title
-  // text
+ * title
+ * text
+ * 
+  
+*/
 
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
@@ -67,7 +70,8 @@ if(isset($_POST['updateTrainings'])){
     }
   }
 }
-/* * * * * * * * * * * * * * * * * * * * ginastica natural zurich POST * * * * * * * * * * * * * * * * * * * */
+
+/* GINASTICA NATURAL * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // if form sent?
 if(isset($_POST['updateGinastica'])){
@@ -80,13 +84,16 @@ if(isset($_POST['updateGinastica'])){
 
   $id = 2;
 
-/* * * * * * * * * * * * * * * * * * * * ginastica natural zurich UPDATE * * * * * * * * * * * * * * * * * * * */
+/* GINASTICA NATURAL UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   
-  // insert variables to database 
-  // * TRAININGS * row 2 *
+  update variables in database 
+  TRAININGS * row 2 *
 
-  // title
-  // text
+ * title
+ * text
+ * 
+ 
+*/
 
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
@@ -109,7 +116,7 @@ if(isset($_POST['updateGinastica'])){
     }
   }
 }
-/* * * * * * * * * * * * * * * * * * * * VAVE Workout POST  * * * * * * * * * * * * * * * * * * * */
+/* VAVE WORKOUT POST * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // if form sent?
 if(isset($_POST['updateWorkout'])){
@@ -122,13 +129,15 @@ if(isset($_POST['updateWorkout'])){
 
   $id = 3;
 
-/* * * * * * * * * * * * * * * * * * * * VAVE Workout UPDATE * * * * * * * * * * * * * * * * * * * */
-  
-  // insert variables to database 
-  // * TRAININGS * row 3 *
+/* VAVE WORKOUT UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-  // title
-  // text
+  update variables in database 
+  TRAININGS * row 3 *
+
+ * title
+ * text
+
+*/
 
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
@@ -152,7 +161,7 @@ if(isset($_POST['updateWorkout'])){
   }
 }
 
-/* * * * * * * * * * * * * * * * * * * * Muay Thai UPDATE * * * * * * * * * * * * * * * * * * * */
+/* MUAY THAI POST * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // if form sent ?
 if(isset($_POST['updateMuayThai'])){
@@ -165,13 +174,15 @@ if(isset($_POST['updateMuayThai'])){
 
     $id = 4;
 
-/* * * * * * * * * * * * * * * * * * * * trainings UPDATE * * * * * * * * * * * * * * * * * * * */
+/* MUAY THAI UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   
-  // insert variables to database 
-  // * TRAININGS * row 4 *
+  update variables in database 
+  TRAININGS * row 4 *
 
-  // title
-  // text
+ * title
+ * text
+
+*/
 
   $sql = "UPDATE trainings SET titel = :titel, text = :text WHERE id = :id";
   $stmt = $pdo->prepare($sql);
@@ -193,9 +204,9 @@ if(isset($_POST['updateMuayThai'])){
     }
   }
 }
-/* * * * * * * * * * * * * * * * * * * * html * * * * * * * * * * * * * * * * * * * */
+
+/* HTML * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ?>
-<html>
   <head>
     <link rel="stylesheet" href="style/parts/privat.style.css">
     <link rel="stylesheet" href="style/elements/form.style.css">
@@ -206,11 +217,10 @@ if(isset($_POST['updateMuayThai'])){
   </head>
 <body class="dark">
 
-  <!-- - - - - - - - - - - - - - - - - - - - first column edit trainings - - - - - - - - - - - - - - - - - - -->
-  
+<!-- FIRST ROW - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
   <section class="edit">
 
-    <!-- - - - - - - - - - - - - - - - - - - - edit trainings - - - - - - - - - - - - - - - - - - -->
+    <!-- EDIT TRAININGS FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
     <form action="" method="post">
       <h2>Trainings</h2><br>
       <h4>Edit your training information</h4><br>
@@ -228,19 +238,16 @@ if(isset($_POST['updateMuayThai'])){
       <div class="center">
         <button class="buttonType" type="submit" name="updateTrainings">update</button>
       </div>
-    </form>
-
-    <!-- - - - - - - - - - - - - - - - - - - - second column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - --> 
+    </form>    
+    <!-- icon -->
     <div><img class="hugeIcon" src="img/circle/training.svg" alt=""></div>
-
   </section>
   
-
-<!--! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - SECOND ROW - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! - ! -->
+<!-- SECOND ROW - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
   
   <section class="edit">
 
-<!-- - - - - - - - - - - - - - - - - - - - first column edit ginastica natural zurich - - - - - - - - - - - - - - - - - - -->
+    <!-- EDIT GINASTICA NATURAL FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
     <form action="" method="post">
       <h2>Ginastica Natural</h2><br>
       <!-- title -->
@@ -258,7 +265,7 @@ if(isset($_POST['updateMuayThai'])){
       </div>
     </form>
 
-<!-- - - - - - - - - - - - - - - - - - - - second column edit VAVE Workout - - - - - - - - - - - - - - - - - - -->
+    <!-- EDIT VAVE WORKOUT FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
     <form action="" method="post">
       <h2>VAVE Workout</h2><br>
       <!-- title -->
@@ -276,7 +283,7 @@ if(isset($_POST['updateMuayThai'])){
       </div>
     </form>
 
-<!-- - - - - - - - - - - - - - - - - - - - third column edit muay thai training - - - - - - - - - - - - - - - - - - -->
+    <!-- EDIT MUAY THAI FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
     <form action="" method="post">
       <h2>Muay Thai Training</h2><br>
       <!-- title -->
@@ -294,6 +301,4 @@ if(isset($_POST['updateMuayThai'])){
       </div>
     </form>
   </section>
-
 </body>
-</html>
