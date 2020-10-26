@@ -1,9 +1,9 @@
 .location{
   position: relative;
   height: 100%;
-  margin-bottom: -1em;
+  margin-bottom: -4em;
   background-image: url('img/wave/waveFooter.svg');
-  background-size: 100%;
+  background-size: 120%;
   background-position: top;
   background-repeat: no-repeat;
   z-index: 300;
@@ -21,7 +21,7 @@
 // media 1400 px
 @media screen and (max-width: 1400px) {
   .location{
-    padding: 6em 10em;
+    padding: 10em;
     background: rgb(65,121,182);
     background: linear-gradient( rgba(95,138,194,1) 20%, rgba(102,204,255,1) 100%);
     background-size: 120%;
@@ -41,9 +41,9 @@
   }
 }
 
-// media 900 px
-@media screen and (max-width: 900px) {
+// media 800 px
+@media screen and (max-width: 800px) {
   .location{
-    padding: 2em 2em;
+    padding: 2em;
   }
 }

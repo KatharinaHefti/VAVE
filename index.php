@@ -1,11 +1,15 @@
 <?php 
-include ("./inc/header.inc.php"); 
-include ("./inc/nav.inc.php"); 
 
 // database connection
 require_once("./config/config.inc.php");
 
-/* * * * * * * * * * * * * * * * * * * * main * * * * * * * * * * * * * * * * * * * */
+/* HEADER & NAVIGATION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// includes nav template
+include ("./inc/header.inc.php"); 
+include ("./inc/nav.inc.php"); 
+
+/* MAIN * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 $sql = "SELECT mainTitle, mainHeadline, mainPragraph, mainLink, mainButton, mainPicture FROM main WHERE id=1";
 foreach ($pdo->query($sql) as $row) {
@@ -18,7 +22,7 @@ foreach ($pdo->query($sql) as $row) {
 }
 include ("./inc/main.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * gallery section * * * * * * * * * * * * * * * * * * * */
+/* GALLERY SECTION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 $sql = "SELECT mainTitle, mainHeadline FROM gallery WHERE id=1";
 foreach ($pdo->query($sql) as $row) {
@@ -27,7 +31,7 @@ foreach ($pdo->query($sql) as $row) {
 }
 include ("./inc/gallerySection.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * event section * * * * * * * * * * * * * * * * * * * */
+/* EVENT SECTION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 $EventSectionChapterTitle = 'Event';
 $EventSectionHeadline = 'Next Event Promo headline loerum ipsum donor';
@@ -42,7 +46,7 @@ $EventTicketsLeft = '';
 
 include ("./inc/eventSection.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * location section * * * * * * * * * * * * * * * * * * * */
+/* LOCATION SECTION * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 $sql = "SELECT locationTitle, locationHeadline, locationParagraph FROM location WHERE id=1";
 foreach ($pdo->query($sql) as $row) {
@@ -53,7 +57,7 @@ foreach ($pdo->query($sql) as $row) {
 
 include ("./inc/location.inc.php"); 
 
-/* * * * * * * * * * * * * * * * * * * * footer * * * * * * * * * * * * * * * * * * * */
+/* FOOTER * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 include ("./inc/footer.inc.php"); 
 ?>

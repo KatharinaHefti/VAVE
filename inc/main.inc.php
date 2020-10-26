@@ -14,7 +14,6 @@
     </div>
   </div>
 
-
   <!-- second column -->
   <div>
     <img class="hugeIcon" src="<?php echo $MainPicture ?>" alt="">
