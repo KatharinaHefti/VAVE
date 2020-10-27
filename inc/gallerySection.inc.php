@@ -15,19 +15,19 @@ include "style/elements/picture.style.css";
 
   <!-- gallery icons -->
   <div class="flexer">
-    <a class="circle" href="gallery-training.html">
+    <a class="circle" href="gallery/gallery-training.php">
       <svg class="iconBig">
         <use xlink:href="#icon_sport"></use>
       </svg>
     </a>
 
-    <a class="circle" href="gallery-camp.html">
+    <a class="circle" href="gallery/gallery-training.php">
       <svg class="iconBig">
         <use xlink:href="#icon_camp"></use>
       </svg>
     </a>
 
-    <a class="circle" href="gallery-event.html">
+    <a class="circle" href="gallery/gallery-training.php">
       <svg class="iconBig">
         <use xlink:href="#icon_event"></use>
       </svg>
