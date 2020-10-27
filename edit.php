@@ -4,7 +4,8 @@
 session_start();
 
 // database connection
-require_once("./config/config.inc.php");
+include "./config/config.inc.php";
+
 
 // functions
 require_once("./inc/functions.inc.php");
@@ -35,146 +36,8 @@ $MainPicture = 'img/circle/octopus.svg';
 // includes main template
 include ("./inc/main.inc.php"); 
 
-/* CONTACT POST * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-// variables
-$name = $street = $city = $email = $phone = $output = $picture = $feedbackAbout = "";
 
-// is form sent ?
-if(isset( $_POST['updateContact'] )){
-
-  // save inputs to variables
-  $name = $userService -> validateInput($_POST['name'],true,"Name","name"," Is not a valid name. Contains invalid characters. Only letters allowed.");
-  $street = $userService -> validateInput($_POST['street'],true,"Street","street"," Is not a valid street.");
-  $city = $userService -> validateInput($_POST['city'],true,"City","city","City is not valid");
-  $email = $userService -> validateInput($_POST['email'],true,"E-Mail","email","Email is not valid.");
-  $phone = $userService -> validateInput($_POST['phone'],true,"Phone","phone","Phone is not valid swiss number. No space allowed.");
-
-  // is everything filled in?
-  if ($userService -> validationState) {
-  
-/* CONTACT UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  
-  update variables in database 
-  CONTACT
-
- * name
- * street
- * city
- * email
- * phone
-
-*/
-
-  $sql = "UPDATE contact SET name = :name, street = :street, city = :city, email = :email, phone = :phone WHERE id = :id";
-  $stmt = $pdo->prepare($sql);
-  // save contact variables from POST inputs to array
-  $data = [
-    'id' => 1, 
-    'name' => $name, 
-    'street' => $street, 
-    'city' => $city, 
-    'email' => $email, 
-    'phone' => $phone,
-  ];
-  // replace variables in database contact – row 1
-  $stmt->execute($data);
-  // feedback
-  $output = 'Updated your contacts.';
-  }
-  else {
-    // no
-    foreach ($userService -> feedbackArray as $out) {
-      $output .=  $out.'<br>';
-  }
-}
-}
-/* ABOUT POST * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-// variables
-$titel = $text = $chapter = "";
-$id = 1;
-
-  // is form sent?
-  if(isset($_POST['updateAbout'])){
-  $titel = $userService -> validateInput($_POST['titel'],true,"Title","title","Title is not valid");
-  $text = $userService -> validateInput($_POST['text'],true,"Text","text","Text is not valid");
-
-  // is everything filled in?
-  if (empty( $_POST['titel']) || empty($_POST['text'])  ) {
-    $feedbackAbout = 'Please fill in all information.';
-  }
-  else{
-
-/* ABOUT UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-  update variables in database 
-  ABOUT 
-
- * chapter 
- * title
- * text
-
-*/
-
-  $sql = "UPDATE about SET chapter = :chapter, titel = :titel, text = :text WHERE id = :id";
-  $stmt= $pdo->prepare($sql);
-  // save about variables from POST inputs to array
-  $data = [
-    'chapter' => 'About',
-    'titel' => $titel,
-    'text' => $text,
-    'id' => $id,
-  ];
-  $stmt->execute($data);
-
-/* PICTURE UPLOAD * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-// count total files
-$countfiles = count($_FILES['files']['name']);
- 
-/* ABOUT IMAGE INFORMATION UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-  update variables to database 
-  ABOUT *
-
- * imageName 
- * imageData
- * imageType
-
-*/
-
-  // Prepared statement
-  $sql = "UPDATE about SET imageName = :imageName, imageData = :imageData, imageType = :imageType WHERE id = :id";
-  $stmt = $pdo->prepare($sql);
-
-  // loop all files
-  for($i=0;$i<$countfiles;$i++){
-    // File name
-    $filename = $_FILES['files']['name'][$i];
-
-    // Location
-    $target_file = 'img/about/upload/'.$filename;
-  
-    // file extension
-    $imageType = pathinfo($target_file, PATHINFO_EXTENSION);
-    $imageType = strtolower($imageType);
-
-    // Valid image extension
-    $valid_extension = array("png","jpeg","jpg");
-
-    if(in_array($imageType, $valid_extension)){
-      // Upload file
-      if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
-      // Execute query
-	    $stmt->execute(array('id' => 1, 'imageName' => $filename, 'imageData' => $target_file, 'imageType' => $imageType ));
-       }
-    }
-  }
-  // feedback
-  $feedbackAbout = 'About is updated.';
-}
-}
 /* IMPORT USER LIST * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
    import variables form database 
@@ -216,12 +79,13 @@ for ($i = 0; $i < $count; $i++) {
   <style><?php include "style/cd/typo.style.css" ?></style>
   <style><?php include "style/elements/form.style.css" ?></style>
   <style><?php include "style/elements/button.style.css" ?></style>
+  
 <body class="dark">
 
   <section class="edit">
 
     <!-- EDIT CONTACT FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
-    <form action="" method="post">
+    <form action="handler/updateContact.php" method="post">
       <h2>Contact</h2><br>
       <h4>Edit your contact information</h4><br><br>
       <!-- name -->
@@ -248,7 +112,7 @@ for ($i = 0; $i < $count; $i++) {
     </form>
 
     <!-- EDIT ABOUT INFO FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - – -->
-    <form action="" enctype="multipart/form-data" method="post">
+    <form id="aboutForm" enctype="multipart/form-data"  action="handler/updateAbout.php" method="post">
       <h2>About</h2><br>
       <h4>Edit your about page</h4><br><br>
       <!-- headline -->
@@ -260,10 +124,10 @@ for ($i = 0; $i < $count; $i++) {
       <!-- pictures upload -->
       <input class="files" type='file' name='files[]' multiple /><br><br>
       <!-- feedback -->
-      <p class="feedbackNeg"><?php echo $feedbackAbout;?></p>
+      <p id="fbAbout" class="feedbackNeg"><?php echo $feedbackAbout;?></p>
       <!-- submit -->
       <div class="center">
-      <button class="buttonType" type="submit" name="updateAbout">update</button>
+      <button id="updateAbout" class="buttonType" type="submit" name="updateAbout">update</button>
       </div>
     </form>
     
@@ -292,5 +156,51 @@ for ($i = 0; $i < $count; $i++) {
     </form>
     
   </section>
+<!-- js -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+
+    $(document).ready(function() {
+
+      // UPDATE CONTACT
+      $('#updateContact').on( 'click', function(){
+        var name  = $('#name').val();
+        var street = $('#street').val();
+        var city = $('#city').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+
+        $.post( 'handler/updateContact.php', {
+          name: name,
+          street: street,
+          city: city,
+          email: email,
+          phone: phone  
+        });
+        .done(function( data ) {
+          
+          $('#output').html("updated contact").delay(2000);
+                 
+          $("#updateContact").val('Add Records');
+            setTimeout(function(){
+              window.location.reload(1);
+            }, 15000);
+        });
+      });
+      // UPDATE ABOUT
+      $('#updateAbout').on( 'click', function(){
+        var titel  = $('#titel').val();
+        var text = $('#text').val();
+
+        $('#fbAbout').html("updated about").delay(6000);
+        setTimeout(function(){
+          window.location.reload(1);
+        }, 15000);
+      });
+
+
+
+  });
+  </script>
 </body>
 </html>
